@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: temporal-city
+    runtime: docker
+    plan: free
+    envVars:
+      - key: TC_PUBLIC_DEMO
+        value: "1"

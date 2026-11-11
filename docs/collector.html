@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en" data-tc-story data-tc-info data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Temporal City Collector</title>
+<script src="static/daynight.js?v24-story"></script>
+<script src="static/palette.js?v24-story"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Instrument+Serif:ital@0;1&family=Manrope:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Information: the project's logic, method and limits in one place. Same look as the Story page. */
+:root{
+  --paper:#f6f5ef; --card:#fffefa; --ink:#173c33; --ink-2:#4b6157; --muted:#7c8a81; --line:#e0e4da; --gold:#c7a76b; --gold-deep:#9b7a3b; --soft:#efefe6;
+  --f-display:'Manrope',system-ui,sans-serif; --f-serif:'Instrument Serif',Georgia,serif; --f-body:'DM Sans',system-ui,sans-serif; --f-mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+}
+:root[data-theme="dark"]{--paper:#0f1714;--card:#15201c;--ink:#e7eee8;--ink-2:#b4c3b9;--muted:#8a9a90;--line:#26342e;--gold:#d8b97c;--gold-deep:#d8b97c;--soft:#18241f;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 var(--f-body);transition:background-color .6s,color .6s}
+a{color:inherit}
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.eyebrow{font:700 11px/1.2 var(--f-body);letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep)}
+em{font:italic 400 1.08em/1 var(--f-serif)}
+
+/* app bar (same as the Story page) */
+.appbar{position:sticky;top:0;z-index:50;background:color-mix(in oklab,var(--paper) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.appbar .wrap{display:flex;align-items:center;gap:20px;padding-block:12px}
+.brand{font:800 18px var(--f-display);letter-spacing:-.04em;text-decoration:none}
+.brand i{color:var(--gold);font-style:normal}
+.brand small{font:500 11px var(--f-body);letter-spacing:.14em;color:var(--muted);margin-left:8px;text-transform:uppercase}
+.appnav{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+@media (max-width:520px){.appnav a{padding:7px 8px}.appbar .wrap{gap:10px}}
+.appnav a{font:700 12px var(--f-body);letter-spacing:.06em;text-decoration:none;padding:7px 12px;border-radius:999px;color:var(--ink-2);white-space:nowrap}
+.appnav a:hover{background:var(--line)}
+.appnav a[aria-current="page"]{background:var(--ink);color:var(--paper)}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--gold);transform-origin:0 50%;transform:scaleX(var(--p,0))}
+
+/* hero */
+.hero{padding-block:clamp(40px,7vw,88px) clamp(28px,4vw,48px)}
+h1{font:800 clamp(40px,6.4vw,88px)/.95 var(--f-display);letter-spacing:-.055em;margin:12px 0 0}
+.hero p.lead{font-size:18px;line-height:1.65;color:var(--ink-2);max-width:62ch;margin:20px 0 0}
+.rq{margin:28px 0 0;padding:18px 22px;border-left:3px solid var(--gold);background:var(--card);border-radius:0 14px 14px 0;max-width:80ch}
+.rq span{display:block;font:700 10px var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:4px}
+.rq q{font:italic 400 clamp(20px,2.2vw,26px)/1.4 var(--f-serif);quotes:"“" "”"}
+
+/* layout: table of contents + sections */
+.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start;padding-bottom:80px}
+.toc{position:sticky;top:84px;display:grid;gap:2px}
+.toc a{display:grid;grid-template-columns:28px 1fr;gap:4px;padding:7px 10px;border-radius:10px;text-decoration:none;font-size:13px;color:var(--muted);transition:background .2s,color .2s}
+.toc a b{font:500 12px var(--f-mono);font-weight:500}
+.toc a:hover{color:var(--ink);background:var(--soft)}
+.toc a.toc-sub{display:block!important;padding:3px 10px 5px 42px;margin-top:-4px;font-size:11.5px;line-height:1.3}
+.toc a.toc-sub.on{background:none;box-shadow:none;color:var(--ink);font-weight:600}
+#ai-use{scroll-margin-top:110px}
+.toc a.on{color:var(--ink);background:var(--card);box-shadow:inset 2px 0 0 var(--gold)}
+section.sec{padding-block:clamp(36px,5vw,64px);border-top:1px solid var(--line);scroll-margin-top:70px}
+section.sec:first-child{border-top:0;padding-top:0}
+h2{font:800 clamp(28px,3.6vw,44px)/1.08 var(--f-display);letter-spacing:-.03em;margin:10px 0 14px;text-wrap:balance}
+h3{font:800 18px/1.3 var(--f-display);letter-spacing:-.02em;margin:26px 0 8px}
+p{margin:0 0 12px;max-width:72ch}
+.sub{color:var(--ink-2);font-size:16px}
+.muted{color:var(--muted)}
+.small{font-size:12.5px}
+
+/* cards, tables, formulas */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.card h4{font:800 16px var(--f-display);margin:4px 0 6px;letter-spacing:-.01em}
+.card p{font-size:13.5px;color:var(--ink-2);margin:0}
+.card .k{font:500 12px var(--f-mono);color:var(--muted)}
+.stat b{display:block;font:500 34px/1 var(--f-mono);letter-spacing:-.03em}
+.stat span{font-size:12px;color:var(--muted)}
+.formula{font:500 14px/1.6 var(--f-mono);background:var(--soft);border-radius:10px;padding:12px 16px;margin:10px 0 14px;overflow-x:auto;white-space:nowrap}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0}
+th{font:700 11px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px;border-bottom:1px solid var(--line)}
+td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+td:first-child{color:var(--ink);font-weight:700}
+td.n{font:500 13px var(--f-mono);white-space:nowrap}
+.tablewrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 14px}
+.lab{display:inline-block;font:700 10px var(--f-body);padding:2px 8px;border-radius:10px;color:#fff;white-space:nowrap}
+.tag{display:inline-block;font:700 10px var(--f-body);letter-spacing:.1em;text-transform:uppercase;border-radius:4px;padding:2px 6px;vertical-align:2px}
+.tag.done{background:#2e7d32;color:#fff}.tag.part{background:var(--gold);color:#1d1a12}.tag.future{background:var(--line);color:var(--ink-2)}
+
+/* project logic diagram */
+.logic{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin-top:22px;align-items:stretch}
+.node{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-right:22px}
+.node:not(:last-child)::after{content:"";position:absolute;right:-17px;top:50%;width:12px;height:12px;border-top:2px solid var(--gold);border-right:2px solid var(--gold);transform:translateY(-50%) rotate(45deg)}
+.node .k{font:500 11px var(--f-mono);color:var(--muted)}
+.node h4{font:800 16px/1.2 var(--f-display);margin:4px 0 6px}
+.node p{font-size:12.5px;color:var(--ink-2);margin:0}
+.node .where{display:inline-block;margin-top:10px;font:700 10px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);text-decoration:none}
+.node.x{border-top:3px solid #3f7668}.node.y{border-top:3px solid var(--gold)}.node.ai{border-style:dashed}
+.xy{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 6px;font:500 14px var(--f-mono)}
+.xy span{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+.xy .arrow{border:0;background:none;color:var(--gold-deep);font-size:18px;padding:0}
+
+/* limits list */
+.lim-head{display:flex;align-items:baseline;gap:10px;margin:28px 0 0;font:800 18px var(--f-display);scroll-margin-top:110px}
+.lim-head span{font:500 13px var(--f-mono);color:var(--gold-deep)}
+.limits{counter-reset:lim;margin-top:10px;border-top:1px solid var(--line)}
+.lim{display:grid;grid-template-columns:30px minmax(150px,.75fr) minmax(0,1.6fr) minmax(0,1.25fr);gap:6px 22px;align-items:baseline;padding:13px 4px;border-bottom:1px solid var(--line)}
+.lim::before{counter-increment:lim;content:counter(lim,decimal-leading-zero);font:500 12px var(--f-mono);color:var(--gold-deep)}
+.lim h4{font:700 14.5px var(--f-display);margin:0}
+.lim p{font-size:13.5px;line-height:1.55;color:var(--ink-2);margin:0}
+.lim .fix{font-size:13px;line-height:1.55;color:var(--muted)}
+.lim.lim-cols{padding:6px 4px;border-bottom:1px solid var(--line)}
+.lim.lim-cols::before{content:"";counter-increment:none}
+.lim.lim-cols h4,.lim.lim-cols p,.lim.lim-cols .fix{font:700 10.5px var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:900px){.lim{grid-template-columns:30px minmax(0,1fr)}.lim p,.lim .fix{grid-column:2}.lim .fix::before{content:"Mitigation · ";font-weight:700;color:var(--ink-2)}.lim.lim-cols{display:none}}
+
+.refs{font-size:13px;color:var(--ink-2);padding-left:20px}
+.refs li{margin-bottom:6px;max-width:100ch}
+footer{border-top:1px solid var(--line);padding-block:30px;font-size:12px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+/* scroll motion (same as the Story page) */
+.motion .rv{opacity:0;transform:translate3d(0,26px,0);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.motion .rv.in{opacity:1;transform:none;transition:opacity .8s ease var(--rv-d,0s),transform 1s cubic-bezier(.16,.84,.24,1) var(--rv-d,0s)}
+@media (prefers-reduced-motion:reduce){.motion .rv{opacity:1!important;transform:none!important}*{transition:none!important}}
+
+@media (max-width:1000px){.layout{grid-template-columns:minmax(0,1fr)}.toc{position:static;display:flex;flex-wrap:wrap;gap:4px}.toc a{grid-template-columns:auto auto}
+  .logic{grid-template-columns:minmax(0,1fr)}.node{margin:0 0 22px}.node:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-17px;transform:translateX(-50%) rotate(135deg)}}
+@media (max-width:760px){.grid2,.grid3{grid-template-columns:minmax(0,1fr)}.brand small{display:none}}
+
+/* Six-step AI axis on one line; the two AI steps are framed, nothing moves */
+.ax{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin:30px 0 6px;align-items:start}
+.ax-step{padding:22px 14px 16px 0;position:relative}
+.ax-step::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--line)}
+.ax-step::after{content:"";position:absolute;left:0;top:-4px;width:10px;height:10px;border-radius:50%;background:var(--ink)}
+.ax-step .k{font:500 11px var(--f-mono);color:var(--muted);display:flex;align-items:center;gap:6px;margin-top:6px}
+.ax-step h4{font:800 16px var(--f-display);letter-spacing:-.02em;margin:6px 0 4px}
+.ax-step p{font-size:13px;line-height:1.5;color:var(--ink-2);margin:0}
+.ai{display:inline-block;font:700 9.5px var(--f-body);letter-spacing:.1em;line-height:1;border-radius:4px;padding:3px 5px;color:#16161d;background:#fff;border:1px solid #16161d}
+.ax-ai{margin:-6px 8px 0 0;padding:20px 14px 14px;border-radius:14px;border:1px solid transparent;
+  background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(120deg,#a963f1,#ee6ea8 55%,#ff9659) border-box}
+.ax-ai::before{display:none}
+.ax-ai::after{left:14px;top:-6px;width:11px;height:11px;background:linear-gradient(135deg,#a963f1,#ff9659)}
+.ax-future{background:var(--card);border:1px dashed #c79be6}
+.ai-use{margin:22px 0 14px;padding-top:16px;border-top:1px solid var(--line)}
+.ai-use-title{font:700 12px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.ai-use-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.ai-use .k{font:500 12px var(--f-mono);color:var(--ink);display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.ai-use p{margin:0;font-size:14px;line-height:1.65;color:var(--ink-2)}
+@media (max-width:1000px){.ax{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:22px}}
+@media (max-width:760px){.ai-use-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.ax{grid-template-columns:minmax(0,1fr)}}
+/* Method: X, Y and X×Y as the section's spine, kept quiet */
+.part{display:flex;gap:10px;align-items:baseline;margin:40px 0 8px;padding-top:22px;border-top:1px solid var(--line)}
+.part-letter{flex:none;display:inline-block;padding:2px 7px;border-radius:6px;font:600 12px/1.4 var(--f-mono);color:#16161d;background:#fff;border:1px solid #16161d}
+.part-letter.part-xy{font-size:12px}
+.part h3{margin:0!important;font-size:20px}
+.part p{display:inline;margin:0 0 0 8px;color:var(--muted);font-size:13px}
+.part>div{display:flex;align-items:baseline;flex-wrap:wrap}
+
+</style>
+<link rel="stylesheet" href="static/future.css?v24-story">
+<script src="static/lens-nav.js?v24-story" defer></script>
+<style>.shot{margin:18px 0 0}.shot img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 30px rgba(20,30,50,.08)}.shot.narrow{max-width:380px}.shot figcaption{margin-top:8px;font-size:12px;color:var(--muted)}.sec .ai{display:inline-block;margin-left:6px;padding:0 6px;border:1px solid currentColor;border-radius:6px;font:700 10px/1.6 var(--f-mono);letter-spacing:.06em}</style>
+</head>
+<body class="information-page">
+<header class="appbar"><div class="progress" id="progress" aria-hidden="true"></div><div class="wrap">
+  <a class="brand" href="index.html">TC<i>.</i><small>Temporal City</small></a>
+  <nav class="appnav" aria-label="Sections">
+    <a href="index.html">Story</a>
+    <a href="collector.html" aria-current="page">Collector</a>
+    <a href="atlas.html">Atlas</a>
+    <a href="information.html">Information</a>
+  </nav>
+  <div id="dnSwitch"></div>
+</div></header>
+
+<main>
+<div class="wrap hero">
+  <div class="eyebrow" style="color:var(--ink)">Collector · how the dataset is built</div>
+  <h1>Build the dataset.</h1>
+  <p class="lead">The Collector finds every amenity in a study area and retrieves its opening hours from OpenStreetMap, Google Places and business websites, using AI only to read hours that websites write as plain sentences. Every value keeps its source, evidence and quality label.</p>
+  <div class="rq"><span>On this public site</span><q>The Collector runs in the local app. This page walks through its seven steps.</q></div>
+</div>
+<div class="wrap layout">
+<nav class="toc" id="toc" aria-label="On this page">
+  <a href="#s00"><b>00</b>Setup</a>
+  <a href="#s01"><b>01</b>Area</a>
+  <a href="#s02"><b>02</b>Discover</a>
+  <a href="#s03"><b>03</b>Hours</a>
+  <a href="#s04"><b>04</b>Review</a>
+  <a href="#s05"><b>05</b>Explore</a>
+  <a href="#s06"><b>06</b>Export</a>
+  <a href="#run"><b>→</b>Run it yourself</a>
+</nav>
+<div class="content">
+<section class="sec" id="s00"><div class="eyebrow">Step 00 · Setup</div><h2>Connect the data sources</h2><p>Optional, best done first. Add a <b>Google Places API key</b> for the most complete opening hours, choose an <b>AI model</b> (Ollama, Gemini, Groq, DeepSeek, OpenAI or Claude) to read hours from website text, and set a proxy if OpenStreetMap is blocked. <b>Test connections</b> checks each one.</p><figure class="shot"><img src="static/shots/setup.png" alt="Collector, step 00 Setup" loading="lazy"><figcaption>Screenshot of the local Collector, step 00.</figcaption></figure></section>
+<section class="sec" id="s01"><div class="eyebrow">Step 01 · Area</div><h2>Choose the study areas</h2><p>Add the three case studies, an MRT/LRT station catchment, a point on the map or a GeoJSON polygon. Only ticked areas are used in the next steps.</p><figure class="shot"><img src="static/shots/area.png" alt="Collector, step 01 Area" loading="lazy"><figcaption>Screenshot of the local Collector, step 01.</figcaption></figure></section>
+<section class="sec" id="s02"><div class="eyebrow">Step 02 · Discover</div><h2>Find every amenity</h2><p>Queries OpenStreetMap for all amenities, shops and services inside the ticked areas, drops benches, parking and similar, and sorts the rest into six categories.</p></section>
+<section class="sec" id="s03"><div class="eyebrow">Step 03 · Hours <span class="ai">AI</span></div><h2>Get the opening hours</h2><p>Tries the OSM tag, then Google Places (if a key is set), then business websites. A website is read first from its structured data, then by rules; where the hours are only written as sentences, the <b>AI model turns the text into a 7 × 24 weekly schedule</b> and must quote the sentence it used. The quote is checked against the page, or the result is rejected. Places still missing can be filled by hand from Google.</p><figure class="shot narrow"><img src="static/shots/ai.png" alt="Collector, step 03 Hours" loading="lazy"><figcaption>The AI model setting in Setup (any compatible model can be used).</figcaption></figure></section>
+<section class="sec" id="s04"><div class="eyebrow">Step 04 · Review</div><h2>Check the evidence</h2><p>Every record shows all its sources, the exact evidence text and the link. Two sources agreeing on ≥ 90% of the 168 weekly hours makes a record <b>verified</b>; disagreement is flagged as a <b>conflict</b> for a person to resolve. <b>Validate accuracy</b> draws a random sample to check by hand.</p></section>
+<section class="sec" id="s05"><div class="eyebrow">Step 05 · Explore</div><h2>See availability through the day</h2><p>Drag the hour to see which places are open on the map; the chart shows the share open in every hour.</p></section>
+<section class="sec" id="s06"><div class="eyebrow">Step 06 · Export</div><h2>Use the result</h2><p>Download CSV / GeoJSON for QGIS or the report, or open the ticked areas in the Atlas for maps, GFA and the comparison.</p></section>
+<section class="sec" id="run"><div class="eyebrow">Run it yourself</div><h2>The Collector runs on your own computer.</h2><p>It needs a small Python server, because it calls OpenStreetMap, Google Places, websites and the AI model and keeps the results in a local database. GitHub Pages can only host static pages, so this public site shows the Story, the Atlas (Google Places sample for the three case areas) and the Information page, and explains the Collector here.</p><div class="formula">py -m pip install -r requirements.txt<br>py app.py   →   open http://127.0.0.1:8765</div><p>Full instructions are in the README of the <a class="tc-repo-inline" href="https://github.com/" class="tc-repo">project repository</a>. API keys are entered by each user in Setup and are never stored in the repository.</p></section>
+</div>
+</div>
+</main>
+<footer><div class="wrap"><span>College of Design and Engineering, National University of Singapore</span><span><a class="tc-repo" href="https://github.com/" hidden style="color:inherit;text-decoration:underline;text-underline-offset:3px">Project repository on GitHub →</a></span></div></footer>
+
+<script>
+TCDayNight.mountSwitch(document.getElementById('dnSwitch'));
+(function(){
+  // links to the Collector only work when the local app runs
+  fetch('api/meta',{cache:'no-store'}).catch(()=>{document.querySelectorAll('[data-needs-app]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();alert('The Collector runs in the local app: start it with "py app.py".')}))});
+  // table of contents follows the reader; progress line; reveal on scroll
+  const links=[...document.querySelectorAll('#toc a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+  const bar=document.getElementById('progress');let tick=false;
+  function onScroll(){tick=false;const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;bar.style.setProperty('--p',max>0?Math.min(1,y/max).toFixed(4):0);
+    let k=0;secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<innerHeight*.35)k=i});links.forEach((a,i)=>a.classList.toggle('on',i===k))}
+  addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
+  if(!('IntersectionObserver' in window))return;
+  document.documentElement.classList.add('motion');
+  const els=document.querySelectorAll('.sec .eyebrow,.sec h2,.sec .sub,.card,.node,.lim,.tablewrap,.formula,.xy');
+  els.forEach(el=>{el.classList.add('rv');const sib=[...el.parentElement.children].filter(c=>c.classList.contains(el.classList[0]));const i=sib.indexOf(el);if(i>0)el.style.setProperty('--rv-d',Math.min(i,6)*.07+'s')});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(el=>io.observe(el));
+})();
+</script>
+
+<script src="static/repo-link.js"></script>
+</body>
+</html>

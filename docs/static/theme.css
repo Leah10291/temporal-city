@@ -1,0 +1,244 @@
+/* Temporal City · shared theme
+   ------------------------------------------------------------------
+   The Story page (index.html) defines the look of the whole app. This
+   file applies that look to the Collector and the Atlas: same app bar,
+   same type (Manrope 800 + Instrument Serif italic + IBM Plex Mono for
+   numbers), same paper colours, rounded cards and pill controls.
+   Loaded last on collector.html; inlined into atlas.html by
+   tools/build_atlas.py, so it survives a rebuild of the Atlas.        */
+
+:root{
+  --tc-page:1320px;
+  --tc-paper:#f6f5ef; --tc-card:#fffefa; --tc-ink:#173c33; --tc-ink-2:#4b6157; --tc-muted:#7c8a81;
+  --tc-line:#e0e4da; --tc-gold:#c7a76b; --tc-gold-deep:#9b7a3b; --tc-gold-hi:#e9b94f; --tc-soft:#efefe6;
+  --tc-display:'Manrope',system-ui,sans-serif; --tc-serif:'Instrument Serif',Georgia,serif;
+  --tc-body:'DM Sans',system-ui,sans-serif; --tc-mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+  --tc-gutter:max(16px,calc((100% - var(--tc-page))/2 + 16px));
+  --tc-hdr:98px;
+  /* the variable names the Collector and the Atlas already use */
+  --cream:var(--tc-paper); --paper:var(--tc-card); --ink:var(--tc-ink); --muted:var(--tc-muted);
+  --line:var(--tc-line); --accent:var(--tc-gold); --soft:var(--tc-soft); --field:var(--tc-card);
+  --text:var(--tc-ink); --text-2:var(--tc-ink-2);
+}
+body{background:var(--tc-paper);color:var(--tc-ink);font-family:var(--tc-body)}
+:focus-visible{outline:2px solid var(--tc-gold);outline-offset:3px}
+
+/* ---------- app bar: row 1 is identical to the Story page; row 2 holds this page's tabs */
+.top{height:auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"brand . links" "nav nav nav";
+  align-items:center;gap:0 20px;padding:0 var(--tc-gutter);
+  background:color-mix(in oklab,var(--tc-paper) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--tc-line)}
+.top .brand{grid-area:brand;margin:12px 0;font:800 18px var(--tc-display);letter-spacing:-.04em;color:var(--tc-ink);text-decoration:none;line-height:1.35}
+.top .brand span,.top .brand i{color:var(--tc-gold)!important;font-style:normal}
+.top .brand small{font:500 11px var(--tc-body);letter-spacing:.14em;color:var(--tc-muted);margin-left:8px;text-transform:uppercase}
+.top .app-links,.top .right-top{grid-area:links;display:flex!important;gap:4px;margin:12px 0;font-size:inherit;letter-spacing:0}
+.top .app-links a{font:700 12px var(--tc-body);letter-spacing:.06em;text-transform:none;text-decoration:none;padding:7px 12px;border-radius:999px;color:var(--tc-ink-2);white-space:nowrap;transition:background .2s}
+.top .app-links a:hover{background:var(--tc-line)}
+.top .app-links a.here,.top .app-links a[aria-current="page"]{background:var(--tc-ink);color:var(--tc-paper)}
+.top .nav{grid-area:nav;display:flex;justify-content:flex-start;gap:26px;min-width:0;max-width:100%;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--tc-line)}
+.top .nav::-webkit-scrollbar{display:none}
+.top .nav button{flex:none;background:none;border:0;border-bottom:2px solid transparent;border-radius:0;padding:11px 0 9px;color:var(--tc-muted);font:700 11px var(--tc-body);letter-spacing:.14em;transition:color .2s,border-color .2s}
+.top .nav button:hover{color:var(--tc-ink)}
+.top .nav button.on,.top .nav button.active{color:var(--tc-ink);border-bottom:2px solid var(--tc-gold)}
+.demo-banner{padding:9px var(--tc-gutter)}
+
+/* ---------- page + hero */
+.wrap{max-width:var(--tc-page);padding:clamp(28px,4vw,48px) 16px 48px}
+.eyebrow{font:700 11px/1.2 var(--tc-body);letter-spacing:.22em;text-transform:uppercase;color:var(--tc-gold-deep)}
+.hero{margin:0 0 28px;align-items:end}
+.hero h1{font:800 clamp(38px,5.4vw,76px)/.95 var(--tc-display)!important;letter-spacing:-.055em!important;color:var(--tc-ink);margin:12px 0 0}
+.hero h1 em{font:italic 400 1.08em/1 var(--tc-serif)!important;letter-spacing:-.01em}
+.hero p{font-size:16px;line-height:1.65;color:var(--tc-ink-2);max-width:58ch;margin-top:16px}
+.hero-stat b{font:500 clamp(40px,4.4vw,60px)/1 var(--tc-mono);letter-spacing:-.04em;color:var(--tc-ink);font-variant-numeric:tabular-nums}
+.hero-stat b span{color:var(--tc-gold)}
+.hero-stat>span{font:500 11px var(--tc-body);letter-spacing:.16em;color:var(--tc-muted);margin-top:8px}
+.to-atlas{border-radius:999px;padding:8px 14px;font:700 11px var(--tc-body);letter-spacing:.08em;transition:background .2s}
+.to-atlas:hover{background:#0f2b24}
+.src-switch{border-radius:999px;border-color:var(--tc-ink)!important}
+.src-switch a{font:700 10px var(--tc-body)!important;letter-spacing:.1em!important;padding:7px 12px!important;color:var(--tc-ink-2)!important}
+.src-switch a.on{background:var(--tc-ink)!important;color:var(--tc-paper)!important}
+.src-banner{border-radius:0 10px 10px 0}
+
+/* ---------- panels and cards */
+.panel{background:var(--tc-card);border:1px solid var(--tc-line);border-radius:14px}
+.mappanel,.grid>.panel:first-child{overflow:hidden}
+.map-head{padding:16px 20px;border-bottom:1px solid var(--tc-line)}
+.section-label{font:700 11px var(--tc-body);letter-spacing:.18em;color:var(--tc-ink);text-transform:uppercase}
+.side h3,.chartpanel h3,.compare-card h3,.process h4,.pane>h2{font-family:var(--tc-display);font-weight:800;letter-spacing:-.03em;color:var(--tc-ink)}
+.pane>h2{font-size:24px}
+.card h3,h3.sec{font:700 11px var(--tc-body);letter-spacing:.16em;text-transform:uppercase;color:var(--tc-ink)}
+h3.sec .muted{letter-spacing:0;text-transform:none;font-weight:500}
+.hero-stat b span{display:inline}
+.side .panel{padding:22px}
+.card{background:var(--tc-paper);border:1px solid var(--tc-line);border-radius:12px}
+.compare-card,.process article{background:var(--tc-paper);border:1px solid var(--tc-line);border-radius:12px}
+.metric div,.summary article{background:var(--tc-paper);border-radius:10px}
+.note{background:var(--tc-soft);border-left:2px solid var(--tc-gold);border-radius:0 10px 10px 0}
+.lead,.sub{color:var(--tc-ink-2)}
+.map-wrap{background:#eceee6}
+.map-overlay{background:color-mix(in oklab,var(--tc-card) 92%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--tc-line);border-radius:12px;box-shadow:0 10px 30px -18px rgba(23,60,51,.45)}
+.map-overlay .eyebrow{color:var(--tc-gold-deep)}
+.maplibregl-ctrl-group{border-radius:10px!important;overflow:hidden}
+.maplibregl-popup-content{border-radius:12px}
+.pickhint{border-radius:999px}
+
+/* Atlas headings: give every Manrope rule a real fallback and the Story weight */
+.building-card-head h3,.analysis-panel h3,.analysis-subpanel h4,.gta-title,.gta-chart-head h3,.fullpanel h2,.fullpanel h3{font-family:var(--tc-display)!important;font-weight:800;letter-spacing:-.03em;color:var(--tc-ink)}
+.analysis-panel,.gta-chart,.analysis-subpanel{border-radius:12px}
+.analysis-kpi,.gta-kpi{border-radius:10px}
+.analysis-kpi strong,.gta-kpi strong{font-family:var(--tc-mono)!important;font-weight:500!important;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+
+/* numbers in mono, like the Story page */
+.metric strong,.summary strong,.compare-card .num,.building-count strong,#heroCount{font-family:var(--tc-mono)!important;font-weight:500!important;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.timebar .clock{font:500 28px var(--tc-mono);letter-spacing:-.04em}
+.timebar .clock small{font:700 10px var(--tc-body);letter-spacing:.14em}
+
+/* ---------- controls: pills, like the Story chips and segmented buttons */
+.btn,.map-tools button,.upload-label,.districts button,.pill,.filters button,.chip{border-radius:999px!important;font-family:var(--tc-body);transition:background .2s,border-color .2s,color .2s}
+.btn,.map-tools button,.upload-label{border-color:var(--tc-line);background:var(--tc-card);color:var(--tc-ink-2);font-weight:700;letter-spacing:.08em}
+.btn{padding:8px 14px}
+.btn:hover,.map-tools button:hover,.upload-label:hover,.districts button:hover{border-color:var(--tc-ink);color:var(--tc-ink)}
+.btn.primary,.map-tools button.active,.districts button.active,.pill.active{background:var(--tc-ink)!important;border-color:var(--tc-ink)!important;color:var(--tc-paper)!important}
+.btn.primary:hover{background:#0f2b24!important}
+.districts button,.pill{border-color:var(--tc-line);background:var(--tc-card);color:var(--tc-ink-2);font-weight:500;padding:7px 13px}
+.filters button,.chip{border-color:var(--tc-line);background:var(--tc-card);color:var(--tc-ink-2)}
+.filters button.on,.chip.on{background:color-mix(in oklab,var(--tc-ink) 9%,var(--tc-card));border-color:var(--tc-ink);color:var(--tc-ink)}
+.gfa-switch button{border-radius:999px!important}
+.map-tools{background:var(--tc-card)}
+input,select,textarea,.select{border-radius:10px;border-color:var(--tc-line);background:var(--tc-card)}
+.select{border:1px solid var(--tc-line);padding:10px 12px}
+.timebar .play{border-radius:999px!important;background:transparent!important;border:1px solid var(--tc-ink)!important;color:var(--tc-ink)!important;font:700 10px var(--tc-body)!important;letter-spacing:.1em;padding:10px 4px!important;white-space:nowrap;transition:background .2s,color .2s}
+.timebar .play:hover:not(:disabled){background:var(--tc-ink)!important;color:var(--tc-paper)!important}
+.timebar .play:disabled{opacity:.35;cursor:default}
+.timebar{grid-template-columns:110px minmax(0,1fr) 92px}
+
+/* hour sliders get the Story page's day → night ribbon */
+.slider input[type=range],.hourrow input[type=range]{-webkit-appearance:none;appearance:none;height:26px;background:transparent;cursor:pointer;border:0;padding:0}
+.slider input[type=range]::-webkit-slider-runnable-track,.hourrow input[type=range]::-webkit-slider-runnable-track{height:10px;border-radius:5px;background:linear-gradient(90deg,#10231e 0%,#10231e 21.7%,#f0d690 30.4%,#f0d690 73.9%,#10231e 87%,#10231e 100%)}
+.slider input[type=range]::-moz-range-track,.hourrow input[type=range]::-moz-range-track{height:10px;border-radius:5px;background:linear-gradient(90deg,#10231e 0%,#10231e 21.7%,#f0d690 30.4%,#f0d690 73.9%,#10231e 87%,#10231e 100%)}
+.slider input[type=range]::-webkit-slider-thumb,.hourrow input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-6px;border-radius:50%;background:var(--tc-gold-hi);border:3px solid var(--tc-card);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.slider input[type=range]::-moz-range-thumb,.hourrow input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--tc-gold-hi);border:3px solid var(--tc-card)}
+.ticks{font-family:var(--tc-mono)!important}
+
+/* ---------- motion: the page settles in, tab changes cross-fade */
+@keyframes tc-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes tc-fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.wrap>.hero>*,.wrap>.grid>*,.wrap>.bottom>*{animation:tc-rise .8s cubic-bezier(.2,.7,.2,1) both}
+.wrap>.hero>*:nth-child(2){animation-delay:.08s}
+.wrap>.grid>*:nth-child(1){animation-delay:.14s}
+.wrap>.grid>*:nth-child(2){animation-delay:.24s}
+.wrap>.bottom>*{animation-delay:.34s}
+.pane.on,.view.active{animation:tc-fade .45s ease both}
+
+/* ---------- small screens: keep the app pills visible, as on the Story page */
+@media (max-width:900px){
+  .top .brand small{display:none}
+  .top{padding:0 16px}
+  .top .nav{gap:18px}
+}
+@media (max-width:560px){.top .app-links{display:flex!important}.top .app-links a{padding:6px 9px;font-size:11px}}
+@media (prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}}
+
+/* =====================================================================
+   NIGHT THEME — set by static/daynight.js (html.tc-night).
+   AUTO follows the hour on the page; the control in the app bar can lock DAY / NIGHT.
+   ===================================================================== */
+html.tc-night{
+  --tc-paper:#0b1916; --tc-card:#12221e; --tc-ink:#eef2ea; --tc-ink-2:#b4c3b9; --tc-muted:#8a9a90;
+  --tc-line:#23362f; --tc-soft:#152821; --tc-gold-deep:#d8b97c; --tc-gold:#d8b97c;
+  --cream:var(--tc-paper); --paper:var(--tc-card); --ink:var(--tc-ink); --muted:var(--tc-muted);
+  --line:var(--tc-line); --accent:var(--tc-gold); --soft:var(--tc-soft); --field:var(--tc-card);
+  --text:var(--tc-ink); --text-2:var(--tc-ink-2); color-scheme:dark;
+}
+/* smooth hand-over between the two themes */
+html.tc-dn-anim :is(body,.top,.panel,.card,.map-wrap,.map-overlay,.map-tools,.metric div,.summary article,.compare-card,.process article,.note,.btn,.chip,.filters button,.districts button,.map-tools button,.select,input,select,.area,.recs,.src,.analysis-panel,.analysis-subpanel,.analysis-kpi,.gta-panel,.gta-kpi,.gta-chart-card,.timebar,.hero h1,.hero p,.eyebrow){
+  transition:background-color .8s ease,color .8s ease,border-color .8s ease}
+
+/* surfaces that had a hard-coded light colour */
+html.tc-night :is(.districts button,.pill,.filters button,.map-tools,.map-tools button,.upload-label,.select,.btn,.area,.chip,.recs,.src,.seg button,.exp,.auditcard,.qcard,
+  .analysis-subpanel,.analysis-toolbar select,.gta-panel,.gta-controls select,.gta-chart-card,.context-toggle,.callout-close){background:var(--tc-card);border-color:var(--tc-line);color:var(--tc-ink-2)}
+html.tc-night :is(.metric div,.summary article,.process article,.compare-card,.card,.analysis-kpi,.gta-kpi,.analysis-table th,.gta-live-time,.gta-interpretation,.gta-method-note,.note,.exp:hover){background:#0f1f1b;border-color:var(--tc-line)}
+html.tc-night :is(.bar,.stacked-bar,.heat span){background:var(--tc-line)}
+html.tc-night .heat span.o{background:#e9b94f}
+html.tc-night .heat span.u{background:repeating-linear-gradient(45deg,#1b2b26,#1b2b26 2px,#12221e 2px,#12221e 4px)}
+html.tc-night :is(.filters button.on,.chip.on,.recs .rec.sel){background:rgba(216,185,124,.14);border-color:var(--tc-gold);color:var(--tc-ink)}
+html.tc-night .recs .rec:hover{background:var(--tc-soft)}
+html.tc-night .map-wrap{background:#0b1916}
+html.tc-night :is(.demo-banner,.src-banner){background:#2a2414;color:#e8d9b0;border-color:#4a3f22}
+html.tc-night :is(.metric span,.summary small,.process p,.sub,.quality,.hint,.heatlabel,.legend,.mini-table th,.hero-stat>span,.ticks){color:var(--tc-muted)}
+html.tc-night :is(.quality b,.mini-table td,.compare-card h3,.side h3,.chartpanel h3,.process h4,table.t td,.area b,.recs .rec .nm,.src .hd){color:var(--tc-ink)}
+html.tc-night .btn.primary,html.tc-night .map-tools button.active,html.tc-night .districts button.active,html.tc-night .pill.active,html.tc-night .to-atlas,html.tc-night .top .app-links a.here{background:var(--tc-ink)!important;color:#0b1916!important;border-color:var(--tc-ink)!important}
+html.tc-night .timebar .play{border-color:var(--tc-ink)!important;color:var(--tc-ink)!important}
+html.tc-night .timebar .play:hover:not(:disabled){color:#0b1916!important}
+html.tc-night .slider input[type=range]::-webkit-slider-runnable-track,html.tc-night .hourrow input[type=range]::-webkit-slider-runnable-track{box-shadow:0 0 0 1px #2c403a}
+/* charts drawn as SVG keep light grid lines readable on the dark page */
+html.tc-night .wrap svg :is(line,path,rect,polyline)[stroke^="#e"],html.tc-night .wrap svg :is(line,path,rect,polyline)[stroke^="#f"],html.tc-night .wrap svg :is(line,path,rect,polyline)[stroke^="#d"],
+html.tc-night .wrap svg :is(line,path,rect,polyline)[stroke^="#E"],html.tc-night .wrap svg :is(line,path,rect,polyline)[stroke^="#F"]{stroke:#2a3e37}
+html.tc-night .wrap svg :is(circle)[stroke="#fff"],html.tc-night .wrap svg circle[stroke="#ffffff"],html.tc-night .wrap svg circle[stroke="white"]{stroke:#0b1916}
+/* dark-green data lines and fills are lifted so they read on the dark page */
+html.tc-night .wrap svg [stroke="#27664e"],html.tc-night .wrap svg [stroke="#2e6b55"],html.tc-night .wrap svg [stroke="#1c5747"],html.tc-night .wrap svg [stroke="#245f4b"],html.tc-night .wrap svg [stroke="#173c33"]{stroke:#7cc2a0}
+html.tc-night .wrap svg [fill="#27664e"],html.tc-night .wrap svg [fill="#2e6b55"],html.tc-night .wrap svg [fill="#1c5747"],html.tc-night .wrap svg [fill="#173c33"]{fill:#7cc2a0}
+html.tc-night .wrap svg [fill="#dcebe2"],html.tc-night .wrap svg [fill="#9aa99b"]{fill:rgba(124,194,160,.16)}
+html.tc-night svg text{fill:var(--tc-muted)}
+/* map chrome */
+html.tc-night .maplibregl-ctrl-group{background:#12221e!important}
+html.tc-night .maplibregl-ctrl-group button+button{border-top-color:#23362f}
+html.tc-night .maplibregl-ctrl-group button .maplibregl-ctrl-icon{filter:invert(.9)}
+html.tc-night .maplibregl-ctrl-attrib{background:rgba(11,25,22,.75)!important;color:#8a9a90}
+html.tc-night .maplibregl-ctrl-attrib a{color:#b4c3b9}
+html.tc-night .maplibregl-ctrl-attrib-button{filter:invert(.85)}
+/* popups and callouts stay on light paper: they read best against the dark map */
+html.tc-night :is(.maplibregl-popup,.building-callout,.poi-hover){
+  --tc-card:#fffefa; --tc-paper:#f6f5ef; --tc-ink:#173c33; --tc-ink-2:#4b6157; --tc-muted:#7c8a81; --tc-line:#e0e4da; --tc-soft:#efefe6;
+  --paper:#fffefa; --ink:#173c33; --muted:#7c8a81; --line:#e0e4da; --soft:#efefe6; --text:#173c33; --text-2:#4b6157; color:#173c33; color-scheme:light}
+
+/* app bar: the day / night switch sits next to the page pills */
+.top{grid-template-columns:auto minmax(0,1fr) auto auto;grid-template-areas:"brand . dn links" "nav nav nav nav"}
+.top .tc-dn{grid-area:dn}
+/* the 2D heat legend matches the night "city lights" ramp */
+html.tc-night .gradient-bar[aria-label^="Open POI density"]{background:linear-gradient(90deg,rgba(233,185,79,.15),#ecbe5f 40%,#f6d68c 70%,#fff6dc);border-color:#3a4a3f}
+html.tc-night .gradient-bar{border-color:#3a4a3f}
+
+/* hero: POIs with opening hours, under the total */
+.hero-stat .hero-known{display:block;margin-top:4px;font:500 11px var(--tc-body);letter-spacing:.16em;color:var(--tc-ink-2)}
+.hero-stat .hero-known b{font:500 15px var(--tc-mono)!important;letter-spacing:0!important;color:var(--tc-ink)}
+.hero-stat .hero-known.low{color:#b0662a}
+.hero-stat .hero-known.low b{color:#b0662a}
+html.tc-night .hero-stat .hero-known.low,html.tc-night .hero-stat .hero-known.low b{color:#e0a46b}
+
+/* ---------- COMPARE as questions: finding under each heading, data note at the bottom, question index */
+.tc-qindex{display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;gap:8px;align-items:center;margin:0 0 16px;padding:10px 14px;background:var(--tc-card);border:1px solid var(--tc-line);border-radius:14px;position:sticky;top:calc(var(--tc-hdr) + 8px);z-index:20}
+.tc-qindex .eyebrow{flex:none;margin-right:4px}
+.tc-qindex a{flex:none;white-space:nowrap}
+.tc-qindex a{display:inline-flex;align-items:center;gap:7px;padding:6px 12px 6px 6px;border:1px solid var(--tc-line);border-radius:999px;font:500 12px var(--tc-body);color:var(--tc-ink-2);text-decoration:none;transition:border-color .2s,color .2s}
+.tc-qindex a:hover{border-color:var(--tc-ink);color:var(--tc-ink)}
+.tc-qindex a i{font:500 11px var(--tc-mono);font-style:normal;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--tc-ink);color:var(--tc-paper)}
+@media (max-width:900px){.tc-qindex{position:static}.tc-qindex a{font-size:11px}}
+.tc-q{scroll-margin-top:calc(var(--tc-hdr) + 120px)}
+.tc-finding{font:500 16px/1.6 var(--tc-body);color:var(--tc-ink);max-width:82ch;margin:6px 0 18px;padding:12px 16px;background:color-mix(in oklab,var(--tc-gold) 10%,var(--tc-card));border-left:3px solid var(--tc-gold);border-radius:0 10px 10px 0}
+.tc-finding b{font-weight:700}
+.tc-flabel{display:block;font:700 10px var(--tc-body);letter-spacing:.18em;text-transform:uppercase;color:var(--tc-gold-deep);margin-bottom:3px}
+.tc-datanote{margin-top:18px;padding-top:12px;border-top:1px dashed var(--tc-line)}
+.tc-datanote span{font:700 10px var(--tc-body);letter-spacing:.18em;text-transform:uppercase;color:var(--tc-muted)}
+.tc-datanote p{margin:4px 0 0;font-size:11.5px;line-height:1.6;color:var(--tc-muted);max-width:110ch}
+/* area picker in the Collector banner */
+.area-pick{margin-top:8px}
+.area-pick summary{cursor:pointer;font-weight:700;color:var(--tc-ink)}
+.area-pick .ap-list{display:flex;flex-wrap:wrap;gap:4px 14px;max-height:180px;overflow:auto;margin:8px 0;padding:8px;background:var(--tc-card);border:1px solid var(--tc-line);border-radius:10px}
+.area-pick label{display:inline-flex;gap:5px;align-items:center;font-size:12px;cursor:pointer}
+.area-pick small{color:var(--tc-muted)}
+.area-pick .ap-btns{display:flex;gap:6px;align-items:center}
+/* night: Atlas analysis text that had hard-coded dark greens */
+html.tc-night :is(.gta-kpi strong,.analysis-kpi strong,.gta-live-time strong,.composition-label strong,.gta-interpretation strong,.gta-method-note strong){color:var(--tc-ink)!important}
+html.tc-night :is(.gta-interpretation,.gta-method-note){color:var(--tc-ink-2)!important}
+html.tc-night .wrap td{color:var(--tc-ink-2)!important}
+html.tc-night :is(.analysis-table,.mini-table) :is(th,td,tr){border-color:var(--tc-line)!important}
+/* Atlas: link to the Information page in the section tabs */
+.top .nav .nav-info{flex:none;align-self:center;margin-left:auto;font:700 11px var(--tc-body);letter-spacing:.14em;color:var(--tc-gold-deep);text-decoration:none;padding:6px 0}
+.top .nav .nav-info:hover{color:var(--tc-ink)}
+/* phones: page links get their own row so nothing overflows */
+@media (max-width:560px){
+  header.top{grid-template-columns:auto minmax(0,1fr) auto!important;grid-template-areas:"brand . dn" "links links links" "nav nav nav"!important}
+  .top .app-links{margin:0 0 8px!important;overflow-x:auto;scrollbar-width:none;justify-content:flex-start}
+  .top .app-links a{flex:none}
+}

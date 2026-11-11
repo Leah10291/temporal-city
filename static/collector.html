@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Temporal City Collector</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif:ital@0;1&family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/static/vendor/maplibre-gl.css">
+<link rel="stylesheet" href="/static/style.css?__VER__">
+<link rel="stylesheet" href="/static/theme.css?__VER__">
+<script src="/static/daynight.js?__VER__"></script>
+<script src="/static/palette.js?__VER__"></script>
+<link rel="stylesheet" href="/static/future.css?__VER__">
+<script src="/static/lens-nav.js?__VER__" defer></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html">TC<i>.</i><small>Temporal City</small></a>
+  <nav class="nav" id="steps" aria-label="Collector steps">
+    <button data-tab="settings" class="setup-tab" title="APIs, AI model and proxy">SETUP</button>
+    <button data-tab="area" class="on">AREA</button>
+    <button data-tab="discover">DISCOVER</button>
+    <button data-tab="retrieve" data-group="retrieve check">HOURS</button>
+    <button data-tab="records" data-group="records validate">REVIEW</button>
+    <button data-tab="explore">EXPLORE</button>
+    <button data-tab="export">EXPORT</button>
+  </nav>
+  <div id="dnSwitch"></div>
+  <nav class="app-links" aria-label="App"><a href="index.html">Story</a><a class="here" href="collector.html" aria-current="page">Collector</a><a href="atlas.html">Atlas</a><a href="information.html">Information</a></nav>
+</header>
+<script>TCDayNight.mountSwitch(document.getElementById("dnSwitch"))</script>
+<div class="demo-banner" id="demoBanner" hidden>Read-only public demo: browse the collected data, records and validation. To collect new data, run the app on your own computer.</div>
+
+<main class="wrap">
+  <div class="hero compact">
+    <div>
+      <div class="eyebrow">Data collection / opening hours</div>
+      <h1>Build the <em>dataset.</em></h1>
+      <p>Start from a study area. Discover the amenities, retrieve their opening hours, let AI structure the text, and audit the result before it reaches the atlas.</p>
+    </div>
+    <div class="hero-stat">
+      <b id="heroCount">0<span>.</span></b>
+      <span id="heroCaption">POIs IN THE COLLECTOR</span>
+      <a class="to-atlas" href="atlas.html?source=collector">VIEW IN ATLAS →</a>
+    </div>
+  </div>
+
+  <!-- workflow: the whole process at a glance, the current step explained, and a clear Next -->
+  <section class="panel flow" id="flow" aria-label="Collector workflow">
+    <ol class="flow-steps" id="flowSteps"></ol>
+    <div class="flow-info" id="flowInfo" aria-live="polite"></div>
+  </section>
+
+  <div class="grid">
+    <section class="panel mappanel" aria-label="Map">
+      <div class="map-head"><span class="section-label" id="mapLabel">SPATIAL VIEW</span><span class="hint" id="mapHint">Study areas and discovered POIs</span></div>
+      <div class="map-wrap" id="mapwrap">
+        <div id="map"></div>
+        <div class="map-overlay"><span class="eyebrow">CURRENT VIEW</span><b id="overlayTitle">Category</b><div id="legend" class="legend"></div></div>
+        <div id="pickHint" class="pickhint" hidden>Click the map to set the centre · <button class="link" id="pickCancel" type="button">cancel</button></div>
+      </div>
+    </section>
+    <aside class="side">
+  <div class="panel" id="panel">
+    <!-- 01 AREA -->
+    <section data-pane="area" class="pane">
+      <h2>Select study areas</h2>
+      <p class="lead">The platform starts from an empty database. You only define where to look — POIs are discovered automatically in step 02.</p>
+      <div class="card">
+        <h3>Case-study catchments</h3>
+        <p class="hint">400 m around the centroid of LTA exits at Bencoolen, Tanjong Pagar and Promenade MRT (proposal §2.1).</p>
+        <button class="btn" id="addCases">Add the 3 case studies</button>
+      </div>
+      <div class="card">
+        <h3>MRT / LRT station catchment</h3>
+        <div class="row">
+          <input id="stationInput" list="stationList" placeholder="Type a station, e.g. Outram Park MRT" autocomplete="off">
+          <datalist id="stationList"></datalist>
+        </div>
+        <div class="row">
+          <label class="inl">Radius <input id="stationRadius" type="number" value="400" min="50" max="3000" step="50"> m</label>
+          <button class="btn" id="addStation">Add station</button>
+        </div>
+        <details><summary>Add many stations (multi-site sample)</summary>
+          <p class="hint">Adds every MRT/LRT station as a catchment (190). Discovery takes ~2 s per station; retrieval scales with POI count.</p>
+          <button class="btn ghost" id="addAllStations">Add all stations</button>
+        </details>
+      </div>
+      <div class="card">
+        <h3>Custom point</h3>
+        <p class="hint">Click <b>Pick on map</b>, then click anywhere on the map.</p>
+        <div class="row">
+          <input id="customName" placeholder="Name" value="Custom area">
+          <button class="btn ghost" id="pickOnMap">Pick on map</button>
+        </div>
+        <div class="row">
+          <label class="inl">Lat <input id="customLat" type="number" step="0.000001"></label>
+          <label class="inl">Lon <input id="customLon" type="number" step="0.000001"></label>
+        </div>
+        <div class="row">
+          <label class="inl">Radius <input id="customRadius" type="number" value="400" min="50" max="3000" step="50"> m</label>
+          <button class="btn" id="addCustom">Add</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Polygon (GeoJSON)</h3>
+        <p class="hint">Export a boundary from QGIS as GeoJSON in EPSG:4326 (e.g. a planning area or your 选区 layer).</p>
+        <div class="row"><input type="file" id="polyFile" accept=".geojson,.json"></div>
+        <div class="row"><input id="polyName" placeholder="Name of this area"><button class="btn" id="addPoly">Add polygon</button></div>
+      </div>
+      <h3 class="sec">Study areas <span class="muted" id="areaCount"></span></h3>
+      <div class="selbar" id="selbar" hidden><button class="btn small" id="selAll" type="button">Select all</button><button class="btn small" id="selNone" type="button">Clear selection</button><span class="hint" id="selHint"></span></div>
+      <div id="areaList" class="list"></div>
+    </section>
+
+    <!-- 02 DISCOVER -->
+    <section data-pane="discover" class="pane">
+      <h2>Discover POIs automatically</h2>
+      <p class="lead">Queries OpenStreetMap (Overpass API, free) for every amenity, shop, tourism, leisure, craft and healthcare object inside each selected area, removes non-functional objects (benches, parking, toilets, ATMs …) and classifies the rest into the six functional categories.</p>
+      <div class="card">
+        <div class="row"><span>Selected areas: <b id="discoverSel">0</b></span></div>
+        <button class="btn primary" id="runDiscover">Start discovery</button>
+      </div>
+      <div id="discoverResults"></div>
+    </section>
+
+    <!-- 03 RETRIEVE -->
+    <section data-pane="retrieve" class="pane">
+      <h2>Retrieve opening hours</h2>
+      <p class="lead">For each POI the collector tries, in order: the OSM <code>opening_hours</code> tag → Google Places (optional) → the business website and web search results. Text is turned into a weekly schedule by structured-data parsing, rules and (optional) an AI model. Every value is stored with its source URL and the exact evidence text.</p>
+      <div class="card">
+        <h3>Active sources</h3>
+        <div id="sourceSummary" class="chips"></div>
+        <button class="link" data-goto="settings">Change in Settings →</button>
+      </div>
+      <div class="card">
+        <h3>Run</h3>
+        <div class="row"><label class="inl">Max POIs this run <input id="retLimit" type="number" value="50" min="0"></label><span class="hint">0 = all</span></div>
+        <div class="row"><label class="chk"><input type="checkbox" id="retOnlyNew" checked> Skip POIs already processed</label></div>
+        <div class="row"><div id="retCats" class="chips selectable"></div></div>
+        <div class="row">
+          <button class="btn primary" id="runRetrieve">Start retrieval</button>
+          <button class="btn ghost" id="stopJob">Stop</button>
+        </div>
+      </div>
+      <h3 class="sec">Record coverage <span class="muted">(selected areas)</span></h3>
+      <div id="coverageTable"></div>
+      <div class="note">
+        <b>Quality labels.</b>
+        <span class="lab verified">verified</span> two independent sources agree on ≥ 90 % of weekly hours, or a researcher confirmed it ·
+        <span class="lab observed">observed</span> OSM tag only ·
+        <span class="lab retrieved">retrieved</span> one web/Google source, not yet confirmed ·
+        <span class="lab conflict">conflict</span> sources disagree — needs review ·
+        <span class="lab estimated">estimated</span> filled from comparable POIs (excluded from analysis by default) ·
+        <span class="lab missing">missing</span>
+      </div>
+    </section>
+
+    <!-- 04 GOOGLE CHECK -->
+    <section data-pane="check" class="pane">
+      <h2>Google check queue</h2>
+      <p class="lead">For POIs the automatic sources could not fill. Each POI opens its Google search in a side tab; copy the opening-hours table from Google’s place panel (English or Chinese) and paste it here. The text is parsed automatically and saved as a researcher-verified record with the Google link as evidence.</p>
+      <div class="card">
+        <div class="row chips selectable" id="qLabels"></div>
+        <div class="row"><select id="qCat"><option value="">All categories</option></select>
+          <button class="btn" id="qLoad">Load queue</button></div>
+        <label class="chk"><input type="checkbox" id="qAuto" checked> Open Google automatically for each POI</label>
+        <p class="hint">Tip: put this window and the Google tab side by side. Keyboard: <b>Ctrl+Enter</b> save &amp; next · <b>Ctrl+→</b> skip.</p>
+      </div>
+      <div id="qBox"></div>
+    </section>
+
+    <!-- 05 RECORDS -->
+    <section data-pane="records" class="pane">
+      <h2>Records &amp; evidence</h2>
+      <div class="row filters">
+        <input id="recSearch" placeholder="Search name">
+        <select id="recLabel"><option value="">All labels</option></select>
+        <select id="recCat"><option value="">All categories</option></select>
+      </div>
+      <div class="muted small" id="recCount"></div>
+      <div id="recList" class="list recs"></div>
+      <div id="recDetail" class="detail" hidden></div>
+    </section>
+
+    <!-- 05 VALIDATE -->
+    <section data-pane="validate" class="pane">
+      <h2>Validate accuracy</h2>
+      <p class="lead">Three checks, reported separately so the accuracy of retrieved — and estimated — hours is measured, not assumed.</p>
+      <div class="card">
+        <h3>① Manual audit (stratified random sample)</h3>
+        <p class="hint">Draws unaudited records at random from each source/method. Check each against the place itself (official page, Google Maps listing, a phone call or a site visit) and mark it. Accuracy per method is reported with 95 % Wilson intervals. Incorrect records are removed from the final value; a correction becomes a researcher-verified record.</p>
+        <div class="row"><label class="inl">Records per method <input id="auditN" type="number" value="8" min="1" max="100"></label><button class="btn" id="drawSample">Draw sample</button></div>
+      </div>
+      <div id="auditList"></div>
+      <div class="card">
+        <h3>② Cross-source agreement</h3>
+        <p class="hint">For POIs with two independent sources, the share of the 168 weekly hours on which they agree. Keep “cross-check” on in Settings to collect a second source.</p>
+        <div id="agreeTable"></div>
+      </div>
+      <div class="card">
+        <h3>③ Estimation back-test</h3>
+        <p class="hint">Leave-one-out: hide each POI with known hours, estimate it from same-type peers, compare. This quantifies the bias that estimated hours would introduce into a model.</p>
+        <div id="backtestTable"></div>
+        <div class="row"><button class="btn ghost" id="runEstimate">Generate estimates for missing POIs</button></div>
+        <p class="hint warn">Estimated records stay labelled <span class="lab estimated">estimated</span> and are left out of Explore and exports’ availability profiles unless you tick them in.</p>
+      </div>
+      <h3 class="sec">Audit accuracy</h3>
+      <div id="accTable"></div>
+    </section>
+
+    <!-- 06 EXPLORE -->
+    <section data-pane="explore" class="pane">
+      <h2>Explore availability through the day</h2>
+      <p class="hint">Quick check of the collected data. For maps, GFA and the comparison, <a href="atlas.html?source=collector" data-atlas-link>open the ticked areas in the Atlas →</a></p>
+      <div class="row filters">
+        <select id="exArea"></select>
+        <div class="seg" id="exDay">
+          <button data-v="weekday" class="on">Weekday</button><button data-v="saturday">Sat</button><button data-v="sunday">Sun</button>
+        </div>
+        <div class="seg" id="exMetric">
+          <button data-v="share" class="on">Relative %</button><button data-v="open">Absolute</button>
+        </div>
+      </div>
+      <div class="row chips selectable" id="exLabels"></div>
+      <div class="chartbox"><canvas id="exChart" height="250"></canvas></div>
+      <div class="row hourrow">
+        <label>Hour on map <b id="exHourLbl">20:00</b></label>
+        <input type="range" id="exHour" min="0" max="23" value="20">
+        <button class="btn ghost small" id="exPlay">▶ Play</button>
+      </div>
+      <div id="exTable"></div>
+      <p class="hint" id="exNote"></p>
+    </section>
+
+    <!-- 07 EXPORT -->
+    <section data-pane="export" class="pane">
+      <h2>Export structured data</h2>
+      <div class="row"><select id="expArea"></select></div>
+      <div class="exports">
+        <a class="exp" data-k="pois.csv"><b>POI table</b><span>One row per POI · final hours Mon–Sun · label, source, confidence, agreement</span></a>
+        <a class="exp" data-k="pois.geojson"><b>POI GeoJSON</b><span>Same attributes, opens directly in QGIS</span></a>
+        <a class="exp" data-k="hourly_matrix.csv"><b>Hourly matrix</b><span>POI × day × hour, open = 1 / closed = 0 (open if any part of the hour is open)</span></a>
+        <a class="exp" data-k="availability_profiles.csv"><b>Availability profiles</b><span>Area × category × weekday/Sat/Sun × hour: absolute count and relative share (target Y)</span></a>
+        <a class="exp" data-k="evidence_sources.csv"><b>All evidence</b><span>Every record from every source with URL and quoted text</span></a>
+        <a class="exp" data-k="crawl_attempts.csv"><b>Crawl log</b><span>Every URL tried and why it did or did not yield hours (explains missing data)</span></a>
+        <a class="exp" data-k="audits.csv"><b>Audit results</b><span>Manual verification verdicts and corrections</span></a>
+      </div>
+      <p class="hint">Availability profiles use the labels ticked in Explore (default: verified, observed, retrieved).</p>
+    </section>
+
+    <!-- SETTINGS -->
+    <section data-pane="settings" class="pane on">
+      <h2>Settings</h2>
+      <div class="card">
+        <h3>Network</h3>
+        <p class="hint">If discovery hangs or fails, run this first. In mainland China, OpenStreetMap servers are slow and DuckDuckGo/Google are blocked — turn on your VPN client and put its local proxy address below (Clash default <code>http://127.0.0.1:7890</code>, v2rayN <code>http://127.0.0.1:10809</code>), then save.</p>
+        <div class="row"><button class="btn" id="diagBtn" type="button">Test connections</button><span class="hint" id="diagMsg"></span></div>
+        <div id="diagOut"></div>
+      </div>
+      <form id="settingsForm">
+        <div class="card">
+          <h3>Proxy</h3>
+          <div class="row"><input name="proxy" placeholder="empty = no proxy · e.g. http://127.0.0.1:7890"></div>
+        </div>
+        <div class="card">
+          <h3>Web pages</h3>
+          <label class="chk"><input type="checkbox" name="use_web"> Crawl business websites</label>
+          <label class="chk"><input type="checkbox" name="use_search"> Find websites by web search (no key)</label>
+          <div class="row"><label class="inl">Search engine <select name="search_engine">
+            <option value="auto">Auto: DuckDuckGo, then Bing</option><option value="bing">Bing only (works in China)</option><option value="duckduckgo">DuckDuckGo only</option>
+          </select></label></div>
+          <label class="chk"><input type="checkbox" name="use_wikidata"> Use brand website from Wikidata</label>
+          <div class="row"><label class="inl">Delay per domain <input name="crawl_delay" type="number" step="0.5" min="0.5"> s</label>
+          <label class="inl">Pages per POI <input name="max_pages" type="number" min="1" max="10"></label></div>
+          <p class="hint">robots.txt is respected and the crawler identifies itself as a research bot.</p>
+        </div>
+        <div class="card">
+          <h3>Google Places API <span class="muted">(optional)</span></h3>
+          <label class="chk"><input type="checkbox" name="use_google"> Query Google Places for each POI</label>
+          <div class="row"><input name="google_api_key" placeholder="API key (Places API (New) enabled)" type="password" autocomplete="off"></div>
+          <div class="row"><label class="inl">Max calls per run <input name="google_max_calls" type="number" min="0"></label></div>
+          <p class="hint">Uses Text Search with opening-hours fields. Google bills per call beyond its monthly free usage — check current pricing; the cap stops a run from overspending.</p>
+        </div>
+        <div class="card">
+          <h3>Extraction</h3>
+          <div class="row"><select name="extraction">
+            <option value="hybrid">Hybrid — rules first, AI when rules are unsure</option>
+            <option value="rules">Rules only (no AI)</option>
+            <option value="llm">AI only</option>
+          </select></div>
+          <label class="chk"><input type="checkbox" name="cross_check"> Cross-check: keep collecting a second source after one is found (needed for “verified”)</label>
+        </div>
+        <div class="card">
+          <h3>AI model</h3>
+          <div class="row"><select name="llm_provider" id="llmProvider">
+            <option value="none">None (rules + structured data only)</option>
+            <option value="ollama">Ollama — local model, free</option>
+            <option value="openai">OpenAI-compatible API (Gemini, Groq, DeepSeek, OpenAI…)</option>
+            <option value="anthropic">Anthropic Claude API</option>
+          </select></div>
+          <div class="row presets" id="llmPresets">
+            <span class="hint">Presets:</span>
+            <button type="button" class="link" data-p="ollama">Ollama qwen2.5:7b</button>
+            <button type="button" class="link" data-p="gemini">Gemini (free tier)</button>
+            <button type="button" class="link" data-p="groq">Groq (free tier)</button>
+          </div>
+          <div class="row"><input name="llm_base_url" placeholder="Base URL"></div>
+          <div class="row"><input name="llm_model" placeholder="Model name"></div>
+          <div class="row"><input name="llm_api_key" placeholder="API key (not needed for Ollama)" type="password" autocomplete="off"></div>
+          <div class="row"><button type="button" class="btn ghost" id="llmTest">Test model</button><span id="llmTestOut" class="hint"></span></div>
+          <p class="hint">The model must quote the sentence it used; if the quote is not in the page, the answer is rejected.</p>
+        </div>
+        <div class="row"><button class="btn primary" type="submit">Save settings</button><span id="saveMsg" class="hint"></span></div>
+      </form>
+      <div class="card danger">
+        <h3>Reset</h3>
+        <p class="hint">Deletes all areas, POIs, evidence and audits in the local database.</p>
+        <button class="btn danger" id="resetDb">Reset database</button>
+      </div>
+    </section>
+
+    <!-- bottom dock: job status + the step bar (Back / Next) -->
+    <div class="dock">
+    <div id="job" class="job" hidden>
+      <div class="jobhead"><b id="jobTitle"></b><span><span id="jobCount"></span> <button class="link jobx" id="jobClose" title="Hide">✕</button></span></div>
+      <div class="bar"><span id="jobBar"></span></div>
+      <div class="jobcur" id="jobCur"></div>
+      <details><summary>Log</summary><pre id="jobLog"></pre></details>
+    </div>
+    </div>
+  </div>
+    </aside>
+  </div>
+</main>
+
+<script src="/static/vendor/maplibre-gl.js"></script>
+<script src="/static/vendor/chart.umd.js"></script>
+<script src="/static/app.js?__VER__"></script>
+</body>
+</html>
