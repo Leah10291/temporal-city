@@ -47,7 +47,7 @@ rep('<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;6
 
 # ---------- data source switch under the hero stat
 rep('<span>IN-CATCHMENT POIs · THREE DISTRICTS</span>',
-    '<span>IN-CATCHMENT POIs · THREE DISTRICTS</span><div class="src-switch" id="srcSwitch" hidden><a href="atlas.html?source=sample" data-src="sample">GOOGLE PLACES SAMPLE</a><a href="atlas.html?source=collector" data-src="collector">COLLECTOR DATABASE</a></div>')
+    '<span>IN-CATCHMENT POIs · THREE DISTRICTS</span><div class="src-switch src-cards" id="srcSwitch" hidden><a href="atlas.html?source=sample" data-src="sample"><b>Google Places sample</b><span>Case-study data · the three study areas</span></a><a href="atlas.html?source=collector" data-src="collector"><b>Collector database</b><span>New areas you collect yourself</span></a></div>')
 rep('<main class="wrap">', '<main class="wrap"><div class="src-banner" id="srcBanner" hidden></div>')
 
 # ---------- GFA button
@@ -64,7 +64,8 @@ extra = '''<style>
 .app-links a{color:#6f7f75;text-decoration:none;font-weight:700;letter-spacing:1px;padding:7px 11px;border-radius:999px}
 .app-links a:hover{background:#eef1e8}
 .app-links a.here{background:var(--ink);color:#fff}
-.src-switch{display:inline-flex;margin-top:10px;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+
+.hero-stat .src-switch.src-cards{display:grid!important;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;border:0!important;border-radius:0;overflow:visible;max-width:380px;margin-left:auto}.src-cards[hidden]{display:grid!important}.hero-stat .src-cards a{display:block!important;text-align:left;padding:10px 12px!important;border:1px solid var(--tc-line,#dcdee2)!important;border-radius:12px;background:transparent!important;color:var(--tc-ink-2,#5b6577)!important;opacity:.7;transition:transform .2s,box-shadow .2s,opacity .2s,background .2s;letter-spacing:0!important;font:400 11px/1.4 var(--tc-body,"DM Sans",sans-serif)!important}.hero-stat .src-cards a b{display:block;font:700 13px/1.25 var(--tc-display,Manrope,sans-serif)!important;letter-spacing:-.01em!important;color:inherit!important;margin:0 0 3px}.hero-stat .src-cards a span{display:block;font:400 11px/1.35 var(--tc-body,"DM Sans",sans-serif)!important;letter-spacing:0!important;color:inherit!important;opacity:.85;margin:0}.hero-stat .src-cards a:hover{opacity:1}.hero-stat .src-cards a.on{background:var(--tc-ink,#1a2439)!important;border-color:var(--tc-ink,#1a2439)!important;color:var(--tc-paper,#fff)!important;opacity:1;transform:scale(1.04);box-shadow:0 8px 22px rgba(20,30,60,.18)}html .hero-stat .src-cards a.on b,html.tc-night .hero-stat .src-cards a.on b,html.tc-twilight .hero-stat .src-cards a.on b{color:var(--tc-paper,#fff)!important}html.tc-night .hero-stat .src-cards a:not(.on) b,html.tc-twilight .hero-stat .src-cards a:not(.on) b{color:var(--tc-ink-2,#c9cde0)!important}@media(max-width:650px){.hero-stat .src-switch.src-cards{margin-left:0}}.src-switch{display:inline-flex;margin-top:10px;border:1px solid var(--line);border-radius:999px;overflow:hidden}
 .src-switch a{font-size:9px;font-weight:700;letter-spacing:1px;padding:6px 10px;color:#6f7f75;text-decoration:none}
 .src-switch a.on{background:var(--ink);color:#fff}
 .src-banner{margin:0 0 14px;padding:10px 14px;background:#fbf3e2;border-left:3px solid var(--accent);font-size:12px;color:#5f5232;line-height:1.6}

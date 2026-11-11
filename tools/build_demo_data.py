@@ -56,7 +56,14 @@ def main():
                               "VALUES(?,?,?,?,?,?,?,?)",
                               (c["name"], "circle", c["lat"], c["lon"], c["radius"], now, now,
                                json.dumps({"source": "Google Places sample"})))
-    for p in sample():
+    from collections import Counter
+    smp = sample()
+    for c in appmod.CASE_STUDIES:  # discovery summary shown in step 02, from the sample itself
+        rows = [p for p in smp if p["d"] == c["name"]]
+        db.x("UPDATE areas SET discovery_stats=? WHERE id=?",
+             (json.dumps({"raw": len(rows), "non_functional": 0, "kept": len(rows), "with_osm_hours": 0,
+                          "by_category": dict(Counter(p["c"] for p in rows)), "source": "Google Places sample"}), ids[c["name"]]))
+    for p in smp:
         db.x("INSERT OR REPLACE INTO pois(id,name,lat,lon,category,subtype,tags,discovered_at,retrieved_at) "
              "VALUES(?,?,?,?,?,?,?,?,?)",
              (p["id"], p["n"], p["lat"], p["lng"], p["c"], p.get("type") or "", "{}", now, now))

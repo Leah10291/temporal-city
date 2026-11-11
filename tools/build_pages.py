@@ -49,6 +49,8 @@ def rel_paths(html: str) -> str:
     html = re.sub(r'(["\'(])/static/', r'\1static/', html)
     # the Collector link opens the walkthrough instead of the "run the local app" note
     html = html.replace('href="collector.html" data-needs-app', 'href="collector.html"')
+    # Atlas: Collector data needs the local server, so on the public site that button explains instead
+    html = html.replace('data-src="collector">', 'data-src="collector" data-needs-app>')
     return html
 
 

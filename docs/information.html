@@ -139,13 +139,23 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 .ax-ai::before{display:none}
 .ax-ai::after{left:14px;top:-6px;width:11px;height:11px;background:linear-gradient(135deg,#a963f1,#ff9659)}
 .ax-future{background:var(--card);border:1px dashed #c79be6}
-.ai-use{margin:22px 0 14px;padding-top:16px;border-top:1px solid var(--line)}
-.ai-use-title{font:700 12px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
-.ai-use-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
-.ai-use .k{font:500 12px var(--f-mono);color:var(--ink);display:flex;align-items:center;gap:6px;margin-bottom:6px}
-.ai-use p{margin:0;font-size:14px;line-height:1.65;color:var(--ink-2)}
+.ai-use{margin:26px 0 22px;padding-top:18px;border-top:1px solid var(--line)}
+.ai-use-title{font:700 11px var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.ai-use-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ai-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.ai-card-future{border-style:dashed}
+.ai-tag{display:flex;align-items:center;gap:6px;font:500 11px var(--f-mono);color:var(--muted)}
+.ai-card h4{font:800 17px var(--f-display);letter-spacing:-.02em;margin:6px 0 6px}
+.ai-card p{margin:0;font-size:13.5px;line-height:1.6;color:var(--ink-2)}
+.ai-guard{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.ai-guard li{border-top:2px solid var(--ink);padding-top:8px}
+.ai-guard b{display:block;font:700 13px var(--f-display);margin-bottom:3px}
+.ai-guard span{display:block;font-size:12.5px;line-height:1.5;color:var(--muted)}
+.formula-pair{display:grid;grid-template-columns:auto auto 1fr;gap:4px 12px;white-space:normal;font-size:13px}
+@media (max-width:1000px){.ai-guard{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.formula-pair{grid-template-columns:minmax(0,1fr)}.formula-pair span:nth-child(3n+2){display:none}.formula-pair span:nth-child(3n+3){margin-bottom:6px}}
 @media (max-width:1000px){.ax{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:22px}}
-@media (max-width:760px){.ai-use-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px){.ai-use-grid,.ai-guard{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:560px){.ax{grid-template-columns:minmax(0,1fr)}}
 /* Method: X, Y and X×Y as the section's spine, kept quiet */
 .part{display:flex;gap:10px;align-items:baseline;margin:40px 0 8px;padding-top:22px;border-top:1px solid var(--line)}
@@ -337,21 +347,32 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     <div class="ax-step ax-ai ax-future" role="listitem"><span class="k">06 · Future <span class="ai">AI</span></span><h4>Predict and compare</h4><p>From land-use mix to 24-hour profiles.</p></div>
   </div>
   <div class="ai-use">
-    <h4 class="ai-use-title" id="ai-use">How AI is used in steps 03 and 06</h4>
+    <h4 class="ai-use-title" id="ai-use">How AI is used</h4>
     <div class="ai-use-grid">
-      <div><span class="k">03 · Read the hours <span class="ai">AI</span></span><p>Websites write hours as sentences, tables or unusual expressions, such as “Mon–Fri 9am to 6pm; closed at weekends”, and rules read only common formats. The model reads the passage with the place's name and address, picks the right branch, returns a 7-day, 24-hour schedule as JSON and quotes the sentence it used. It runs only where rules cannot read the wording.</p></div>
-      <div><span class="k">06 · Predict and compare <span class="ai">AI</span> · future</span><p>A model would learn how land-use mix relates to 24-hour availability across many catchments, checked against a regression baseline, so planners can compare 2–3 candidate mixes. Three areas are too few to train it, and the data must first be complete and validated.</p></div>
+      <article class="ai-card">
+        <span class="ai-tag">Step 03 · in use <span class="ai">AI</span></span>
+        <h4>Read the hours</h4>
+        <p>Websites write hours as sentences or tables (“Mon–Fri 9am to 6pm; closed at weekends”) that rules cannot always read. The model gets the passage with the place's name and address, picks the right branch and returns a 7-day, 24-hour schedule as JSON, quoting the sentence it used. It runs only where rules fail.</p>
+      </article>
+      <article class="ai-card ai-card-future">
+        <span class="ai-tag">Step 06 · future <span class="ai">AI</span></span>
+        <h4>Predict and compare</h4>
+        <p>A model would learn how land-use mix relates to 24-hour availability across many catchments, checked against a regression baseline, so planners can compare 2–3 candidate mixes. Three areas are too few to train it; the data must first be complete and validated.</p>
+      </article>
     </div>
+    <ul class="ai-guard">
+      <li><b>Checked quote</b><span>The quoted sentence must be in the page, or the result is rejected.</span></li>
+      <li><b>Ranked last among sources</b><span>Below Google Places and OSM, above rule parsing; missing hours get a guided Google check by hand.</span></li>
+      <li><b>Repeatable</b><span>Temperature 0; any model can be used (Ollama, Gemini, Groq, DeepSeek, OpenAI, Claude).</span></li>
+      <li><b>Only trusted labels analysed</b><span><i>verified</i>, <i>observed</i> and <i>retrieved</i> hours; conflicting and estimated hours are left out.</span></li>
+    </ul>
   </div>
-  <p class="muted small">The model runs at temperature 0 and is interchangeable (Ollama, Gemini, Groq, DeepSeek, OpenAI, Claude). AI values rank below Google Places and OSM, above rule parsing. Hours still missing get a guided Google check by hand. Only <b>verified</b> (two sources agree on ≥ 90% of the 168 weekly hours, or a researcher confirmed), <b>observed</b> (OSM) and <b>retrieved</b> (one source) hours are analysed; conflicting and estimated hours are left out.</p>
 
   <h3>Y2 · From opening hours to hourly states</h3>
-  <p>Each schedule becomes a 7 × 24 grid of open, closed or unknown. An hour counts as open if the place is open for <b>any part of it</b> (11:30 fills the 11:00 slot); past-midnight hours carry into the next day.</p>
-  <p class="muted small">The mid-term version checked only the instant h:00; the change keeps half-hour openings and moves daytime figures by a few points.</p>
+  <p>Each schedule becomes a 7 × 24 grid of open, closed or unknown. An hour counts as open if the place is open for <b>any part of it</b> (11:30 fills the 11:00 slot), so half-hour openings are kept; past-midnight hours carry into the next day.</p>
 
   <h3>Y3 · Availability</h3>
-  <div class="formula">Relative availability(h) = open POIs at h ÷ POIs with usable opening hours</div>
-  <div class="formula">Absolute availability(h) = number of POIs open at h</div>
+  <div class="formula formula-pair"><span>Relative availability(h)</span><span>=</span><span>open POIs at h ÷ POIs with usable opening hours</span><span>Absolute availability(h)</span><span>=</span><span>number of POIs open at h</span></div>
   <p>Reported by area and category for <b>weekdays</b> (Monday–Friday average), <b>Saturday</b> and <b>Sunday</b>. Places without hours are left out of the denominator, never counted as closed. <b>Functional diversity</b> applies the entropy formula to the six categories open each hour. Summary windows: daytime 09:00–18:00, late night 22:00–05:00.</p>
 
   <div class="part"><span class="part-letter part-xy">X×Y</span><div><h3>Preliminary findings</h3><p>Mix ≠ night-time availability</p></div></div>
