@@ -4,7 +4,13 @@
 
 Mixed-use planning records which land uses sit together, but not when their amenities are available. An area that looks mixed on the map can offer far less after dark. Temporal City adds the time dimension: it builds hour-by-hour opening data for every amenity in a study area and compares that 24-hour availability with the area's land-use composition.
 
-**Live site:** https://temporal-city-nus.github.io/temporal-city/
+## Three ways to use it
+
+| Version | Address | What works |
+|---|---|---|
+| **Public site** (GitHub Pages) | https://temporal-city-nus.github.io/temporal-city/ | All four pages. The Collector runs in your browser: any area via OpenStreetMap, Google Places with your own key, and the three case areas from the project's sample. No website reading or AI. |
+| **Full online Collector** (Render) | https://temporal-city.onrender.com/collector.html | The complete app, as in the local version: business websites, the AI reader, the Atlas on your own areas. Free server: it sleeps when idle and takes about a minute to wake. |
+| **Local app** | `py app.py` → http://127.0.0.1:8765 | Everything, with your data and keys kept on your computer. |
 
 The site has four pages:
 
@@ -25,7 +31,7 @@ All pages share a day/night switch (Auto follows the hour shown on the page).
 |---|---|---|
 | Amenities and opening hours, three case areas | Google Places API (595 places, 466 with opening hours) | Story and the Atlas sample |
 | Amenities in any other area | OpenStreetMap (Overpass API) | Collector |
-| Opening hours in any other area | OSM tags, Google Places (with the user's own key), business websites | Collector |
+| Opening hours in any other area | OSM tags, Google Places (with the user's own key), business websites (full online / local versions) | Collector |
 | Land use and gross plot ratio | URA Master Plan 2019 (case areas), Master Plan 2025 (other areas) | Land-use mix, GFA |
 | Station locations | LTA station exits | Study-area catchments |
 
@@ -53,6 +59,8 @@ Safeguards:
 - It runs at temperature 0. AI results rank below Google Places and OSM and above rule parsing.
 - Every value keeps its source, link, evidence text and a quality label (below).
 - The model is interchangeable: Ollama (local, free), any OpenAI-compatible API (Gemini, Groq, DeepSeek, OpenAI) or Anthropic Claude. Without a model, only structured data and rules are used.
+
+The AI reader runs in the full online version and the local app; the public GitHub Pages site cannot fetch other websites, so it has no AI step.
 
 A future step, not yet built, would use AI to predict 24-hour availability from land-use mix across many catchments. Three areas are too few to train or test such a model.
 
@@ -94,39 +102,60 @@ py app.py
 
 Then open http://127.0.0.1:8765 (or double-click `start.bat` on Windows). Data is stored in `data/temporal_city.db`. API keys are entered in the Collector's Setup step and stay on your computer.
 
-**Collector steps:** 00 Setup (Google key, AI model, proxy, connection test) → 01 Area → 02 Discover → 03 Hours → 04 Review → 05 Explore → 06 Export (CSV, GeoJSON, or open the areas in the Atlas). In the Atlas, switch the data source to **Collector database** to analyse your own areas; up to eight can be compared.
+**Collector steps:** 00 Setup (Google key, AI model, proxy, connection test) → 01 Area → 02 Discover → 03 Hours (automatic retrieval, then Google check by hand) → 04 Review (records, validate accuracy) → 05 Explore → 06 Export (CSV, GeoJSON, or open the areas in the Atlas).
+
+**Atlas data source:** two cards at the top right. **Google Places sample** is the case-study data for the three study areas and the basis of the project's findings; **Collector database** analyses new areas you collected yourself, up to eight at once (local app or full online version only).
 
 **Exports:** `pois.csv` / `pois.geojson`, `hourly_matrix.csv`, `availability_profiles.csv`, `evidence_sources.csv`, `crawl_attempts.csv`, `audits.csv`.
 
 ---
 
-## Publishing the site
+## Publishing
 
-`docs/` is the static build served by GitHub Pages (Settings → Pages → main, `/docs`). After editing anything in `static/`, rebuild it:
+### Public site (GitHub Pages)
+
+`docs/` is the static build served by GitHub Pages (Settings → Pages → main, `/docs`). After editing anything in `static/`, rebuild it and upload `docs/` with the changed files:
 
 ```
 py tools/build_pages.py
 ```
 
-GitHub Pages cannot run the Python server, so on the public site the same Collector runs in the visitor's browser (`static/web-collector.js`, a port of the Python rules): any area can be discovered from OpenStreetMap and its hours read from OSM tags and, with the visitor's own key, Google Places; the three case areas load the project's Google Places sample. Reading business websites with AI needs the local app, because browsers cannot fetch other websites. Data stays in the visitor's browser. `render.yaml` and `Dockerfile` can also deploy the server version to Render.
+GitHub Pages cannot run the Python server, so there the same Collector runs in the visitor's browser (`static/web-collector.js`, a port of the Python rules). Data stays in the visitor's browser. Each build gives scripts a new version number, so browsers load the new files.
+
+### Full online Collector (Render)
+
+`render.yaml` and `Dockerfile` deploy the Python app to Render's free plan as a Blueprint from this public repository. `TC_PUBLIC_DEMO=0` runs the full Collector; set it to `1` for a read-only copy.
+
+- Render does not redeploy automatically from this repository: after uploading changes to GitHub, open the service on Render and choose **Manual Deploy → Deploy latest commit**.
+- The free instance sleeps after about 15 minutes without visitors; the first request then takes about a minute.
+- All visitors share one server: areas, data and any API key entered in 00 Setup are visible to the next visitor and are lost when the server restarts. Use a free-tier key (for example Gemini) and remove it after use. Ollama (a local model) is not available there.
 
 ---
 
 ## Limitations
 
-In brief (full list on the Information page):
+In brief (full table on the Information page, section 06):
 
-- **AI:** it can misread branches or past-midnight rules; the quote check proves the sentence exists, not that it was read correctly. Its accuracy at scale is not yet measured, and it cannot read hours shown in images, PDFs or JavaScript-built pages.
-- **Data:** small operators and hawkers are under-recorded; opening hours describe scheduled availability, not actual use; holidays are not modelled.
+**A · The AI approach**
+- **Misreading:** the model can pick the wrong branch or miss past-midnight and holiday rules; the quote check proves the sentence exists, not that it was read correctly.
+- **Accuracy not yet measured:** the case-area sample relies mostly on Google, so the AI path is untested at scale, and its confidence is a fixed score.
+- **What it can read:** hours in images, PDF menus or JavaScript pages are missed; third-party pages can be outdated.
+- **Future model not built:** three catchments cannot train or test a predictive model.
+
+**B · Data, method and scope**
+- **Coverage and accuracy:** small operators and hawkers are under-recorded; no independent audit yet.
+- **Scheduled, not actual use:** holidays and temporary closures are not modelled; open does not mean busy.
+- **Land use and GFA:** main planned use only; GFA from numeric plot ratios; MP2019 for case areas, MP2025 for new areas.
+- **Google data terms:** the case-area sample is shown for non-commercial research only. Places data © Google.
 - **Scope:** three Central Area catchments show an association, not a cause.
-- **Google data:** the case-area sample comes from the Google Places API and is shown for non-commercial research only. Places data © Google.
 
 ---
 
 ## Repository structure
 
 ```
-app.py                  Local server: pages, Collector API, background jobs
+app.py                  Server for the local app and Render: pages, Collector API, background jobs
+Dockerfile, render.yaml  Render deployment
 core/discovery.py       OpenStreetMap queries and the six amenity categories
 core/crawler.py         Web search, page fetching, schema.org parsing, text extraction
 core/llm.py             AI extraction and the quote check
@@ -137,7 +166,7 @@ core/analysis.py        Availability, coverage and validation statistics
 core/landuse.py         Land-use mix and GFA from the URA Master Plan
 core/atlas_bridge.py    Feeds Collector data into the Atlas
 core/export.py          CSV / GeoJSON export
-static/                 The four pages (local version)
+static/                 The four pages (local and Render version); web-collector.js runs the Collector in the browser
 docs/                   Static build for GitHub Pages
 tools/                  Build scripts for the Atlas, land use and the public site
 tests/                  Unit tests
