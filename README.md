@@ -128,7 +128,7 @@ GitHub Pages cannot run the Python server, so there the same Collector runs in t
 
 - Render does not redeploy automatically from this repository: after uploading changes to GitHub, open the service on Render and choose **Manual Deploy → Deploy latest commit**.
 - The free instance sleeps after about 15 minutes without visitors; the first request then takes about a minute.
-- All visitors share one server: areas, data and any API key entered in 00 Setup are visible to the next visitor and are lost when the server restarts. Use a free-tier key (for example Gemini) and remove it after use. Ollama (a local model) is not available there.
+- All visitors share one server: the areas and data are visible to every visitor and are lost when the server restarts. An API key entered in 00 Setup is shown only as its last four characters, but every visitor's runs use it until it is removed or the server restarts. Use a free-tier key (for example Gemini) and remove it after use. Ollama needs a model on your own computer, so online use a cloud model (Gemini, Groq, DeepSeek, OpenAI or Claude).
 
 ---
 
