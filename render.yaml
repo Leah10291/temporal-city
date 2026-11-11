@@ -5,4 +5,4 @@ services:
     plan: free
     envVars:
       - key: TC_PUBLIC_DEMO
-        value: "1"
+        value: "0"   # 0 = full Collector online; 1 = read-only
