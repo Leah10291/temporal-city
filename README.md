@@ -66,7 +66,7 @@ Results are reported for weekdays (Mon–Fri average), Saturday and Sunday, by a
 | Version | Where | Notes |
 |---|---|---|
 | **Browser version** | the website's `collector.html` | Data and keys stay in your browser. Any area via OSM; Google with your key. Websites + AI through the online server when **00 Setup → Online server** is ticked; or paste text in **03 → Google check** for the AI to read. |
-| **Full online version** | Render | The complete server app. Shared by all visitors; data is cleared when the server restarts. |
+| **Full online version** | Render | The complete server app. Shared by all visitors; data is cleared when the server restarts. The browser version can use this server for websites + AI through the switch **00 Setup → Online server**: on by default, untick it to work without the server. |
 | **Local app** | your computer | The complete app, private to you. |
 
 Collector steps: **00 Setup → 01 Area → 02 Discover → 03 Hours → 04 Review → 05 Explore → 06 Export** (CSV, GeoJSON).
