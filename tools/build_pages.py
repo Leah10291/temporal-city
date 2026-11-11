@@ -6,8 +6,9 @@ What is published
   index.html        Story          (same page as the local app)
   atlas.html        Atlas          (Google Places sample for the three case areas, fully interactive)
   information.html  Information    (method, AI, limitations; portraits as static images)
-  collector.html    the real Collector in read-only mode: static/demo-api.js answers its API calls from
-                    the Google Places sample of the three case areas (tools/build_demo_data.py).
+  collector.html    the real Collector, running in the browser: static/web-collector.js answers its API calls
+                    (any area via OpenStreetMap, Google Places with the visitor's key; the three case areas
+                    from the project's Google Places sample, tools/build_demo_data.py).
 
 The footer of every page links to the GitHub repository. The address is worked out in the browser
 from the Pages URL (https://USER.github.io/REPO/ -> https://github.com/USER/REPO), so nothing needs
@@ -25,6 +26,9 @@ OUT = os.path.join(ROOT, "docs")
 SHOTS = os.path.join(ROOT, "tools", "pages_shots")
 
 VERSION = re.search(r'VERSION\s*=\s*"([^"]+)"', open(os.path.join(ROOT, "app.py"), encoding="utf-8").read()).group(1)
+# a new value on every build, so browsers fetch the new scripts and styles instead of cached ones
+import time as _time
+VERSION = f"{VERSION}-{_time.strftime('%Y%m%d%H%M')}"
 
 REPO_JS = """/* Footer link to the GitHub repository, derived from the GitHub Pages address. */
 (function () {
@@ -47,6 +51,7 @@ def rel_paths(html: str) -> str:
     html = html.replace("__VER__", VERSION)
     html = html.replace('https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.js', 'static/vendor/maplibre-gl.js')
     html = re.sub(r'(["\'(])/static/', r'\1static/', html)
+    html = re.sub(r'(static/[\w./-]+\.(?:js|css))\?v[\w-]*"', r'\1?' + VERSION + '"', html)
     # the Collector link opens the walkthrough instead of the "run the local app" note
     html = html.replace('href="collector.html" data-needs-app', 'href="collector.html"')
     # Atlas: Collector data needs the local server, so on the public site that button explains instead
@@ -175,7 +180,7 @@ def main():
                 s = re.sub(r'(["\'(])/static/', r'\1static/', s).replace('collector.html#settings" data-needs-app', 'collector.html"')
                 if name == "app.js":  # exports are pre-generated files on the public site
                     s = s.replace("window.location = `/export/${a.dataset.k}?${qs}`;",
-                                  "window.location = `export/${aid && ['pois.csv', 'pois.geojson'].includes(a.dataset.k) ? 'a' + aid + '_' : ''}${a.dataset.k}`;")
+                                  "if (window.TC_WEB_EXPORT) return TC_WEB_EXPORT(a.dataset.k, aid, [...S.exLabels]); window.location = `/export/${a.dataset.k}?${qs}`;")
                 open(os.path.join(OUT, "static", name), "w", encoding="utf-8").write(s)
             else:
                 shutil.copy2(p, os.path.join(OUT, "static", name))
@@ -186,9 +191,9 @@ def main():
     for name in ("index.html", "atlas.html", "information.html"):
         pages[name] = rel_paths(open(os.path.join(STATIC, name), encoding="utf-8").read())
     pages["information.html"] = information(pages["information.html"], pics)
-    # the real Collector, read-only: demo-api.js answers its API calls from the case-area sample
+    # the real Collector running in the browser: web-collector.js answers its API calls (any area via OSM / Google)
     coll = rel_paths(open(os.path.join(STATIC, "collector.html"), encoding="utf-8").read())
-    coll = coll.replace('<script src="static/daynight.js', '<script src="static/demo-api.js?' + VERSION + '"></script>\n<script src="static/daynight.js', 1)
+    coll = coll.replace('<script src="static/daynight.js', '<script src="static/web-collector.js?' + VERSION + '"></script>\n<script src="static/daynight.js', 1)
     pages["collector.html"] = coll
     import subprocess, sys
     subprocess.run([sys.executable, "-I", os.path.join(ROOT, "tools", "build_demo_data.py")], check=True)

@@ -823,3 +823,14 @@ html.tc-twilight :is(.to-atlas,.btn.ghost.fi-back){background:var(--tc-dusk-card
 html.tc-twilight :is(#exLabels,.chip.off,#exPlay,.seg button:not(.on),.map-overlay){background:var(--tc-dusk-card)!important;border-color:var(--tc-dusk-line)!important;color:var(--ink-2)!important}
 html.tc-twilight .map-overlay :is(b,.eyebrow){color:var(--ink)!important}
 html.tc-twilight #mapwrap{background:var(--tc-dusk-card)!important}
+
+/* phones: Collector and Atlas headers — page links get their own row under the logo, so the fixed
+   day/night switch (top right) never covers them; the section tabs follow on the next row */
+@media(max-width:680px){
+  header.top{display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;
+    grid-template-areas:"brand ." "links links" "nav nav"!important;padding-right:16px!important;row-gap:0}
+  header.top .brand{grid-area:brand!important;display:flex;align-items:center;min-height:54px}
+  header.top :is(.app-links,.right-top){grid-area:links!important;justify-self:start!important;max-width:100%;
+    margin:0 0 8px!important;overflow-x:auto;scrollbar-width:none}
+  header.top .nav{grid-area:nav!important;max-width:100%;overflow-x:auto;scrollbar-width:none}
+}

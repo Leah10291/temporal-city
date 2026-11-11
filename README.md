@@ -108,7 +108,7 @@ Then open http://127.0.0.1:8765 (or double-click `start.bat` on Windows). Data i
 py tools/build_pages.py
 ```
 
-GitHub Pages cannot run the Python server, so the public Collector is the real interface in read-only mode: `static/demo-api.js` answers its requests from the Google Places sample of the three case areas (built by `tools/build_demo_data.py`), and exports are pre-generated in `docs/export/`. Collecting new data needs the local app. `render.yaml` and `Dockerfile` can also deploy a read-only server version to Render.
+GitHub Pages cannot run the Python server, so on the public site the same Collector runs in the visitor's browser (`static/web-collector.js`, a port of the Python rules): any area can be discovered from OpenStreetMap and its hours read from OSM tags and, with the visitor's own key, Google Places; the three case areas load the project's Google Places sample. Reading business websites with AI needs the local app, because browsers cannot fetch other websites. Data stays in the visitor's browser. `render.yaml` and `Dockerfile` can also deploy the server version to Render.
 
 ---
 

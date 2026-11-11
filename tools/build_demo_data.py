@@ -3,8 +3,7 @@
 Builds a throw-away database from the Google Places sample of the three case areas (the same 595
 places the Story and Atlas use), runs the normal reconcile step so every place gets its usual quality
 label, then asks the real Flask app for every read-only response the Collector needs. The answers are
-saved to docs/static/demo/data.json; docs/static/demo-api.js answers the Collector's API calls from it.
-Exports are pre-generated under docs/export/.
+saved to docs/static/demo/data.json; docs/static/web-collector.js uses it for the three case areas.
 
     py tools/build_demo_data.py        (build_pages.py runs it automatically)
 """
@@ -104,13 +103,6 @@ def main():
     with open(os.path.join(OUT, "static", "demo", "data.json"), "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
 
-    exp = os.path.join(OUT, "export")
-    os.makedirs(exp, exist_ok=True)
-    for k in EXPORTS:  # whole sample
-        open(os.path.join(exp, k), "wb").write(c.get(f"/export/{k}").data)
-    for aid in [a["id"] for a in areas]:  # per study area, where the export depends on it
-        for k in PER_AREA:
-            open(os.path.join(exp, f"a{aid}_{k}"), "wb").write(c.get(f"/export/{k}?area_id={aid}").data)
     size = os.path.getsize(os.path.join(OUT, "static", "demo", "data.json"))
     labels = {}
     for r in pois:
