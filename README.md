@@ -5,7 +5,8 @@
 Mixed-use planning records which land uses sit together, not when their amenities are available. Temporal City builds hour-by-hour opening data for every amenity in an area and compares that 24-hour availability with the area's land-use mix.
 
 - **Website:** https://temporal-city-nus.github.io/temporal-city/
-- **Full Collector (online server):** https://temporal-city.onrender.com/collector.html (free server; may take about a minute to wake up)
+- **Collector (browser version):** https://temporal-city-nus.github.io/temporal-city/collector.html (data and keys stay in your browser; turn on *00 Setup → Online server* to read business websites with AI)
+- **Collector (server version):** https://temporal-city.onrender.com/collector.html (runs entirely on the free server, which may take about a minute to wake up; data is shared and may reset when the server restarts)
 
 ## Pages
 
