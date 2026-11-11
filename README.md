@@ -16,25 +16,60 @@ Mixed-use planning records which land uses sit together, not when their amenitie
 | **Atlas** | Maps and comparisons: hourly heat, 3D and GFA layers, and six research questions answered from the data. |
 | **Information** | Research question, method, data, limitations and references. |
 
+All pages share a day/night switch; **Auto** follows the hour shown on the page.
+
 ## Data
 
-- **Three case areas** (400 m around Bencoolen, Tanjong Pagar and Promenade MRT): Google Places sample, 595 places, 466 with opening hours.
-- **Any other area:** amenities from OpenStreetMap; opening hours from OSM, Google Places (your own key) and business websites.
-- **Land use and plot ratio:** URA Master Plan 2019 (case areas) and 2025 (other areas).
+| Data | Source | Used for |
+|---|---|---|
+| Amenities and hours, three case areas | Google Places sample: 595 places, 466 with hours | Story, Atlas |
+| Amenities, any other area | OpenStreetMap (Overpass API) | Collector |
+| Opening hours, any other area | OSM tags, Google Places (your own key), business websites | Collector |
+| Land use and plot ratio | URA Master Plan 2019 (case areas), 2025 (other areas) | Land-use mix, GFA |
+| Station locations | LTA station exits | Study areas |
+
+The case areas are 400 m catchments around Bencoolen, Tanjong Pagar and Promenade MRT stations.
 
 ## How AI is used
 
-AI turns opening hours written as free text on websites ("Mon–Fri 9am to 6pm; closed at weekends") into a structured 7 × 24 weekly schedule. It is used only where OSM, Google and simple rules cannot read the text. The model must quote the sentence it used; if the quote is not on the page, the result is rejected. Any model can be chosen in **00 Setup** (Gemini, Groq, DeepSeek, OpenAI, Claude, or Ollama locally).
+AI turns opening hours written as free text on websites ("Mon–Fri 9am to 6pm; closed at weekends") into a structured 7 × 24 weekly schedule. The Collector tries sources in this order and uses AI only where the earlier ones cannot read the text:
 
-Every result keeps its source, link and evidence, and gets a quality label: **verified** (two sources agree), **observed** (OSM), **retrieved** (one source), **conflict**, **estimated** or **missing**. Only the first three are analysed.
+1. OpenStreetMap `opening_hours` tag
+2. Google Places API (if a key is set)
+3. Business website: schema.org data → rules → **AI model**
 
-## Using the Collector
+The model must quote the sentence it used; if the quote is not on the page, the result is rejected. It runs at temperature 0 and ranks below Google and OSM. Any model can be chosen in **00 Setup**: Gemini, Groq, DeepSeek, OpenAI, Claude, or Ollama on your own computer.
 
-The Collector on the website runs in your browser and keeps your data and keys there. Steps: **00 Setup → 01 Area → 02 Discover → 03 Hours → 04 Review → 05 Explore → 06 Export**.
+## Quality labels
 
-- With **00 Setup → Online server** ticked, business websites are read by the project's server on Render and your AI model; your key is sent with each request and not stored.
-- You can also paste opening-hours text in **03 → Google check**, and the AI reads it.
-- The full online version (link above) and the local app run the same Collector on a server.
+| Label | Meaning | Analysed |
+|---|---|---|
+| `verified` | Two independent sources agree on ≥ 90% of the 168 weekly hours, or a researcher confirmed it | yes |
+| `observed` | OSM tag only | yes |
+| `retrieved` | One website or Google source | yes |
+| `conflict` | Sources disagree | no |
+| `estimated` | Inferred from similar places | no |
+| `missing` | Nothing found | no |
+
+## Measures
+
+- **Open in hour h:** open for any part of that hour; past-midnight hours carry into the next day.
+- **Relative availability(h)** = open places at h ÷ places with usable hours
+- **Absolute availability(h)** = number of places open at h
+- **Land-use mix (H)** = − Σ pᵢ ln pᵢ ÷ ln 6, over six planning classes (0 = one class, 1 = even mix)
+- **GFA** = parcel area inside the study area × numeric plot ratio
+
+Results are reported for weekdays (Mon–Fri average), Saturday and Sunday, by area and by six amenity categories. Places without usable hours are left out of the denominator, not counted as closed.
+
+## Three ways to run the Collector
+
+| Version | Where | Notes |
+|---|---|---|
+| **Browser version** | the website's `collector.html` | Data and keys stay in your browser. Any area via OSM; Google with your key. Websites + AI through the online server when **00 Setup → Online server** is ticked; or paste text in **03 → Google check** for the AI to read. |
+| **Full online version** | Render | The complete server app. Shared by all visitors; data is cleared when the server restarts. |
+| **Local app** | your computer | The complete app, private to you. |
+
+Collector steps: **00 Setup → 01 Area → 02 Discover → 03 Hours → 04 Review → 05 Explore → 06 Export** (CSV, GeoJSON).
 
 ## Run locally
 
@@ -43,20 +78,50 @@ py -m pip install -r requirements.txt
 py app.py
 ```
 
-Open http://127.0.0.1:8765. Data stays in `data/temporal_city.db` on your computer.
+Open http://127.0.0.1:8765 (or double-click `start.bat`). Data is saved in `data/temporal_city.db`; keys entered in Setup stay on your computer.
 
-## Update the website
+## Deployment
 
-- **GitHub Pages:** after changing files in `static/`, run `py tools/build_pages.py` and upload the project (the site is served from `docs/`).
-- **Render:** after uploading to GitHub, open the service on Render and choose **Manual Deploy → Deploy latest commit**.
+**GitHub Pages** (the website) is served from `docs/`. After changing files in `static/`:
+
+```
+py tools/build_pages.py
+```
+
+then upload the project to GitHub. Pages updates in 1–2 minutes.
+
+**Render** (full online version) uses `render.yaml` and `Dockerfile`. After uploading to GitHub, open the service on Render and choose **Manual Deploy → Deploy latest commit**.
+
+| Environment variable | Meaning |
+|---|---|
+| `TC_PUBLIC_DEMO` | `0` = full Collector (current), `1` = read-only |
+| `TC_WEB_ORIGINS` | Sites allowed to ask the server to read websites (default: the GitHub Pages site) |
+| `TC_DB` | Path of the database file (default `data/temporal_city.db`) |
+| `PORT` | Server port (set by Render) |
+
+On Render, an API key saved in Setup is used by every visitor until removed; prefer the browser version, which sends your key with each request only.
+
+## Repository structure
+
+```
+app.py               server: pages, Collector API, background jobs
+core/                discovery (OSM), hours parsing, website crawler, AI reader, Google Places,
+                     quality labels, availability analysis, land use / GFA, exports
+static/              the four pages; web-collector.js runs the Collector in the browser
+docs/                built website for GitHub Pages
+tools/               build scripts for the website, the Atlas and land use
+data/                station list, simplified Master Plan 2025, local database
+tests/               unit tests
+Dockerfile, render.yaml   Render deployment
+```
 
 ## Limitations
 
-- The AI can misread text, and its accuracy has not yet been measured on a large sample.
-- Hours in images, PDFs or JavaScript-built pages cannot be read; web search sometimes finds the wrong pages (these are rejected).
-- Small shops and hawkers are under-recorded; opening hours are not the same as actual use.
-- Three Central Area catchments show an association, not a cause.
-- The case-area sample comes from Google Places and is used for non-commercial research only.
+- **AI:** can misread text; accuracy not yet measured on a large sample; cannot read hours in images, PDFs or JavaScript pages.
+- **Web search** sometimes finds the wrong pages; they are rejected when the place's name is not on the page.
+- **Data:** small shops and hawkers are under-recorded; opening hours are not the same as actual use; holidays are not modelled.
+- **Scope:** three Central Area catchments show an association, not a cause.
+- **Google data:** the case-area sample is used for non-commercial research only.
 
 The full list is on the Information page.
 
