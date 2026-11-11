@@ -210,7 +210,7 @@ def author_avatar(slug):
 @app.before_request
 def _read_only_demo():
     """On a public URL, visitors can browse everything but cannot start jobs or change data."""
-    if PUBLIC_DEMO and request.method in ("POST", "DELETE", "PUT") and request.path not in ("/api/parse",):
+    if PUBLIC_DEMO and request.method in ("POST", "DELETE", "PUT") and request.path not in ("/api/parse", "/api/web_lookup"):
         return jsonify(error="This is a read-only public demo. Run the app locally to collect data.",
                        message="Read-only public demo"), 403
 
@@ -219,6 +219,70 @@ def _read_only_demo():
 def _no_cache(resp):
     resp.headers["Cache-Control"] = "no-store"  # always load the current version's files
     return resp
+
+
+# ---------------------------------------------------------------- website reading for the browser version
+# The public site (GitHub Pages) cannot fetch other websites; its Collector can ask this server to read a
+# place's website instead. Keys come with each request and are never stored here.
+WEB_ORIGINS = [o.strip() for o in os.environ.get("TC_WEB_ORIGINS", "https://temporal-city-nus.github.io").split(",") if o.strip()]
+_web_lock = threading.Semaphore(3)
+
+
+def _cors(resp):
+    origin = request.headers.get("Origin", "")
+    if origin in WEB_ORIGINS or origin.startswith(("http://127.0.0.1", "http://localhost")):
+        resp.headers["Access-Control-Allow-Origin"] = origin
+        resp.headers["Access-Control-Allow-Methods"] = "POST, OPTIONS"
+        resp.headers["Access-Control-Allow-Headers"] = "Content-Type"
+        resp.headers["Vary"] = "Origin"
+    return resp
+
+
+def _public_http(url: str) -> bool:
+    import ipaddress
+    import socket
+    from urllib.parse import urlparse
+    u = urlparse(url if "://" in url else "https://" + url)
+    if u.scheme not in ("http", "https") or not u.hostname:
+        return False
+    try:
+        for info in socket.getaddrinfo(u.hostname, None):
+            ip = ipaddress.ip_address(info[4][0])
+            if ip.is_private or ip.is_loopback or ip.is_link_local or ip.is_reserved:
+                return False
+    except Exception:
+        return False
+    return True
+
+
+@app.route("/api/web_lookup", methods=["POST", "OPTIONS"])
+def web_lookup():
+    if request.method == "OPTIONS":
+        return _cors(Response(status=204))
+    d = request.get_json(silent=True) or {}
+    p = d.get("poi") or {}
+    if not p.get("name"):
+        return _cors(jsonify(error="poi.name is required")), 400
+    if p.get("website") and not _public_http(p["website"]):
+        p["website"] = ""
+    c = d.get("settings") or {}
+    s = dict(db.DEFAULT_SETTINGS)  # never the keys saved on this server
+    for k in ("use_search", "search_engine", "use_wikidata", "extraction", "cross_check",
+              "llm_provider", "llm_base_url", "llm_model", "llm_api_key"):
+        if k in c:
+            s[k] = str(c[k])
+    if s.get("llm_provider") == "ollama":
+        s["llm_provider"] = "none"  # a local model cannot be reached from this server
+    s["max_pages"] = str(min(4, int(c.get("max_pages") or 3)))
+    s["crawl_delay"] = str(max(1.0, float(c.get("crawl_delay") or 1.5)))
+    poi = {k: p.get(k) for k in ("id", "name", "lat", "lon", "address", "category", "website", "brand_wikidata")}
+    poi["lat"], poi["lon"] = float(poi.get("lat") or 0), float(poi.get("lon") or 0)
+    with _web_lock:
+        try:
+            res = pipeline.web_lookup(poi, s)
+        except Exception as e:
+            return _cors(jsonify(error=f"{type(e).__name__}: {str(e)[:160]}")), 500
+    return _cors(jsonify(res))
 
 
 @app.get("/api/meta")

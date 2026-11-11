@@ -116,7 +116,8 @@ def retrieve_poi(poi: dict, s: dict, budget: Budget, log=print, stop=lambda: Fal
     return "done"
 
 
-def _candidate_urls(poi: dict, s: dict, log) -> list[tuple[str, str]]:
+def _candidate_urls(poi: dict, s: dict, log, log_attempt=None) -> list[tuple[str, str]]:
+    log_attempt = log_attempt or db.log_attempt
     cands: list[tuple[str, str]] = []
     if poi.get("website"):
         u = poi["website"] if poi["website"].startswith("http") else "https://" + poi["website"]
@@ -124,7 +125,7 @@ def _candidate_urls(poi: dict, s: dict, log) -> list[tuple[str, str]]:
     if s.get("use_search") == "1":
         q = crawler.search_query(poi)
         found, eng = crawler.search(q, s.get("search_engine", "auto"), max_results=4, log=log)
-        db.log_attempt(poi["id"], "search", q, f"{len(found)} results ({eng})")
+        log_attempt(poi["id"], "search", q, f"{len(found)} results ({eng})")
         cands += [(u, "search") for u in found]
     if s.get("use_wikidata") == "1" and poi.get("brand_wikidata"):
         u = crawler.wikidata_website(poi["brand_wikidata"])
@@ -139,27 +140,31 @@ def _candidate_urls(poi: dict, s: dict, log) -> list[tuple[str, str]]:
     return out
 
 
-def _retrieve_web(poi: dict, s: dict, log):
+def _retrieve_web(poi: dict, s: dict, log, add_source=None, log_attempt=None):
+    """Find the place's website(s) and read opening hours from them. By default results go to the
+    database; web_lookup() passes its own add_source / log_attempt to collect them instead."""
+    add_source = add_source or db.add_source
+    log_attempt = log_attempt or db.log_attempt
     pid = poi["id"]
     max_pages = int(s.get("max_pages") or 4)
     delay = float(s.get("crawl_delay") or 1.5)
     mode = s.get("extraction", "hybrid")
     llm_on = s.get("llm_provider", "none") != "none"
-    queue = _candidate_urls(poi, s, log)
+    queue = _candidate_urls(poi, s, log, log_attempt)
     visited = 0
     while queue and visited < max_pages:
         url, how = queue.pop(0)
         visited += 1
         html, note = crawler.net.fetch(url, delay=delay)
         if html is None:
-            db.log_attempt(pid, "fetch", url, note)
+            log_attempt(pid, "fetch", url, note)
             continue
         page = crawler.parse_page(html, url)
         full = page["title"] + "\n" + page["text"]
         match = 1.0 if how in ("osm_website", "osm_website_link") else crawler.name_match(full, poi)
         addr_ok = crawler.address_hint(full, poi)
         if match < 0.5 and how not in ("brand_wikidata", "brand_link"):
-            db.log_attempt(pid, "fetch", url, f"page does not mention the place (name match {match})")
+            log_attempt(pid, "fetch", url, f"page does not mention the place (name match {match})")
             continue
         found = False
         # (a) structured schema.org data
@@ -169,9 +174,9 @@ def _retrieve_web(poi: dict, s: dict, log):
             weekly, sname, saddr = best
             multi = len(page["structured"]) > 1
             conf = 0.85 * (0.6 + 0.4 * match) + (0.05 if addr_ok else 0) - (0.15 if multi and not crawler.address_hint(saddr, poi) else 0)
-            db.add_source(pid, "web", "jsonld", url, f"schema.org openingHours: {hours.to_text(weekly)} ({sname} {saddr})"[:600],
+            add_source(pid, "web", "jsonld", url, f"schema.org openingHours: {hours.to_text(weekly)} ({sname} {saddr})"[:600],
                           weekly, round(min(conf, 0.95), 2), f"found via {how}; name match {match}")
-            db.log_attempt(pid, "extract", url, "schema.org hours found")
+            log_attempt(pid, "extract", url, "schema.org hours found")
             found = True
         # (b) text → rules and/or LLM
         if not found:
@@ -180,22 +185,22 @@ def _retrieve_web(poi: dict, s: dict, log):
                 rule = hours.parse_text(snippet) if mode in ("rules", "hybrid") else {"weekly": None, "confidence": 0}
                 adj = (0.6 + 0.4 * match) + (0.1 if addr_ok else 0)
                 if rule["weekly"]:
-                    db.add_source(pid, "web", "rules", url, rule["evidence"], rule["weekly"],
+                    add_source(pid, "web", "rules", url, rule["evidence"], rule["weekly"],
                                   round(min(rule["confidence"] * adj, 0.9), 2),
                                   f"found via {how}; name match {match}; " + "; ".join(rule["notes"]))
                     found = True
                 if llm_on and (mode == "llm" or (mode == "hybrid" and (not rule["weekly"] or rule["confidence"] < 0.6
                                                                      or s.get("cross_check") == "1"))):
                     res = llm.extract(s, poi, page["title"], snippet)
-                    db.log_attempt(pid, "llm", url, res["status"])
+                    log_attempt(pid, "llm", url, res["status"])
                     if res["status"] == "ok":
-                        db.add_source(pid, "web", "llm", url, res["evidence"], res["weekly"],
+                        add_source(pid, "web", "llm", url, res["evidence"], res["weekly"],
                                       round(min(res["confidence"] * adj, 0.9), 2), f"found via {how}; {res['notes']}")
                         found = True
                 if not found:
-                    db.log_attempt(pid, "extract", url, "hours keywords present but no schedule extracted")
+                    log_attempt(pid, "extract", url, "hours keywords present but no schedule extracted")
             else:
-                db.log_attempt(pid, "extract", url, "no opening-hours text on page")
+                log_attempt(pid, "extract", url, "no opening-hours text on page")
         if found:
             return
         # (c) follow likely sub-pages (contact / outlets / hours) on the same site
@@ -203,6 +208,25 @@ def _retrieve_web(poi: dict, s: dict, log):
         for l in page["links"][:3]:
             if all(l.rstrip("/") != u.rstrip("/") for u, _ in queue):
                 queue.insert(0, (l, link_how)) if how == "osm_website" else queue.append((l, link_how))
+
+
+def web_lookup(poi: dict, s: dict) -> dict:
+    """Website search + reading (schema.org, rules, AI) for one place, without touching the database.
+    Used by the browser version of the Collector through /api/web_lookup."""
+    sources, attempts, lines = [], [], []
+
+    def add_source(pid, source, method, url, evidence, weekly, confidence, notes=""):
+        sources.append({"source": source, "method": method, "url": url, "evidence": evidence, "weekly": weekly,
+                        "confidence": confidence, "notes": notes})
+
+    def log_attempt(pid, step, url, status):
+        attempts.append({"step": step, "url": url, "status": status})
+
+    poi = dict(poi)
+    poi.setdefault("id", "web")
+    poi["tags"] = poi.get("tags") or {}
+    _retrieve_web(poi, s, lines.append, add_source, log_attempt)
+    return {"sources": sources, "attempts": attempts, "log": lines[-20:]}
 
 
 # ============================================================ reconciliation

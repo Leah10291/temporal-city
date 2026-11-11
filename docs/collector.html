@@ -7,13 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif:ital@0;1&family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="static/vendor/maplibre-gl.css">
-<link rel="stylesheet" href="static/style.css?v24-story-202611111716">
-<link rel="stylesheet" href="static/theme.css?v24-story-202611111716">
-<script src="static/web-collector.js?v24-story-202611111716"></script>
-<script src="static/daynight.js?v24-story-202611111716"></script>
-<script src="static/palette.js?v24-story-202611111716"></script>
-<link rel="stylesheet" href="static/future.css?v24-story-202611111716">
-<script src="static/lens-nav.js?v24-story-202611111716" defer></script>
+<link rel="stylesheet" href="static/style.css?v24-story-202611111749">
+<link rel="stylesheet" href="static/theme.css?v24-story-202611111749">
+<script src="static/web-collector.js?v24-story-202611111749"></script>
+<script src="static/daynight.js?v24-story-202611111749"></script>
+<script src="static/palette.js?v24-story-202611111749"></script>
+<link rel="stylesheet" href="static/future.css?v24-story-202611111749">
+<script src="static/lens-nav.js?v24-story-202611111749" defer></script>
 </head>
 <body>
 <header class="top">
@@ -160,8 +160,8 @@
 
     <!-- 04 GOOGLE CHECK -->
     <section data-pane="check" class="pane">
-      <h2>Google check queue</h2>
-      <p class="lead">For POIs the automatic sources could not fill. Each POI opens its Google search in a side tab; copy the opening-hours table from Google’s place panel (English or Chinese) and paste it here. The text is parsed automatically and saved as a researcher-verified record with the Google link as evidence.</p>
+      <h2>Google check queue · paste and AI</h2>
+      <p class="lead"><b>Browser version:</b> you can paste hours text from Google <i>or from the business website</i>; where the rules cannot read it, the AI model chosen in 00 Setup reads it and must quote the sentence it used. For POIs the automatic sources could not fill. Each POI opens its Google search in a side tab; copy the opening-hours table from Google’s place panel (English or Chinese) and paste it here. The text is parsed automatically and saved as a researcher-verified record with the Google link as evidence.</p>
       <div class="card">
         <div class="row chips selectable" id="qLabels"></div>
         <div class="row"><select id="qCat"><option value="">All categories</option></select>
@@ -266,6 +266,11 @@
           <div class="row"><input name="proxy" placeholder="empty = no proxy · e.g. http://127.0.0.1:7890"></div>
         </div>
         <div class="card">
+          <h3>Online server <span class="muted">(websites + AI)</span></h3>
+          <label class="chk"><input type="checkbox" name="use_server"> Read business websites through the online server</label>
+          <p class="hint">A browser cannot open other websites, so the project’s server (temporal-city.onrender.com) searches and reads them for each place and returns the hours: schema.org data, rules, then your AI model below. Your API key is sent with each request and is not stored there. The free server may take about a minute to wake up.</p>
+        </div>
+        <div class="card">
           <h3>Web pages</h3>
           <label class="chk"><input type="checkbox" name="use_web"> Crawl business websites</label>
           <label class="chk"><input type="checkbox" name="use_search"> Find websites by web search (no key)</label>
@@ -338,6 +343,6 @@
 
 <script src="static/vendor/maplibre-gl.js"></script>
 <script src="static/vendor/chart.umd.js"></script>
-<script src="static/app.js?v24-story-202611111716"></script>
+<script src="static/app.js?v24-story-202611111749"></script>
 </body>
 </html>

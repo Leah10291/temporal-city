@@ -8,7 +8,7 @@ Mixed-use planning records which land uses sit together, but not when their amen
 
 | Version | Address | What works |
 |---|---|---|
-| **Public site** (GitHub Pages) | https://temporal-city-nus.github.io/temporal-city/ | All four pages. The Collector runs in your browser: any area via OpenStreetMap, Google Places with your own key, and the three case areas from the project's sample. No website reading or AI. |
+| **Public site** (GitHub Pages) | https://temporal-city-nus.github.io/temporal-city/ | All four pages. Its **Collector** links open the full online version below. A browser version (`collector.html`) keeps data and keys in your browser: any area via OpenStreetMap, Google Places with your own key, the three case areas from the project's sample, and websites + AI through the online server (00 Setup → *Online server*), or AI on text you paste. |
 | **Full online Collector** (Render) | https://temporal-city.onrender.com/collector.html | The complete app, as in the local version: business websites, the AI reader, the Atlas on your own areas. Free server: it sleeps when idle and takes about a minute to wake. |
 | **Local app** | `py app.py` → http://127.0.0.1:8765 | Everything, with your data and keys kept on your computer. |
 
@@ -60,7 +60,7 @@ Safeguards:
 - Every value keeps its source, link, evidence text and a quality label (below).
 - The model is interchangeable: Ollama (local, free), any OpenAI-compatible API (Gemini, Groq, DeepSeek, OpenAI) or Anthropic Claude. Without a model, only structured data and rules are used.
 
-The AI reader runs in the full online version and the local app; the public GitHub Pages site cannot fetch other websites, so it has no AI step.
+Where the AI runs: in the full online version and the local app the server reads business websites itself. The browser version on GitHub Pages cannot open other websites, so with *00 Setup → Online server* on it asks the Render server to search and read each place's website (`/api/web_lookup`), sending the visitor's AI key with that request only; the server returns the schedules with their evidence and stores nothing. The browser version can also run the AI directly on text the researcher pastes (03 → Google check). Every path uses the same prompt and quote check.
 
 A future step, not yet built, would use AI to predict 24-hour availability from land-use mix across many catchments. Three areas are too few to train or test such a model.
 
@@ -120,11 +120,11 @@ Then open http://127.0.0.1:8765 (or double-click `start.bat` on Windows). Data i
 py tools/build_pages.py
 ```
 
-GitHub Pages cannot run the Python server, so there the same Collector runs in the visitor's browser (`static/web-collector.js`, a port of the Python rules). Data stays in the visitor's browser. Each build gives scripts a new version number, so browsers load the new files.
+GitHub Pages cannot run the Python server. The site's Collector links therefore open the full version on Render, and `collector.html` is a browser version of the same Collector (`static/web-collector.js`, a port of the Python rules and the AI reader). Its data and keys stay in the visitor's browser. Each build gives scripts a new version number, so browsers load the new files.
 
 ### Full online Collector (Render)
 
-`render.yaml` and `Dockerfile` deploy the Python app to Render's free plan as a Blueprint from this public repository. `TC_PUBLIC_DEMO=0` runs the full Collector; set it to `1` for a read-only copy.
+`render.yaml` and `Dockerfile` deploy the Python app to Render's free plan as a Blueprint from this public repository. `TC_PUBLIC_DEMO=0` runs the full Collector; set it to `1` for a read-only copy. The same server answers `/api/web_lookup` for the browser version; `TC_WEB_ORIGINS` lists the sites allowed to call it (default: the GitHub Pages site).
 
 - Render does not redeploy automatically from this repository: after uploading changes to GitHub, open the service on Render and choose **Manual Deploy → Deploy latest commit**.
 - The free instance sleeps after about 15 minutes without visitors; the first request then takes about a minute.

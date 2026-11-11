@@ -21,6 +21,8 @@ import re
 import shutil
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# the full Collector (Python server on Render): the public site's "Collector" links open it
+FULL = "https://temporal-city.onrender.com/"
 STATIC = os.path.join(ROOT, "static")
 OUT = os.path.join(ROOT, "docs")
 SHOTS = os.path.join(ROOT, "tools", "pages_shots")
@@ -52,10 +54,12 @@ def rel_paths(html: str) -> str:
     html = html.replace('https://unpkg.com/maplibre-gl@5.8.0/dist/maplibre-gl.js', 'static/vendor/maplibre-gl.js')
     html = re.sub(r'(["\'(])/static/', r'\1static/', html)
     html = re.sub(r'(static/[\w./-]+\.(?:js|css))\?v[\w-]*"', r'\1?' + VERSION + '"', html)
-    # the Collector link opens the walkthrough instead of the "run the local app" note
-    html = html.replace('href="collector.html" data-needs-app', 'href="collector.html"')
+    # "Collector" links open the full version on Render (websites + AI); the browser version stays at collector.html
+    html = html.replace('<tr><td><a href="collector.html" data-needs-app>Collector</a></td>',
+                        '<tr><td><a href="' + FULL + 'collector.html">Collector</a><br><a href="collector.html" class="small">browser version</a></td>')
+    html = html.replace('href="collector.html" data-needs-app', 'href="' + FULL + 'collector.html"')
     # Atlas: Collector data needs the local server, so on the public site that button explains instead
-    html = html.replace('data-src="collector">', 'data-src="collector" data-needs-app>')
+    html = html.replace('<a href="atlas.html?source=collector" data-src="collector">', '<a href="' + FULL + 'atlas.html?source=collector" data-src="collector">')
     return html
 
 
@@ -193,6 +197,14 @@ def main():
     pages["information.html"] = information(pages["information.html"], pics)
     # the real Collector running in the browser: web-collector.js answers its API calls (any area via OSM / Google)
     coll = rel_paths(open(os.path.join(STATIC, "collector.html"), encoding="utf-8").read())
+    coll = coll.replace("<h2>Google check queue</h2>", "<h2>Google check queue · paste and AI</h2>", 1)
+    coll = coll.replace('<div class="card">\n          <h3>Web pages</h3>',
+        '<div class="card">\n          <h3>Online server <span class="muted">(websites + AI)</span></h3>'
+        '\n          <label class="chk"><input type="checkbox" name="use_server"> Read business websites through the online server</label>'
+        '\n          <p class="hint">A browser cannot open other websites, so the project’s server (temporal-city.onrender.com) searches and reads them for each place and returns the hours: schema.org data, rules, then your AI model below. Your API key is sent with each request and is not stored there. The free server may take about a minute to wake up.</p>'
+        '\n        </div>\n        <div class="card">\n          <h3>Web pages</h3>', 1)
+    coll = coll.replace('<p class="lead">For POIs the automatic sources could not fill.',
+                        '<p class="lead"><b>Browser version:</b> you can paste hours text from Google <i>or from the business website</i>; where the rules cannot read it, the AI model chosen in 00 Setup reads it and must quote the sentence it used. For POIs the automatic sources could not fill.', 1)
     coll = coll.replace('<script src="static/daynight.js', '<script src="static/web-collector.js?' + VERSION + '"></script>\n<script src="static/daynight.js', 1)
     pages["collector.html"] = coll
     import subprocess, sys

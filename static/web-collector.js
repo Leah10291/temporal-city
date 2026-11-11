@@ -552,7 +552,20 @@
     if (!w) return { status: 'matched but no hours' };
     return { status: 'ok', weekly: w, url: best.googleMapsUri || '', evidence: (roh.weekdayDescriptions || []).join(' | ').slice(0, 600), confidence: Math.round(Math.min(0.9, 0.55 + 0.35 * bestScore) * 100) / 100, place_name: best.displayName.text, distance: Math.round(bestD * 10) / 10 };
   }
-  const settings = () => ({ ...D.settings, ...st.settings });
+  const SERVER = 'https://temporal-city.onrender.com';
+  const settings = () => ({ ...D.settings, use_server: '1', ...st.settings });
+  /* websites + AI through the online server (core/pipeline.py web_lookup): keys go with the request only */
+  async function serverLookup(p, s) {
+    const send = {}; ['use_search', 'search_engine', 'use_wikidata', 'extraction', 'cross_check', 'max_pages', 'crawl_delay', 'llm_provider', 'llm_base_url', 'llm_model', 'llm_api_key'].forEach(k => { if (s[k] != null) send[k] = s[k]; });
+    const ctrl = new AbortController(), t = setTimeout(() => ctrl.abort(), 150000);
+    try {
+      const r = await realFetch(SERVER + '/api/web_lookup', { method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctrl.signal,
+        body: JSON.stringify({ poi: { id: p.id, name: p.name, lat: p.lat, lon: p.lon, address: p.address, category: p.category, website: p.website, brand_wikidata: p.brand_wikidata }, settings: send }) });
+      clearTimeout(t); const j = await r.json().catch(() => ({}));
+      if (!r.ok) return { error: j.error || ('HTTP ' + r.status) };
+      return j;
+    } catch (e) { clearTimeout(t); return { error: e.name === 'AbortError' ? 'the online server did not answer in time' : 'cannot reach the online server' }; }
+  }
   async function jobRetrieve(ids, limit, onlyNew, cats) {
     const s = settings(), cross = s.cross_check === '1';
     let pois = Object.values(st.pois).filter(p => areaIdsOf(p.id).some(a => ids.includes(a)) && !p.perm_closed);
@@ -587,9 +600,18 @@
             if (g.status === 'ok') addSource(p.id, 'google', 'places_api', g.url, g.evidence, g.weekly, g.confidence, `matched “${g.place_name}” at ${g.distance} m`);
             if (/HTTP 40[0-3]/.test(g.status)) { log('  Google Places refused the key: ' + g.status); googleLeft = 0; } }
         }
-        if (s.use_web === '1' && p.name && !hasHours() && !webNote) { webNote = true; log('  Business websites and the AI reader run only in the local app (browsers cannot read other websites). Use 03 → Google check by hand, or run py app.py.'); }
+        const wantWeb = s.use_web === '1' && p.name && !have.has('web/jsonld') && !have.has('web/rules') && !have.has('web/llm') && (cross || !hasHours());
+        if (wantWeb && s.use_server === '1') {
+          if (!webNote) { webNote = true; log('  Reading business websites through the online server' + (llmOn() ? ' (schema.org, rules and your AI model)' : ' (schema.org and rules; add an AI model in 00 Setup to read free text)') + ' — the first request can take about a minute while it wakes up.'); }
+          const w = await serverLookup(p, s);
+          if (w.error) { logAttempt(p.id, 'web', '', 'online server: ' + w.error); log(`  ${p.name}: websites not read (${w.error})`); if (/cannot reach|did not answer/.test(w.error)) { s.use_server = '0'; log('  Website reading switched off for this run. Use 03 → Google check to paste text instead.'); } }
+          else {
+            (w.attempts || []).forEach(a => logAttempt(p.id, a.step, a.url, a.status));
+            (w.sources || []).forEach(x => addSource(p.id, x.source, x.method, x.url, x.evidence, x.weekly, x.confidence, x.notes));
+            if ((w.sources || []).length) log(`  ${p.name}: website → ${w.sources.map(x => x.method === 'llm' ? 'AI' : x.method).join(', ')}`);
+          }
+        } else if (wantWeb && !webNote) { webNote = true; log('  Website reading is off (00 Setup → Online server). Use 03 → Google check to paste text, which the AI can read.'); }
         log(`${p.name || p.id}: ${hasHours() ? toText(JSON.parse(sourcesOf(p.id).filter(x => x.weekly).slice(-1)[0].weekly)) : 'no hours found'}`);
-        if (!p.osm_opening_hours && !useGoogle) logAttempt(p.id, 'web', p.website || '', 'not in browser: website reading needs the local app');
       }
       p.retrieved_at = now(); reconcile(p.id); job.done++;
       if (job.done % 20 === 0) save();
@@ -625,9 +647,89 @@
     setTimeout(() => URL.revokeObjectURL(url), 4000);
   };
 
+
+  /* ================================================================ AI reader (port of core/llm.py) */
+  const PROMPT = (name, address, category, title, snippet) => `You extract opening hours for ONE specific place from web page text.
+
+Place: ${name}
+Address hint: ${address || 'unknown'}
+Category: ${category}
+
+Page title: ${title}
+Page text (excerpts):
+<<<
+${snippet}
+>>>
+
+Rules:
+- Only use what the text states. Never guess. If the text does not give hours for this place, set "found": false.
+- If the page lists several branches, use only the branch matching the address hint; if you cannot tell which branch, set "branch_match": "unclear".
+- Times in 24h "HH:MM". Past midnight: end time may be smaller than start (e.g. "18:00"-"02:00"). Closed day = [].
+- Ignore public-holiday-only rules.
+- "evidence_quote": copy the exact sentence(s) from the text you relied on (verbatim).
+
+Return ONLY JSON:
+{"found": true, "branch_match": "yes|no|unclear|single-location",
+ "weekly": {"mo": [["09:00","18:00"]], "tu": [], "we": [], "th": [], "fr": [], "sa": [], "su": []},
+ "evidence_quote": "...", "notes": "..."}`;
+  const llmOn = () => { const p = settings().llm_provider; return !!p && p !== 'none'; };
+  async function callLLM(prompt) {
+    const s = settings(), p = s.llm_provider, model = s.llm_model || '';
+    let r, j;
+    if (p === 'ollama') {
+      const base = (s.llm_base_url || 'http://localhost:11434').replace(/\/+$/, '');
+      r = await realFetch(base + '/api/generate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ model: model || 'qwen2.5:7b', prompt, stream: false, format: 'json', options: { temperature: 0 } }) });
+      j = await r.json(); if (!r.ok) throw new Error('HTTP ' + r.status); return j.response || '';
+    }
+    if (p === 'openai') {
+      const base = (s.llm_base_url || 'https://api.openai.com/v1').replace(/\/+$/, '');
+      r = await realFetch(base + '/chat/completions', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + (s.llm_api_key || '') }, body: JSON.stringify({ model: model || 'gpt-4o-mini', temperature: 0, messages: [{ role: 'user', content: prompt }] }) });
+      j = await r.json().catch(() => ({})); if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + ((j.error || (Array.isArray(j) && j[0] && j[0].error) || {}).message || '')); return j.choices[0].message.content;
+    }
+    if (p === 'anthropic') {
+      r = await realFetch('https://api.anthropic.com/v1/messages', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-api-key': s.llm_api_key || '', 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' }, body: JSON.stringify({ model: model || 'claude-haiku-5-5', max_tokens: 800, temperature: 0, messages: [{ role: 'user', content: prompt }] }) });
+      j = await r.json().catch(() => ({})); if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + ((j.error || {}).message || '')); return (j.content || []).map(b => b.text || '').join('');
+    }
+    throw new Error('AI model not configured (00 Setup → AI model)');
+  }
+  const qnorm = t => (t || '').toLowerCase().replace(/[^a-z0-9:]/g, ' ').replace(/\s+/g, ' ').trim();
+  function quoteInSource(quote, source) {
+    const q = qnorm(quote), s = qnorm(source); if (q.length < 6) return false; if (s.includes(q)) return true;
+    const w = q.split(' '), chunks = []; for (let i = 0; i < Math.max(1, w.length - 3); i += 4) chunks.push(w.slice(i, i + 4).join(' '));
+    return chunks.every(c => s.includes(c));
+  }
+  async function extractAI(poi, title, snippet) {
+    snippet = (snippet || '').slice(0, 3500);
+    let raw;
+    try { raw = await callLLM(PROMPT(poi.name || '', poi.address, poi.category || '', title || '', snippet)); }
+    catch (e) { return { status: 'llm error: ' + e.message.slice(0, 160) + (/Failed to fetch/i.test(e.message) ? ' (the provider may block browser calls; try Gemini or Groq, or the full version)' : '') }; }
+    const m = (raw || '').match(/\{[\s\S]*\}/); if (!m) return { status: 'llm returned no JSON' };
+    let d; try { d = JSON.parse(m[0]); } catch (e) { return { status: 'llm returned invalid JSON' }; }
+    if (!d.found) return { status: 'llm: no hours for this place' };
+    if (d.branch_match === 'no') return { status: 'llm: hours belong to another branch' };
+    const quote = String(d.evidence_quote || '');
+    if (!quoteInSource(quote, snippet)) return { status: 'rejected: quote not found in source (possible hallucination)' };
+    const w = normalise(d.weekly || {}); if (!Object.keys(w).length) return { status: 'llm: empty schedule' };
+    let conf = ['yes', 'single-location'].includes(d.branch_match) ? 0.65 : 0.45; if (!isComplete(w)) conf -= 0.1;
+    return { status: 'ok', weekly: w, confidence: Math.round(conf * 100) / 100, evidence: quote.slice(0, 600), notes: `branch_match=${d.branch_match}; ${String(d.notes || '').slice(0, 200)}` };
+  }
+  /* pasted text: rules first; where they cannot read it (or are unsure), the AI reads it and must quote it */
+  async function readPasted(poi, text, url, how) {
+    const r = parseAny(text);
+    if (r.weekly && r.confidence >= 0.6) return { kind: 'rules', weekly: r.weekly, notes: r.notes };
+    if (llmOn()) {
+      const a = await extractAI(poi, how, text);
+      logAttempt(poi.id, 'llm', url, a.status);
+      if (a.status === 'ok') { addSource(poi.id, 'web', 'llm', url, a.evidence, a.weekly, a.confidence, 'text pasted by researcher, read by AI; ' + a.notes); return { kind: 'ai', weekly: a.weekly, notes: [a.notes] }; }
+      if (!r.weekly) return { kind: 'fail', error: 'Neither the rules nor the AI could read hours from this text (' + a.status + ')' };
+    }
+    if (r.weekly) return { kind: 'rules', weekly: r.weekly, notes: r.notes };
+    return { kind: 'fail', error: 'Could not read any hours from the pasted text. Add an AI model in 00 Setup to read free-form text.' };
+  }
+
   /* ================================================================ API router */
   const json = (o, status = 200) => new Response(JSON.stringify(o), { status, headers: { 'Content-Type': 'application/json' } });
-  const LOCAL_ONLY = 'This needs the local app (py app.py): browsers cannot reach other websites or run the AI reader from a public page.';
+  const LOCAL_ONLY = 'This needs the full version (https://temporal-city.onrender.com/collector.html) or the local app: browsers cannot reach other websites or run the AI reader from a public page.';
   const mask = s => { const o = { ...s }; ['google_api_key', 'llm_api_key'].forEach(k => { if (o[k]) o[k] = '••••' + o[k].slice(-4); }); return o; };
   async function answer(url, opt) {
     await ready;
@@ -689,17 +791,19 @@
     if (path === 'parse' && method === 'POST') { const r = parseAny(body.text || ''), w = r.weekly; return json({ ok: !!w, complete: isComplete(w), hours_text: toText(w), matrix: w ? toMatrix(w) : null, notes: r.notes || [] }); }
     let m = path.match(/^pois\/(.+)\/manual$/);
     if (m && method === 'POST') {
-      const pid = decodeURIComponent(m[1]), r = parseAny(body.hours || '');
-      if (!r.weekly) return json({ error: "Could not parse. Use e.g. 'Mo-Fr 09:00-18:00; Sa 10:00-14:00; Su off' or '24/7'", warnings: r.notes || [] }, 400);
-      addSource(pid, 'manual', 'manual', body.url || '', body.note || body.hours, r.weekly, 1.0, 'entered by researcher');
-      const label = reconcile(pid); save(); return json({ label, hours_text: toText(r.weekly), warnings: r.notes || [] });
+      const pid = decodeURIComponent(m[1]), p = st.pois[pid]; if (!p) return json({ error: 'not found' }, 404);
+      const r = await readPasted(p, body.hours || '', body.url || '', 'Entered by researcher');
+      if (r.kind === 'fail') return json({ error: r.error }, 400);
+      if (r.kind === 'rules') addSource(pid, 'manual', 'manual', body.url || '', body.note || body.hours, r.weekly, 1.0, 'entered by researcher');
+      const label = reconcile(pid); save(); return json({ label, hours_text: toText(r.weekly), warnings: r.notes || [], via: r.kind });
     }
     m = path.match(/^pois\/(.+)\/google_check$/);
     if (m && method === 'POST') {
       const pid = decodeURIComponent(m[1]), p = st.pois[pid]; if (!p) return json({ error: 'not found' }, 404);
       const gurl = body.url || googleUrl(p);
-      if (body.action === 'save') { const r = parseAny(body.text || ''); if (!r.weekly) return json({ error: 'Could not read any hours from the pasted text' }, 400);
-        addSource(pid, 'manual', 'google_copy', gurl, (body.text || '').slice(0, 600), r.weekly, 1.0, 'copied from Google listing by researcher'); logAttempt(pid, 'google_check', gurl, 'hours copied from Google'); }
+      if (body.action === 'save') { const r = await readPasted(p, body.text || '', gurl, 'Pasted text (Google listing or business website)'); if (r.kind === 'fail') return json({ error: r.error }, 400);
+        if (r.kind === 'rules') addSource(pid, 'manual', 'google_copy', gurl, (body.text || '').slice(0, 600), r.weekly, 1.0, 'copied from Google listing by researcher');
+        logAttempt(pid, 'google_check', gurl, r.kind === 'ai' ? 'pasted text read by AI' : 'hours copied from Google'); }
       else if (body.action === 'no_hours') logAttempt(pid, 'google_check', gurl, 'Google shows no opening hours');
       else if (body.action === 'closed') { p.perm_closed = 1; logAttempt(pid, 'google_check', gurl, 'permanently closed / not found on Google'); }
       else if (body.action === 'not_found') logAttempt(pid, 'google_check', gurl, 'place not found on Google');
@@ -721,7 +825,12 @@
       results.push({ name: 'Business websites', role: 'website crawling', ok: false, note: 'local app only', ms: 0 });
       return json({ results, proxy: '' });
     }
-    if (path === 'llm_test' && method === 'POST') return json({ status: 'The AI reader works on website text, which only the local app can fetch. ' + LOCAL_ONLY });
+    if (path === 'llm_test' && method === 'POST') {
+      if (!llmOn()) return json({ status: 'Choose an AI model and save the settings first.' });
+      const res = await extractAI({ name: 'Test Cafe', address: '1 Test Road', category: 'Food & Beverage' }, 'Test Cafe', 'Test Cafe, 1 Test Road\nOpening hours: Mon-Fri 8am-6pm, Sat 9am-3pm, Sun closed');
+      if (res.weekly) res.weekly_text = toText(res.weekly);
+      return json(res);
+    }
     if (path.startsWith('jobs')) return json({ ok: false, message: LOCAL_ONLY }, 400);
     return json({ error: LOCAL_ONLY }, 400);
   }
@@ -735,6 +844,6 @@
   window.TC_WEB_TEST = { parseOsm, parseText, parseAny, toMatrix, toText, classify, agreement };
   document.addEventListener('DOMContentLoaded', () => {
     const b = document.getElementById('demoBanner');
-    if (b) { b.hidden = false; b.textContent = 'Public version: the Collector runs in your browser and saves to this browser only. Any area works with OpenStreetMap (and Google Places with your own key). The three case areas load the project’s Google Places sample. Reading business websites with AI needs the local app (py app.py).'; }
+    if (b) { b.hidden = false; b.innerHTML = 'Browser version: your data and keys stay in this browser. Any area via OpenStreetMap; Google Places with your own key; the three case areas load the project’s sample. <b>Websites + AI:</b> with <i>00 Setup → Online server</i> on, business websites are read through the project’s server and your AI model turns the text into weekly schedules (the server may take about a minute to wake up). You can also paste text in 03 → Google check.'; }
   });
 })();
