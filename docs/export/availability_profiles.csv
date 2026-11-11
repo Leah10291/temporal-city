@@ -1,0 +1,1513 @@
+﻿area,category,daytype,hour,open_count,usable_records,total_pois,relative_availability,record_coverage
+Bencoolen,Food & Beverage,weekday,0,2.2,110,118,0.02,0.932
+Bencoolen,Food & Beverage,weekday,1,2.2,110,118,0.02,0.932
+Bencoolen,Food & Beverage,weekday,2,2.2,110,118,0.02,0.932
+Bencoolen,Food & Beverage,weekday,3,2.0,110,118,0.018,0.932
+Bencoolen,Food & Beverage,weekday,4,2.0,110,118,0.018,0.932
+Bencoolen,Food & Beverage,weekday,5,2.0,110,118,0.018,0.932
+Bencoolen,Food & Beverage,weekday,6,3.0,110,118,0.027,0.932
+Bencoolen,Food & Beverage,weekday,7,15.8,110,118,0.144,0.932
+Bencoolen,Food & Beverage,weekday,8,26.8,110,118,0.244,0.932
+Bencoolen,Food & Beverage,weekday,9,36.8,110,118,0.335,0.932
+Bencoolen,Food & Beverage,weekday,10,49.8,110,118,0.453,0.932
+Bencoolen,Food & Beverage,weekday,11,71.8,110,118,0.653,0.932
+Bencoolen,Food & Beverage,weekday,12,74.0,110,118,0.673,0.932
+Bencoolen,Food & Beverage,weekday,13,74.0,110,118,0.673,0.932
+Bencoolen,Food & Beverage,weekday,14,73.8,110,118,0.671,0.932
+Bencoolen,Food & Beverage,weekday,15,73.8,110,118,0.671,0.932
+Bencoolen,Food & Beverage,weekday,16,74.6,110,118,0.678,0.932
+Bencoolen,Food & Beverage,weekday,17,74.6,110,118,0.678,0.932
+Bencoolen,Food & Beverage,weekday,18,66.2,110,118,0.602,0.932
+Bencoolen,Food & Beverage,weekday,19,64.8,110,118,0.589,0.932
+Bencoolen,Food & Beverage,weekday,20,56.0,110,118,0.509,0.932
+Bencoolen,Food & Beverage,weekday,21,37.8,110,118,0.344,0.932
+Bencoolen,Food & Beverage,weekday,22,19.0,110,118,0.173,0.932
+Bencoolen,Food & Beverage,weekday,23,12.6,110,118,0.115,0.932
+Bencoolen,Retail,weekday,0,12.0,46,53,0.261,0.868
+Bencoolen,Retail,weekday,1,12.0,46,53,0.261,0.868
+Bencoolen,Retail,weekday,2,12.0,46,53,0.261,0.868
+Bencoolen,Retail,weekday,3,12.0,46,53,0.261,0.868
+Bencoolen,Retail,weekday,4,12.0,46,53,0.261,0.868
+Bencoolen,Retail,weekday,5,12.0,46,53,0.261,0.868
+Bencoolen,Retail,weekday,6,13.0,46,53,0.283,0.868
+Bencoolen,Retail,weekday,7,18.0,46,53,0.391,0.868
+Bencoolen,Retail,weekday,8,18.0,46,53,0.391,0.868
+Bencoolen,Retail,weekday,9,24.0,46,53,0.522,0.868
+Bencoolen,Retail,weekday,10,28.8,46,53,0.626,0.868
+Bencoolen,Retail,weekday,11,38.6,46,53,0.839,0.868
+Bencoolen,Retail,weekday,12,43.8,46,53,0.952,0.868
+Bencoolen,Retail,weekday,13,45.0,46,53,0.978,0.868
+Bencoolen,Retail,weekday,14,45.0,46,53,0.978,0.868
+Bencoolen,Retail,weekday,15,45.0,46,53,0.978,0.868
+Bencoolen,Retail,weekday,16,45.0,46,53,0.978,0.868
+Bencoolen,Retail,weekday,17,44.0,46,53,0.957,0.868
+Bencoolen,Retail,weekday,18,41.0,46,53,0.891,0.868
+Bencoolen,Retail,weekday,19,35.6,46,53,0.774,0.868
+Bencoolen,Retail,weekday,20,29.0,46,53,0.63,0.868
+Bencoolen,Retail,weekday,21,23.0,46,53,0.5,0.868
+Bencoolen,Retail,weekday,22,19.0,46,53,0.413,0.868
+Bencoolen,Retail,weekday,23,13.0,46,53,0.283,0.868
+Bencoolen,Services,weekday,0,6.0,8,17,0.75,0.471
+Bencoolen,Services,weekday,1,6.0,8,17,0.75,0.471
+Bencoolen,Services,weekday,2,6.0,8,17,0.75,0.471
+Bencoolen,Services,weekday,3,6.0,8,17,0.75,0.471
+Bencoolen,Services,weekday,4,6.0,8,17,0.75,0.471
+Bencoolen,Services,weekday,5,6.0,8,17,0.75,0.471
+Bencoolen,Services,weekday,6,6.0,8,17,0.75,0.471
+Bencoolen,Services,weekday,7,6.0,8,17,0.75,0.471
+Bencoolen,Services,weekday,8,6.0,8,17,0.75,0.471
+Bencoolen,Services,weekday,9,7.0,8,17,0.875,0.471
+Bencoolen,Services,weekday,10,7.0,8,17,0.875,0.471
+Bencoolen,Services,weekday,11,8.0,8,17,1.0,0.471
+Bencoolen,Services,weekday,12,8.0,8,17,1.0,0.471
+Bencoolen,Services,weekday,13,8.0,8,17,1.0,0.471
+Bencoolen,Services,weekday,14,8.0,8,17,1.0,0.471
+Bencoolen,Services,weekday,15,8.0,8,17,1.0,0.471
+Bencoolen,Services,weekday,16,8.0,8,17,1.0,0.471
+Bencoolen,Services,weekday,17,7.0,8,17,0.875,0.471
+Bencoolen,Services,weekday,18,7.0,8,17,0.875,0.471
+Bencoolen,Services,weekday,19,6.0,8,17,0.75,0.471
+Bencoolen,Services,weekday,20,6.0,8,17,0.75,0.471
+Bencoolen,Services,weekday,21,6.0,8,17,0.75,0.471
+Bencoolen,Services,weekday,22,6.0,8,17,0.75,0.471
+Bencoolen,Services,weekday,23,6.0,8,17,0.75,0.471
+Bencoolen,Education,weekday,0,0.0,30,51,0.0,0.588
+Bencoolen,Education,weekday,1,0.0,30,51,0.0,0.588
+Bencoolen,Education,weekday,2,0.0,30,51,0.0,0.588
+Bencoolen,Education,weekday,3,0.0,30,51,0.0,0.588
+Bencoolen,Education,weekday,4,0.0,30,51,0.0,0.588
+Bencoolen,Education,weekday,5,0.0,30,51,0.0,0.588
+Bencoolen,Education,weekday,6,0.0,30,51,0.0,0.588
+Bencoolen,Education,weekday,7,2.0,30,51,0.067,0.588
+Bencoolen,Education,weekday,8,10.0,30,51,0.333,0.588
+Bencoolen,Education,weekday,9,24.0,30,51,0.8,0.588
+Bencoolen,Education,weekday,10,25.2,30,51,0.84,0.588
+Bencoolen,Education,weekday,11,25.2,30,51,0.84,0.588
+Bencoolen,Education,weekday,12,27.0,30,51,0.9,0.588
+Bencoolen,Education,weekday,13,27.0,30,51,0.9,0.588
+Bencoolen,Education,weekday,14,28.4,30,51,0.947,0.588
+Bencoolen,Education,weekday,15,29.4,30,51,0.98,0.588
+Bencoolen,Education,weekday,16,29.4,30,51,0.98,0.588
+Bencoolen,Education,weekday,17,24.2,30,51,0.807,0.588
+Bencoolen,Education,weekday,18,18.2,30,51,0.607,0.588
+Bencoolen,Education,weekday,19,11.2,30,51,0.373,0.588
+Bencoolen,Education,weekday,20,10.4,30,51,0.347,0.588
+Bencoolen,Education,weekday,21,7.0,30,51,0.233,0.588
+Bencoolen,Education,weekday,22,2.0,30,51,0.067,0.588
+Bencoolen,Education,weekday,23,2.0,30,51,0.067,0.588
+Bencoolen,Community & Civic,weekday,0,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,weekday,1,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,weekday,2,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,weekday,3,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,weekday,4,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,weekday,5,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,weekday,6,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,weekday,7,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,weekday,8,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,weekday,9,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,weekday,10,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,weekday,11,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,weekday,12,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,weekday,13,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,weekday,14,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,weekday,15,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,weekday,16,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,weekday,17,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,weekday,18,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,weekday,19,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,weekday,20,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,weekday,21,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,weekday,22,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,weekday,23,1.0,2,3,0.5,0.667
+Bencoolen,Culture & Recreation,weekday,0,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,weekday,1,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,weekday,2,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,weekday,3,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,weekday,4,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,weekday,5,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,weekday,6,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,weekday,7,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,weekday,8,7.0,26,35,0.269,0.743
+Bencoolen,Culture & Recreation,weekday,9,8.0,26,35,0.308,0.743
+Bencoolen,Culture & Recreation,weekday,10,12.0,26,35,0.462,0.743
+Bencoolen,Culture & Recreation,weekday,11,13.4,26,35,0.515,0.743
+Bencoolen,Culture & Recreation,weekday,12,17.2,26,35,0.662,0.743
+Bencoolen,Culture & Recreation,weekday,13,17.2,26,35,0.662,0.743
+Bencoolen,Culture & Recreation,weekday,14,17.2,26,35,0.662,0.743
+Bencoolen,Culture & Recreation,weekday,15,17.2,26,35,0.662,0.743
+Bencoolen,Culture & Recreation,weekday,16,17.4,26,35,0.669,0.743
+Bencoolen,Culture & Recreation,weekday,17,16.6,26,35,0.638,0.743
+Bencoolen,Culture & Recreation,weekday,18,17.6,26,35,0.677,0.743
+Bencoolen,Culture & Recreation,weekday,19,13.0,26,35,0.5,0.743
+Bencoolen,Culture & Recreation,weekday,20,9.0,26,35,0.346,0.743
+Bencoolen,Culture & Recreation,weekday,21,9.0,26,35,0.346,0.743
+Bencoolen,Culture & Recreation,weekday,22,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,weekday,23,6.0,26,35,0.231,0.743
+Bencoolen,All,weekday,0,27.2,222,277,0.123,0.801
+Bencoolen,All,weekday,1,27.2,222,277,0.123,0.801
+Bencoolen,All,weekday,2,27.2,222,277,0.123,0.801
+Bencoolen,All,weekday,3,27.0,222,277,0.122,0.801
+Bencoolen,All,weekday,4,27.0,222,277,0.122,0.801
+Bencoolen,All,weekday,5,27.0,222,277,0.122,0.801
+Bencoolen,All,weekday,6,29.0,222,277,0.131,0.801
+Bencoolen,All,weekday,7,48.8,222,277,0.22,0.801
+Bencoolen,All,weekday,8,69.8,222,277,0.314,0.801
+Bencoolen,All,weekday,9,101.8,222,277,0.459,0.801
+Bencoolen,All,weekday,10,124.8,222,277,0.562,0.801
+Bencoolen,All,weekday,11,159.0,222,277,0.716,0.801
+Bencoolen,All,weekday,12,172.0,222,277,0.775,0.801
+Bencoolen,All,weekday,13,173.2,222,277,0.78,0.801
+Bencoolen,All,weekday,14,174.4,222,277,0.786,0.801
+Bencoolen,All,weekday,15,175.4,222,277,0.79,0.801
+Bencoolen,All,weekday,16,176.4,222,277,0.795,0.801
+Bencoolen,All,weekday,17,168.4,222,277,0.759,0.801
+Bencoolen,All,weekday,18,152.0,222,277,0.685,0.801
+Bencoolen,All,weekday,19,132.6,222,277,0.597,0.801
+Bencoolen,All,weekday,20,111.4,222,277,0.502,0.801
+Bencoolen,All,weekday,21,83.8,222,277,0.377,0.801
+Bencoolen,All,weekday,22,53.0,222,277,0.239,0.801
+Bencoolen,All,weekday,23,40.6,222,277,0.183,0.801
+Bencoolen,Food & Beverage,saturday,0,2.0,110,118,0.018,0.932
+Bencoolen,Food & Beverage,saturday,1,2.0,110,118,0.018,0.932
+Bencoolen,Food & Beverage,saturday,2,2.0,110,118,0.018,0.932
+Bencoolen,Food & Beverage,saturday,3,2.0,110,118,0.018,0.932
+Bencoolen,Food & Beverage,saturday,4,2.0,110,118,0.018,0.932
+Bencoolen,Food & Beverage,saturday,5,2.0,110,118,0.018,0.932
+Bencoolen,Food & Beverage,saturday,6,3.0,110,118,0.027,0.932
+Bencoolen,Food & Beverage,saturday,7,10.0,110,118,0.091,0.932
+Bencoolen,Food & Beverage,saturday,8,18.0,110,118,0.164,0.932
+Bencoolen,Food & Beverage,saturday,9,29.0,110,118,0.264,0.932
+Bencoolen,Food & Beverage,saturday,10,41.0,110,118,0.373,0.932
+Bencoolen,Food & Beverage,saturday,11,62.0,110,118,0.564,0.932
+Bencoolen,Food & Beverage,saturday,12,65.0,110,118,0.591,0.932
+Bencoolen,Food & Beverage,saturday,13,65.0,110,118,0.591,0.932
+Bencoolen,Food & Beverage,saturday,14,65.0,110,118,0.591,0.932
+Bencoolen,Food & Beverage,saturday,15,64.0,110,118,0.582,0.932
+Bencoolen,Food & Beverage,saturday,16,65.0,110,118,0.591,0.932
+Bencoolen,Food & Beverage,saturday,17,66.0,110,118,0.6,0.932
+Bencoolen,Food & Beverage,saturday,18,61.0,110,118,0.555,0.932
+Bencoolen,Food & Beverage,saturday,19,57.0,110,118,0.518,0.932
+Bencoolen,Food & Beverage,saturday,20,50.0,110,118,0.455,0.932
+Bencoolen,Food & Beverage,saturday,21,36.0,110,118,0.327,0.932
+Bencoolen,Food & Beverage,saturday,22,20.0,110,118,0.182,0.932
+Bencoolen,Food & Beverage,saturday,23,11.0,110,118,0.1,0.932
+Bencoolen,Retail,saturday,0,12.0,46,53,0.261,0.868
+Bencoolen,Retail,saturday,1,12.0,46,53,0.261,0.868
+Bencoolen,Retail,saturday,2,12.0,46,53,0.261,0.868
+Bencoolen,Retail,saturday,3,12.0,46,53,0.261,0.868
+Bencoolen,Retail,saturday,4,12.0,46,53,0.261,0.868
+Bencoolen,Retail,saturday,5,12.0,46,53,0.261,0.868
+Bencoolen,Retail,saturday,6,13.0,46,53,0.283,0.868
+Bencoolen,Retail,saturday,7,16.0,46,53,0.348,0.868
+Bencoolen,Retail,saturday,8,16.0,46,53,0.348,0.868
+Bencoolen,Retail,saturday,9,21.0,46,53,0.457,0.868
+Bencoolen,Retail,saturday,10,28.0,46,53,0.609,0.868
+Bencoolen,Retail,saturday,11,37.0,46,53,0.804,0.868
+Bencoolen,Retail,saturday,12,42.0,46,53,0.913,0.868
+Bencoolen,Retail,saturday,13,43.0,46,53,0.935,0.868
+Bencoolen,Retail,saturday,14,42.0,46,53,0.913,0.868
+Bencoolen,Retail,saturday,15,41.0,46,53,0.891,0.868
+Bencoolen,Retail,saturday,16,41.0,46,53,0.891,0.868
+Bencoolen,Retail,saturday,17,39.0,46,53,0.848,0.868
+Bencoolen,Retail,saturday,18,36.0,46,53,0.783,0.868
+Bencoolen,Retail,saturday,19,33.0,46,53,0.717,0.868
+Bencoolen,Retail,saturday,20,28.0,46,53,0.609,0.868
+Bencoolen,Retail,saturday,21,21.0,46,53,0.457,0.868
+Bencoolen,Retail,saturday,22,17.0,46,53,0.37,0.868
+Bencoolen,Retail,saturday,23,13.0,46,53,0.283,0.868
+Bencoolen,Services,saturday,0,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,1,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,2,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,3,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,4,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,5,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,6,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,7,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,8,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,9,7.0,8,17,0.875,0.471
+Bencoolen,Services,saturday,10,7.0,8,17,0.875,0.471
+Bencoolen,Services,saturday,11,7.0,8,17,0.875,0.471
+Bencoolen,Services,saturday,12,7.0,8,17,0.875,0.471
+Bencoolen,Services,saturday,13,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,14,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,15,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,16,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,17,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,18,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,19,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,20,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,21,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,22,6.0,8,17,0.75,0.471
+Bencoolen,Services,saturday,23,6.0,8,17,0.75,0.471
+Bencoolen,Education,saturday,0,0.0,30,51,0.0,0.588
+Bencoolen,Education,saturday,1,0.0,30,51,0.0,0.588
+Bencoolen,Education,saturday,2,0.0,30,51,0.0,0.588
+Bencoolen,Education,saturday,3,0.0,30,51,0.0,0.588
+Bencoolen,Education,saturday,4,0.0,30,51,0.0,0.588
+Bencoolen,Education,saturday,5,0.0,30,51,0.0,0.588
+Bencoolen,Education,saturday,6,0.0,30,51,0.0,0.588
+Bencoolen,Education,saturday,7,1.0,30,51,0.033,0.588
+Bencoolen,Education,saturday,8,4.0,30,51,0.133,0.588
+Bencoolen,Education,saturday,9,13.0,30,51,0.433,0.588
+Bencoolen,Education,saturday,10,15.0,30,51,0.5,0.588
+Bencoolen,Education,saturday,11,15.0,30,51,0.5,0.588
+Bencoolen,Education,saturday,12,17.0,30,51,0.567,0.588
+Bencoolen,Education,saturday,13,17.0,30,51,0.567,0.588
+Bencoolen,Education,saturday,14,15.0,30,51,0.5,0.588
+Bencoolen,Education,saturday,15,15.0,30,51,0.5,0.588
+Bencoolen,Education,saturday,16,15.0,30,51,0.5,0.588
+Bencoolen,Education,saturday,17,13.0,30,51,0.433,0.588
+Bencoolen,Education,saturday,18,11.0,30,51,0.367,0.588
+Bencoolen,Education,saturday,19,8.0,30,51,0.267,0.588
+Bencoolen,Education,saturday,20,6.0,30,51,0.2,0.588
+Bencoolen,Education,saturday,21,3.0,30,51,0.1,0.588
+Bencoolen,Education,saturday,22,1.0,30,51,0.033,0.588
+Bencoolen,Education,saturday,23,1.0,30,51,0.033,0.588
+Bencoolen,Community & Civic,saturday,0,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,saturday,1,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,saturday,2,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,saturday,3,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,saturday,4,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,saturday,5,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,saturday,6,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,saturday,7,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,saturday,8,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,saturday,9,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,saturday,10,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,saturday,11,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,saturday,12,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,saturday,13,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,saturday,14,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,saturday,15,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,saturday,16,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,saturday,17,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,saturday,18,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,saturday,19,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,saturday,20,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,saturday,21,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,saturday,22,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,saturday,23,1.0,2,3,0.5,0.667
+Bencoolen,Culture & Recreation,saturday,0,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,saturday,1,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,saturday,2,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,saturday,3,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,saturday,4,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,saturday,5,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,saturday,6,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,saturday,7,7.0,26,35,0.269,0.743
+Bencoolen,Culture & Recreation,saturday,8,8.0,26,35,0.308,0.743
+Bencoolen,Culture & Recreation,saturday,9,11.0,26,35,0.423,0.743
+Bencoolen,Culture & Recreation,saturday,10,17.0,26,35,0.654,0.743
+Bencoolen,Culture & Recreation,saturday,11,19.0,26,35,0.731,0.743
+Bencoolen,Culture & Recreation,saturday,12,22.0,26,35,0.846,0.743
+Bencoolen,Culture & Recreation,saturday,13,23.0,26,35,0.885,0.743
+Bencoolen,Culture & Recreation,saturday,14,21.0,26,35,0.808,0.743
+Bencoolen,Culture & Recreation,saturday,15,20.0,26,35,0.769,0.743
+Bencoolen,Culture & Recreation,saturday,16,20.0,26,35,0.769,0.743
+Bencoolen,Culture & Recreation,saturday,17,17.0,26,35,0.654,0.743
+Bencoolen,Culture & Recreation,saturday,18,16.0,26,35,0.615,0.743
+Bencoolen,Culture & Recreation,saturday,19,9.0,26,35,0.346,0.743
+Bencoolen,Culture & Recreation,saturday,20,8.0,26,35,0.308,0.743
+Bencoolen,Culture & Recreation,saturday,21,8.0,26,35,0.308,0.743
+Bencoolen,Culture & Recreation,saturday,22,7.0,26,35,0.269,0.743
+Bencoolen,Culture & Recreation,saturday,23,7.0,26,35,0.269,0.743
+Bencoolen,All,saturday,0,27.0,222,277,0.122,0.801
+Bencoolen,All,saturday,1,27.0,222,277,0.122,0.801
+Bencoolen,All,saturday,2,27.0,222,277,0.122,0.801
+Bencoolen,All,saturday,3,27.0,222,277,0.122,0.801
+Bencoolen,All,saturday,4,27.0,222,277,0.122,0.801
+Bencoolen,All,saturday,5,27.0,222,277,0.122,0.801
+Bencoolen,All,saturday,6,29.0,222,277,0.131,0.801
+Bencoolen,All,saturday,7,41.0,222,277,0.185,0.801
+Bencoolen,All,saturday,8,54.0,222,277,0.243,0.801
+Bencoolen,All,saturday,9,83.0,222,277,0.374,0.801
+Bencoolen,All,saturday,10,110.0,222,277,0.495,0.801
+Bencoolen,All,saturday,11,142.0,222,277,0.64,0.801
+Bencoolen,All,saturday,12,155.0,222,277,0.698,0.801
+Bencoolen,All,saturday,13,156.0,222,277,0.703,0.801
+Bencoolen,All,saturday,14,151.0,222,277,0.68,0.801
+Bencoolen,All,saturday,15,148.0,222,277,0.667,0.801
+Bencoolen,All,saturday,16,149.0,222,277,0.671,0.801
+Bencoolen,All,saturday,17,143.0,222,277,0.644,0.801
+Bencoolen,All,saturday,18,132.0,222,277,0.595,0.801
+Bencoolen,All,saturday,19,115.0,222,277,0.518,0.801
+Bencoolen,All,saturday,20,99.0,222,277,0.446,0.801
+Bencoolen,All,saturday,21,75.0,222,277,0.338,0.801
+Bencoolen,All,saturday,22,52.0,222,277,0.234,0.801
+Bencoolen,All,saturday,23,39.0,222,277,0.176,0.801
+Bencoolen,Food & Beverage,sunday,0,3.0,110,118,0.027,0.932
+Bencoolen,Food & Beverage,sunday,1,3.0,110,118,0.027,0.932
+Bencoolen,Food & Beverage,sunday,2,3.0,110,118,0.027,0.932
+Bencoolen,Food & Beverage,sunday,3,2.0,110,118,0.018,0.932
+Bencoolen,Food & Beverage,sunday,4,2.0,110,118,0.018,0.932
+Bencoolen,Food & Beverage,sunday,5,2.0,110,118,0.018,0.932
+Bencoolen,Food & Beverage,sunday,6,3.0,110,118,0.027,0.932
+Bencoolen,Food & Beverage,sunday,7,9.0,110,118,0.082,0.932
+Bencoolen,Food & Beverage,sunday,8,18.0,110,118,0.164,0.932
+Bencoolen,Food & Beverage,sunday,9,26.0,110,118,0.236,0.932
+Bencoolen,Food & Beverage,sunday,10,37.0,110,118,0.336,0.932
+Bencoolen,Food & Beverage,sunday,11,57.0,110,118,0.518,0.932
+Bencoolen,Food & Beverage,sunday,12,59.0,110,118,0.536,0.932
+Bencoolen,Food & Beverage,sunday,13,59.0,110,118,0.536,0.932
+Bencoolen,Food & Beverage,sunday,14,59.0,110,118,0.536,0.932
+Bencoolen,Food & Beverage,sunday,15,58.0,110,118,0.527,0.932
+Bencoolen,Food & Beverage,sunday,16,59.0,110,118,0.536,0.932
+Bencoolen,Food & Beverage,sunday,17,57.0,110,118,0.518,0.932
+Bencoolen,Food & Beverage,sunday,18,52.0,110,118,0.473,0.932
+Bencoolen,Food & Beverage,sunday,19,48.0,110,118,0.436,0.932
+Bencoolen,Food & Beverage,sunday,20,44.0,110,118,0.4,0.932
+Bencoolen,Food & Beverage,sunday,21,30.0,110,118,0.273,0.932
+Bencoolen,Food & Beverage,sunday,22,13.0,110,118,0.118,0.932
+Bencoolen,Food & Beverage,sunday,23,6.0,110,118,0.055,0.932
+Bencoolen,Retail,sunday,0,12.0,46,53,0.261,0.868
+Bencoolen,Retail,sunday,1,12.0,46,53,0.261,0.868
+Bencoolen,Retail,sunday,2,12.0,46,53,0.261,0.868
+Bencoolen,Retail,sunday,3,12.0,46,53,0.261,0.868
+Bencoolen,Retail,sunday,4,12.0,46,53,0.261,0.868
+Bencoolen,Retail,sunday,5,12.0,46,53,0.261,0.868
+Bencoolen,Retail,sunday,6,13.0,46,53,0.283,0.868
+Bencoolen,Retail,sunday,7,16.0,46,53,0.348,0.868
+Bencoolen,Retail,sunday,8,16.0,46,53,0.348,0.868
+Bencoolen,Retail,sunday,9,20.0,46,53,0.435,0.868
+Bencoolen,Retail,sunday,10,26.0,46,53,0.565,0.868
+Bencoolen,Retail,sunday,11,31.0,46,53,0.674,0.868
+Bencoolen,Retail,sunday,12,34.0,46,53,0.739,0.868
+Bencoolen,Retail,sunday,13,35.0,46,53,0.761,0.868
+Bencoolen,Retail,sunday,14,36.0,46,53,0.783,0.868
+Bencoolen,Retail,sunday,15,36.0,46,53,0.783,0.868
+Bencoolen,Retail,sunday,16,36.0,46,53,0.783,0.868
+Bencoolen,Retail,sunday,17,36.0,46,53,0.783,0.868
+Bencoolen,Retail,sunday,18,34.0,46,53,0.739,0.868
+Bencoolen,Retail,sunday,19,31.0,46,53,0.674,0.868
+Bencoolen,Retail,sunday,20,26.0,46,53,0.565,0.868
+Bencoolen,Retail,sunday,21,20.0,46,53,0.435,0.868
+Bencoolen,Retail,sunday,22,16.0,46,53,0.348,0.868
+Bencoolen,Retail,sunday,23,13.0,46,53,0.283,0.868
+Bencoolen,Services,sunday,0,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,1,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,2,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,3,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,4,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,5,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,6,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,7,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,8,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,9,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,10,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,11,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,12,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,13,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,14,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,15,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,16,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,17,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,18,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,19,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,20,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,21,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,22,6.0,8,17,0.75,0.471
+Bencoolen,Services,sunday,23,6.0,8,17,0.75,0.471
+Bencoolen,Education,sunday,0,0.0,30,51,0.0,0.588
+Bencoolen,Education,sunday,1,0.0,30,51,0.0,0.588
+Bencoolen,Education,sunday,2,0.0,30,51,0.0,0.588
+Bencoolen,Education,sunday,3,0.0,30,51,0.0,0.588
+Bencoolen,Education,sunday,4,0.0,30,51,0.0,0.588
+Bencoolen,Education,sunday,5,0.0,30,51,0.0,0.588
+Bencoolen,Education,sunday,6,0.0,30,51,0.0,0.588
+Bencoolen,Education,sunday,7,1.0,30,51,0.033,0.588
+Bencoolen,Education,sunday,8,3.0,30,51,0.1,0.588
+Bencoolen,Education,sunday,9,8.0,30,51,0.267,0.588
+Bencoolen,Education,sunday,10,10.0,30,51,0.333,0.588
+Bencoolen,Education,sunday,11,10.0,30,51,0.333,0.588
+Bencoolen,Education,sunday,12,12.0,30,51,0.4,0.588
+Bencoolen,Education,sunday,13,12.0,30,51,0.4,0.588
+Bencoolen,Education,sunday,14,13.0,30,51,0.433,0.588
+Bencoolen,Education,sunday,15,12.0,30,51,0.4,0.588
+Bencoolen,Education,sunday,16,12.0,30,51,0.4,0.588
+Bencoolen,Education,sunday,17,10.0,30,51,0.333,0.588
+Bencoolen,Education,sunday,18,8.0,30,51,0.267,0.588
+Bencoolen,Education,sunday,19,7.0,30,51,0.233,0.588
+Bencoolen,Education,sunday,20,5.0,30,51,0.167,0.588
+Bencoolen,Education,sunday,21,3.0,30,51,0.1,0.588
+Bencoolen,Education,sunday,22,1.0,30,51,0.033,0.588
+Bencoolen,Education,sunday,23,1.0,30,51,0.033,0.588
+Bencoolen,Community & Civic,sunday,0,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,sunday,1,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,sunday,2,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,sunday,3,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,sunday,4,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,sunday,5,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,sunday,6,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,sunday,7,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,sunday,8,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,sunday,9,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,sunday,10,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,sunday,11,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,sunday,12,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,sunday,13,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,sunday,14,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,sunday,15,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,sunday,16,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,sunday,17,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,sunday,18,2.0,2,3,1.0,0.667
+Bencoolen,Community & Civic,sunday,19,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,sunday,20,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,sunday,21,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,sunday,22,1.0,2,3,0.5,0.667
+Bencoolen,Community & Civic,sunday,23,1.0,2,3,0.5,0.667
+Bencoolen,Culture & Recreation,sunday,0,5.0,26,35,0.192,0.743
+Bencoolen,Culture & Recreation,sunday,1,5.0,26,35,0.192,0.743
+Bencoolen,Culture & Recreation,sunday,2,5.0,26,35,0.192,0.743
+Bencoolen,Culture & Recreation,sunday,3,5.0,26,35,0.192,0.743
+Bencoolen,Culture & Recreation,sunday,4,5.0,26,35,0.192,0.743
+Bencoolen,Culture & Recreation,sunday,5,5.0,26,35,0.192,0.743
+Bencoolen,Culture & Recreation,sunday,6,5.0,26,35,0.192,0.743
+Bencoolen,Culture & Recreation,sunday,7,5.0,26,35,0.192,0.743
+Bencoolen,Culture & Recreation,sunday,8,7.0,26,35,0.269,0.743
+Bencoolen,Culture & Recreation,sunday,9,9.0,26,35,0.346,0.743
+Bencoolen,Culture & Recreation,sunday,10,13.0,26,35,0.5,0.743
+Bencoolen,Culture & Recreation,sunday,11,14.0,26,35,0.538,0.743
+Bencoolen,Culture & Recreation,sunday,12,19.0,26,35,0.731,0.743
+Bencoolen,Culture & Recreation,sunday,13,20.0,26,35,0.769,0.743
+Bencoolen,Culture & Recreation,sunday,14,20.0,26,35,0.769,0.743
+Bencoolen,Culture & Recreation,sunday,15,21.0,26,35,0.808,0.743
+Bencoolen,Culture & Recreation,sunday,16,19.0,26,35,0.731,0.743
+Bencoolen,Culture & Recreation,sunday,17,15.0,26,35,0.577,0.743
+Bencoolen,Culture & Recreation,sunday,18,11.0,26,35,0.423,0.743
+Bencoolen,Culture & Recreation,sunday,19,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,sunday,20,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,sunday,21,6.0,26,35,0.231,0.743
+Bencoolen,Culture & Recreation,sunday,22,5.0,26,35,0.192,0.743
+Bencoolen,Culture & Recreation,sunday,23,5.0,26,35,0.192,0.743
+Bencoolen,All,sunday,0,27.0,222,277,0.122,0.801
+Bencoolen,All,sunday,1,27.0,222,277,0.122,0.801
+Bencoolen,All,sunday,2,27.0,222,277,0.122,0.801
+Bencoolen,All,sunday,3,26.0,222,277,0.117,0.801
+Bencoolen,All,sunday,4,26.0,222,277,0.117,0.801
+Bencoolen,All,sunday,5,26.0,222,277,0.117,0.801
+Bencoolen,All,sunday,6,28.0,222,277,0.126,0.801
+Bencoolen,All,sunday,7,38.0,222,277,0.171,0.801
+Bencoolen,All,sunday,8,51.0,222,277,0.23,0.801
+Bencoolen,All,sunday,9,71.0,222,277,0.32,0.801
+Bencoolen,All,sunday,10,94.0,222,277,0.423,0.801
+Bencoolen,All,sunday,11,120.0,222,277,0.541,0.801
+Bencoolen,All,sunday,12,132.0,222,277,0.595,0.801
+Bencoolen,All,sunday,13,134.0,222,277,0.604,0.801
+Bencoolen,All,sunday,14,136.0,222,277,0.613,0.801
+Bencoolen,All,sunday,15,135.0,222,277,0.608,0.801
+Bencoolen,All,sunday,16,134.0,222,277,0.604,0.801
+Bencoolen,All,sunday,17,126.0,222,277,0.568,0.801
+Bencoolen,All,sunday,18,113.0,222,277,0.509,0.801
+Bencoolen,All,sunday,19,99.0,222,277,0.446,0.801
+Bencoolen,All,sunday,20,88.0,222,277,0.396,0.801
+Bencoolen,All,sunday,21,66.0,222,277,0.297,0.801
+Bencoolen,All,sunday,22,42.0,222,277,0.189,0.801
+Bencoolen,All,sunday,23,32.0,222,277,0.144,0.801
+Tanjong Pagar,Food & Beverage,weekday,0,3.8,52,52,0.073,1.0
+Tanjong Pagar,Food & Beverage,weekday,1,3.8,52,52,0.073,1.0
+Tanjong Pagar,Food & Beverage,weekday,2,3.8,52,52,0.073,1.0
+Tanjong Pagar,Food & Beverage,weekday,3,3.8,52,52,0.073,1.0
+Tanjong Pagar,Food & Beverage,weekday,4,3.8,52,52,0.073,1.0
+Tanjong Pagar,Food & Beverage,weekday,5,3.8,52,52,0.073,1.0
+Tanjong Pagar,Food & Beverage,weekday,6,4.8,52,52,0.092,1.0
+Tanjong Pagar,Food & Beverage,weekday,7,10.8,52,52,0.208,1.0
+Tanjong Pagar,Food & Beverage,weekday,8,19.8,52,52,0.381,1.0
+Tanjong Pagar,Food & Beverage,weekday,9,24.2,52,52,0.465,1.0
+Tanjong Pagar,Food & Beverage,weekday,10,26.4,52,52,0.508,1.0
+Tanjong Pagar,Food & Beverage,weekday,11,32.4,52,52,0.623,1.0
+Tanjong Pagar,Food & Beverage,weekday,12,33.4,52,52,0.642,1.0
+Tanjong Pagar,Food & Beverage,weekday,13,33.4,52,52,0.642,1.0
+Tanjong Pagar,Food & Beverage,weekday,14,33.4,52,52,0.642,1.0
+Tanjong Pagar,Food & Beverage,weekday,15,34.4,52,52,0.662,1.0
+Tanjong Pagar,Food & Beverage,weekday,16,32.2,52,52,0.619,1.0
+Tanjong Pagar,Food & Beverage,weekday,17,30.6,52,52,0.588,1.0
+Tanjong Pagar,Food & Beverage,weekday,18,29.6,52,52,0.569,1.0
+Tanjong Pagar,Food & Beverage,weekday,19,28.0,52,52,0.538,1.0
+Tanjong Pagar,Food & Beverage,weekday,20,26.2,52,52,0.504,1.0
+Tanjong Pagar,Food & Beverage,weekday,21,21.2,52,52,0.408,1.0
+Tanjong Pagar,Food & Beverage,weekday,22,13.2,52,52,0.254,1.0
+Tanjong Pagar,Food & Beverage,weekday,23,8.6,52,52,0.165,1.0
+Tanjong Pagar,Retail,weekday,0,10.0,39,43,0.256,0.907
+Tanjong Pagar,Retail,weekday,1,10.0,39,43,0.256,0.907
+Tanjong Pagar,Retail,weekday,2,10.0,39,43,0.256,0.907
+Tanjong Pagar,Retail,weekday,3,10.0,39,43,0.256,0.907
+Tanjong Pagar,Retail,weekday,4,10.0,39,43,0.256,0.907
+Tanjong Pagar,Retail,weekday,5,10.0,39,43,0.256,0.907
+Tanjong Pagar,Retail,weekday,6,10.0,39,43,0.256,0.907
+Tanjong Pagar,Retail,weekday,7,12.0,39,43,0.308,0.907
+Tanjong Pagar,Retail,weekday,8,13.0,39,43,0.333,0.907
+Tanjong Pagar,Retail,weekday,9,20.0,39,43,0.513,0.907
+Tanjong Pagar,Retail,weekday,10,25.0,39,43,0.641,0.907
+Tanjong Pagar,Retail,weekday,11,33.2,39,43,0.851,0.907
+Tanjong Pagar,Retail,weekday,12,36.8,39,43,0.944,0.907
+Tanjong Pagar,Retail,weekday,13,37.6,39,43,0.964,0.907
+Tanjong Pagar,Retail,weekday,14,37.6,39,43,0.964,0.907
+Tanjong Pagar,Retail,weekday,15,37.6,39,43,0.964,0.907
+Tanjong Pagar,Retail,weekday,16,37.6,39,43,0.964,0.907
+Tanjong Pagar,Retail,weekday,17,36.6,39,43,0.938,0.907
+Tanjong Pagar,Retail,weekday,18,36.6,39,43,0.938,0.907
+Tanjong Pagar,Retail,weekday,19,29.8,39,43,0.764,0.907
+Tanjong Pagar,Retail,weekday,20,25.6,39,43,0.656,0.907
+Tanjong Pagar,Retail,weekday,21,18.0,39,43,0.462,0.907
+Tanjong Pagar,Retail,weekday,22,13.0,39,43,0.333,0.907
+Tanjong Pagar,Retail,weekday,23,10.0,39,43,0.256,0.907
+Tanjong Pagar,Services,weekday,0,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,weekday,1,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,weekday,2,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,weekday,3,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,weekday,4,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,weekday,5,12.0,26,40,0.462,0.65
+Tanjong Pagar,Services,weekday,6,12.0,26,40,0.462,0.65
+Tanjong Pagar,Services,weekday,7,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,weekday,8,16.0,26,40,0.615,0.65
+Tanjong Pagar,Services,weekday,9,25.0,26,40,0.962,0.65
+Tanjong Pagar,Services,weekday,10,25.0,26,40,0.962,0.65
+Tanjong Pagar,Services,weekday,11,26.0,26,40,1.0,0.65
+Tanjong Pagar,Services,weekday,12,26.0,26,40,1.0,0.65
+Tanjong Pagar,Services,weekday,13,26.0,26,40,1.0,0.65
+Tanjong Pagar,Services,weekday,14,26.0,26,40,1.0,0.65
+Tanjong Pagar,Services,weekday,15,26.0,26,40,1.0,0.65
+Tanjong Pagar,Services,weekday,16,23.0,26,40,0.885,0.65
+Tanjong Pagar,Services,weekday,17,20.0,26,40,0.769,0.65
+Tanjong Pagar,Services,weekday,18,15.8,26,40,0.608,0.65
+Tanjong Pagar,Services,weekday,19,14.8,26,40,0.569,0.65
+Tanjong Pagar,Services,weekday,20,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,weekday,21,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,weekday,22,12.0,26,40,0.462,0.65
+Tanjong Pagar,Services,weekday,23,12.0,26,40,0.462,0.65
+Tanjong Pagar,Education,weekday,0,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,weekday,1,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,weekday,2,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,weekday,3,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,weekday,4,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,weekday,5,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,weekday,6,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,weekday,7,5.0,17,32,0.294,0.531
+Tanjong Pagar,Education,weekday,8,6.0,17,32,0.353,0.531
+Tanjong Pagar,Education,weekday,9,10.0,17,32,0.588,0.531
+Tanjong Pagar,Education,weekday,10,14.6,17,32,0.859,0.531
+Tanjong Pagar,Education,weekday,11,14.6,17,32,0.859,0.531
+Tanjong Pagar,Education,weekday,12,16.4,17,32,0.965,0.531
+Tanjong Pagar,Education,weekday,13,16.4,17,32,0.965,0.531
+Tanjong Pagar,Education,weekday,14,16.4,17,32,0.965,0.531
+Tanjong Pagar,Education,weekday,15,16.4,17,32,0.965,0.531
+Tanjong Pagar,Education,weekday,16,15.4,17,32,0.906,0.531
+Tanjong Pagar,Education,weekday,17,13.6,17,32,0.8,0.531
+Tanjong Pagar,Education,weekday,18,11.4,17,32,0.671,0.531
+Tanjong Pagar,Education,weekday,19,3.8,17,32,0.224,0.531
+Tanjong Pagar,Education,weekday,20,3.0,17,32,0.176,0.531
+Tanjong Pagar,Education,weekday,21,1.0,17,32,0.059,0.531
+Tanjong Pagar,Education,weekday,22,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,weekday,23,0.0,17,32,0.0,0.531
+Tanjong Pagar,Community & Civic,weekday,0,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,weekday,1,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,weekday,2,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,weekday,3,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,weekday,4,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,weekday,5,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,weekday,6,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,weekday,7,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,weekday,8,3.8,15,22,0.253,0.682
+Tanjong Pagar,Community & Civic,weekday,9,14.0,15,22,0.933,0.682
+Tanjong Pagar,Community & Civic,weekday,10,14.0,15,22,0.933,0.682
+Tanjong Pagar,Community & Civic,weekday,11,14.0,15,22,0.933,0.682
+Tanjong Pagar,Community & Civic,weekday,12,14.0,15,22,0.933,0.682
+Tanjong Pagar,Community & Civic,weekday,13,14.0,15,22,0.933,0.682
+Tanjong Pagar,Community & Civic,weekday,14,14.0,15,22,0.933,0.682
+Tanjong Pagar,Community & Civic,weekday,15,14.0,15,22,0.933,0.682
+Tanjong Pagar,Community & Civic,weekday,16,13.0,15,22,0.867,0.682
+Tanjong Pagar,Community & Civic,weekday,17,9.0,15,22,0.6,0.682
+Tanjong Pagar,Community & Civic,weekday,18,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,weekday,19,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,weekday,20,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,weekday,21,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,weekday,22,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,weekday,23,1.0,15,22,0.067,0.682
+Tanjong Pagar,Culture & Recreation,weekday,0,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,weekday,1,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,weekday,2,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,weekday,3,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,weekday,4,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,weekday,5,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,weekday,6,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,weekday,7,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,weekday,8,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,weekday,9,3.0,7,10,0.429,0.7
+Tanjong Pagar,Culture & Recreation,weekday,10,4.0,7,10,0.571,0.7
+Tanjong Pagar,Culture & Recreation,weekday,11,6.8,7,10,0.971,0.7
+Tanjong Pagar,Culture & Recreation,weekday,12,6.8,7,10,0.971,0.7
+Tanjong Pagar,Culture & Recreation,weekday,13,6.8,7,10,0.971,0.7
+Tanjong Pagar,Culture & Recreation,weekday,14,6.8,7,10,0.971,0.7
+Tanjong Pagar,Culture & Recreation,weekday,15,6.8,7,10,0.971,0.7
+Tanjong Pagar,Culture & Recreation,weekday,16,6.8,7,10,0.971,0.7
+Tanjong Pagar,Culture & Recreation,weekday,17,5.8,7,10,0.829,0.7
+Tanjong Pagar,Culture & Recreation,weekday,18,2.8,7,10,0.4,0.7
+Tanjong Pagar,Culture & Recreation,weekday,19,2.8,7,10,0.4,0.7
+Tanjong Pagar,Culture & Recreation,weekday,20,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,weekday,21,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,weekday,22,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,weekday,23,1.0,7,10,0.143,0.7
+Tanjong Pagar,All,weekday,0,26.8,156,199,0.172,0.784
+Tanjong Pagar,All,weekday,1,26.8,156,199,0.172,0.784
+Tanjong Pagar,All,weekday,2,26.8,156,199,0.172,0.784
+Tanjong Pagar,All,weekday,3,26.8,156,199,0.172,0.784
+Tanjong Pagar,All,weekday,4,26.8,156,199,0.172,0.784
+Tanjong Pagar,All,weekday,5,27.8,156,199,0.178,0.784
+Tanjong Pagar,All,weekday,6,28.8,156,199,0.185,0.784
+Tanjong Pagar,All,weekday,7,42.8,156,199,0.274,0.784
+Tanjong Pagar,All,weekday,8,59.6,156,199,0.382,0.784
+Tanjong Pagar,All,weekday,9,96.2,156,199,0.617,0.784
+Tanjong Pagar,All,weekday,10,109.0,156,199,0.699,0.784
+Tanjong Pagar,All,weekday,11,127.0,156,199,0.814,0.784
+Tanjong Pagar,All,weekday,12,133.4,156,199,0.855,0.784
+Tanjong Pagar,All,weekday,13,134.2,156,199,0.86,0.784
+Tanjong Pagar,All,weekday,14,134.2,156,199,0.86,0.784
+Tanjong Pagar,All,weekday,15,135.2,156,199,0.867,0.784
+Tanjong Pagar,All,weekday,16,128.0,156,199,0.821,0.784
+Tanjong Pagar,All,weekday,17,115.6,156,199,0.741,0.784
+Tanjong Pagar,All,weekday,18,97.2,156,199,0.623,0.784
+Tanjong Pagar,All,weekday,19,80.2,156,199,0.514,0.784
+Tanjong Pagar,All,weekday,20,69.8,156,199,0.447,0.784
+Tanjong Pagar,All,weekday,21,55.2,156,199,0.354,0.784
+Tanjong Pagar,All,weekday,22,40.2,156,199,0.258,0.784
+Tanjong Pagar,All,weekday,23,32.6,156,199,0.209,0.784
+Tanjong Pagar,Food & Beverage,saturday,0,4.0,52,52,0.077,1.0
+Tanjong Pagar,Food & Beverage,saturday,1,4.0,52,52,0.077,1.0
+Tanjong Pagar,Food & Beverage,saturday,2,4.0,52,52,0.077,1.0
+Tanjong Pagar,Food & Beverage,saturday,3,4.0,52,52,0.077,1.0
+Tanjong Pagar,Food & Beverage,saturday,4,4.0,52,52,0.077,1.0
+Tanjong Pagar,Food & Beverage,saturday,5,4.0,52,52,0.077,1.0
+Tanjong Pagar,Food & Beverage,saturday,6,5.0,52,52,0.096,1.0
+Tanjong Pagar,Food & Beverage,saturday,7,8.0,52,52,0.154,1.0
+Tanjong Pagar,Food & Beverage,saturday,8,12.0,52,52,0.231,1.0
+Tanjong Pagar,Food & Beverage,saturday,9,20.0,52,52,0.385,1.0
+Tanjong Pagar,Food & Beverage,saturday,10,23.0,52,52,0.442,1.0
+Tanjong Pagar,Food & Beverage,saturday,11,27.0,52,52,0.519,1.0
+Tanjong Pagar,Food & Beverage,saturday,12,32.0,52,52,0.615,1.0
+Tanjong Pagar,Food & Beverage,saturday,13,32.0,52,52,0.615,1.0
+Tanjong Pagar,Food & Beverage,saturday,14,32.0,52,52,0.615,1.0
+Tanjong Pagar,Food & Beverage,saturday,15,32.0,52,52,0.615,1.0
+Tanjong Pagar,Food & Beverage,saturday,16,30.0,52,52,0.577,1.0
+Tanjong Pagar,Food & Beverage,saturday,17,31.0,52,52,0.596,1.0
+Tanjong Pagar,Food & Beverage,saturday,18,31.0,52,52,0.596,1.0
+Tanjong Pagar,Food & Beverage,saturday,19,27.0,52,52,0.519,1.0
+Tanjong Pagar,Food & Beverage,saturday,20,24.0,52,52,0.462,1.0
+Tanjong Pagar,Food & Beverage,saturday,21,21.0,52,52,0.404,1.0
+Tanjong Pagar,Food & Beverage,saturday,22,14.0,52,52,0.269,1.0
+Tanjong Pagar,Food & Beverage,saturday,23,7.0,52,52,0.135,1.0
+Tanjong Pagar,Retail,saturday,0,10.0,39,43,0.256,0.907
+Tanjong Pagar,Retail,saturday,1,10.0,39,43,0.256,0.907
+Tanjong Pagar,Retail,saturday,2,10.0,39,43,0.256,0.907
+Tanjong Pagar,Retail,saturday,3,10.0,39,43,0.256,0.907
+Tanjong Pagar,Retail,saturday,4,10.0,39,43,0.256,0.907
+Tanjong Pagar,Retail,saturday,5,10.0,39,43,0.256,0.907
+Tanjong Pagar,Retail,saturday,6,10.0,39,43,0.256,0.907
+Tanjong Pagar,Retail,saturday,7,11.0,39,43,0.282,0.907
+Tanjong Pagar,Retail,saturday,8,12.0,39,43,0.308,0.907
+Tanjong Pagar,Retail,saturday,9,19.0,39,43,0.487,0.907
+Tanjong Pagar,Retail,saturday,10,25.0,39,43,0.641,0.907
+Tanjong Pagar,Retail,saturday,11,34.0,39,43,0.872,0.907
+Tanjong Pagar,Retail,saturday,12,38.0,39,43,0.974,0.907
+Tanjong Pagar,Retail,saturday,13,38.0,39,43,0.974,0.907
+Tanjong Pagar,Retail,saturday,14,38.0,39,43,0.974,0.907
+Tanjong Pagar,Retail,saturday,15,37.0,39,43,0.949,0.907
+Tanjong Pagar,Retail,saturday,16,37.0,39,43,0.949,0.907
+Tanjong Pagar,Retail,saturday,17,35.0,39,43,0.897,0.907
+Tanjong Pagar,Retail,saturday,18,34.0,39,43,0.872,0.907
+Tanjong Pagar,Retail,saturday,19,28.0,39,43,0.718,0.907
+Tanjong Pagar,Retail,saturday,20,24.0,39,43,0.615,0.907
+Tanjong Pagar,Retail,saturday,21,18.0,39,43,0.462,0.907
+Tanjong Pagar,Retail,saturday,22,13.0,39,43,0.333,0.907
+Tanjong Pagar,Retail,saturday,23,10.0,39,43,0.256,0.907
+Tanjong Pagar,Services,saturday,0,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,saturday,1,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,saturday,2,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,saturday,3,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,saturday,4,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,saturday,5,12.0,26,40,0.462,0.65
+Tanjong Pagar,Services,saturday,6,12.0,26,40,0.462,0.65
+Tanjong Pagar,Services,saturday,7,12.0,26,40,0.462,0.65
+Tanjong Pagar,Services,saturday,8,15.0,26,40,0.577,0.65
+Tanjong Pagar,Services,saturday,9,15.0,26,40,0.577,0.65
+Tanjong Pagar,Services,saturday,10,15.0,26,40,0.577,0.65
+Tanjong Pagar,Services,saturday,11,17.0,26,40,0.654,0.65
+Tanjong Pagar,Services,saturday,12,17.0,26,40,0.654,0.65
+Tanjong Pagar,Services,saturday,13,17.0,26,40,0.654,0.65
+Tanjong Pagar,Services,saturday,14,17.0,26,40,0.654,0.65
+Tanjong Pagar,Services,saturday,15,15.0,26,40,0.577,0.65
+Tanjong Pagar,Services,saturday,16,15.0,26,40,0.577,0.65
+Tanjong Pagar,Services,saturday,17,15.0,26,40,0.577,0.65
+Tanjong Pagar,Services,saturday,18,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,saturday,19,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,saturday,20,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,saturday,21,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,saturday,22,12.0,26,40,0.462,0.65
+Tanjong Pagar,Services,saturday,23,12.0,26,40,0.462,0.65
+Tanjong Pagar,Education,saturday,0,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,saturday,1,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,saturday,2,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,saturday,3,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,saturday,4,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,saturday,5,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,saturday,6,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,saturday,7,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,saturday,8,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,saturday,9,4.0,17,32,0.235,0.531
+Tanjong Pagar,Education,saturday,10,6.0,17,32,0.353,0.531
+Tanjong Pagar,Education,saturday,11,7.0,17,32,0.412,0.531
+Tanjong Pagar,Education,saturday,12,6.0,17,32,0.353,0.531
+Tanjong Pagar,Education,saturday,13,6.0,17,32,0.353,0.531
+Tanjong Pagar,Education,saturday,14,6.0,17,32,0.353,0.531
+Tanjong Pagar,Education,saturday,15,6.0,17,32,0.353,0.531
+Tanjong Pagar,Education,saturday,16,5.0,17,32,0.294,0.531
+Tanjong Pagar,Education,saturday,17,3.0,17,32,0.176,0.531
+Tanjong Pagar,Education,saturday,18,3.0,17,32,0.176,0.531
+Tanjong Pagar,Education,saturday,19,1.0,17,32,0.059,0.531
+Tanjong Pagar,Education,saturday,20,1.0,17,32,0.059,0.531
+Tanjong Pagar,Education,saturday,21,1.0,17,32,0.059,0.531
+Tanjong Pagar,Education,saturday,22,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,saturday,23,0.0,17,32,0.0,0.531
+Tanjong Pagar,Community & Civic,saturday,0,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,saturday,1,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,saturday,2,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,saturday,3,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,saturday,4,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,saturday,5,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,saturday,6,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,saturday,7,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,saturday,8,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,saturday,9,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,saturday,10,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,saturday,11,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,saturday,12,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,saturday,13,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,saturday,14,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,saturday,15,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,saturday,16,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,saturday,17,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,saturday,18,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,saturday,19,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,saturday,20,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,saturday,21,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,saturday,22,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,saturday,23,1.0,15,22,0.067,0.682
+Tanjong Pagar,Culture & Recreation,saturday,0,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,saturday,1,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,saturday,2,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,saturday,3,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,saturday,4,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,saturday,5,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,saturday,6,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,saturday,7,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,saturday,8,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,saturday,9,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,saturday,10,2.0,7,10,0.286,0.7
+Tanjong Pagar,Culture & Recreation,saturday,11,5.0,7,10,0.714,0.7
+Tanjong Pagar,Culture & Recreation,saturday,12,5.0,7,10,0.714,0.7
+Tanjong Pagar,Culture & Recreation,saturday,13,5.0,7,10,0.714,0.7
+Tanjong Pagar,Culture & Recreation,saturday,14,5.0,7,10,0.714,0.7
+Tanjong Pagar,Culture & Recreation,saturday,15,5.0,7,10,0.714,0.7
+Tanjong Pagar,Culture & Recreation,saturday,16,5.0,7,10,0.714,0.7
+Tanjong Pagar,Culture & Recreation,saturday,17,4.0,7,10,0.571,0.7
+Tanjong Pagar,Culture & Recreation,saturday,18,3.0,7,10,0.429,0.7
+Tanjong Pagar,Culture & Recreation,saturday,19,3.0,7,10,0.429,0.7
+Tanjong Pagar,Culture & Recreation,saturday,20,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,saturday,21,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,saturday,22,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,saturday,23,1.0,7,10,0.143,0.7
+Tanjong Pagar,All,saturday,0,27.0,156,199,0.173,0.784
+Tanjong Pagar,All,saturday,1,27.0,156,199,0.173,0.784
+Tanjong Pagar,All,saturday,2,27.0,156,199,0.173,0.784
+Tanjong Pagar,All,saturday,3,27.0,156,199,0.173,0.784
+Tanjong Pagar,All,saturday,4,27.0,156,199,0.173,0.784
+Tanjong Pagar,All,saturday,5,28.0,156,199,0.179,0.784
+Tanjong Pagar,All,saturday,6,29.0,156,199,0.186,0.784
+Tanjong Pagar,All,saturday,7,33.0,156,199,0.212,0.784
+Tanjong Pagar,All,saturday,8,41.0,156,199,0.263,0.784
+Tanjong Pagar,All,saturday,9,61.0,156,199,0.391,0.784
+Tanjong Pagar,All,saturday,10,73.0,156,199,0.468,0.784
+Tanjong Pagar,All,saturday,11,92.0,156,199,0.59,0.784
+Tanjong Pagar,All,saturday,12,100.0,156,199,0.641,0.784
+Tanjong Pagar,All,saturday,13,100.0,156,199,0.641,0.784
+Tanjong Pagar,All,saturday,14,100.0,156,199,0.641,0.784
+Tanjong Pagar,All,saturday,15,97.0,156,199,0.622,0.784
+Tanjong Pagar,All,saturday,16,94.0,156,199,0.603,0.784
+Tanjong Pagar,All,saturday,17,90.0,156,199,0.577,0.784
+Tanjong Pagar,All,saturday,18,85.0,156,199,0.545,0.784
+Tanjong Pagar,All,saturday,19,73.0,156,199,0.468,0.784
+Tanjong Pagar,All,saturday,20,64.0,156,199,0.41,0.784
+Tanjong Pagar,All,saturday,21,55.0,156,199,0.353,0.784
+Tanjong Pagar,All,saturday,22,41.0,156,199,0.263,0.784
+Tanjong Pagar,All,saturday,23,31.0,156,199,0.199,0.784
+Tanjong Pagar,Food & Beverage,sunday,0,6.0,52,52,0.115,1.0
+Tanjong Pagar,Food & Beverage,sunday,1,4.0,52,52,0.077,1.0
+Tanjong Pagar,Food & Beverage,sunday,2,4.0,52,52,0.077,1.0
+Tanjong Pagar,Food & Beverage,sunday,3,4.0,52,52,0.077,1.0
+Tanjong Pagar,Food & Beverage,sunday,4,4.0,52,52,0.077,1.0
+Tanjong Pagar,Food & Beverage,sunday,5,4.0,52,52,0.077,1.0
+Tanjong Pagar,Food & Beverage,sunday,6,6.0,52,52,0.115,1.0
+Tanjong Pagar,Food & Beverage,sunday,7,9.0,52,52,0.173,1.0
+Tanjong Pagar,Food & Beverage,sunday,8,12.0,52,52,0.231,1.0
+Tanjong Pagar,Food & Beverage,sunday,9,18.0,52,52,0.346,1.0
+Tanjong Pagar,Food & Beverage,sunday,10,20.0,52,52,0.385,1.0
+Tanjong Pagar,Food & Beverage,sunday,11,24.0,52,52,0.462,1.0
+Tanjong Pagar,Food & Beverage,sunday,12,28.0,52,52,0.538,1.0
+Tanjong Pagar,Food & Beverage,sunday,13,28.0,52,52,0.538,1.0
+Tanjong Pagar,Food & Beverage,sunday,14,28.0,52,52,0.538,1.0
+Tanjong Pagar,Food & Beverage,sunday,15,29.0,52,52,0.558,1.0
+Tanjong Pagar,Food & Beverage,sunday,16,27.0,52,52,0.519,1.0
+Tanjong Pagar,Food & Beverage,sunday,17,29.0,52,52,0.558,1.0
+Tanjong Pagar,Food & Beverage,sunday,18,25.0,52,52,0.481,1.0
+Tanjong Pagar,Food & Beverage,sunday,19,22.0,52,52,0.423,1.0
+Tanjong Pagar,Food & Beverage,sunday,20,20.0,52,52,0.385,1.0
+Tanjong Pagar,Food & Beverage,sunday,21,18.0,52,52,0.346,1.0
+Tanjong Pagar,Food & Beverage,sunday,22,10.0,52,52,0.192,1.0
+Tanjong Pagar,Food & Beverage,sunday,23,7.0,52,52,0.135,1.0
+Tanjong Pagar,Retail,sunday,0,9.0,39,43,0.231,0.907
+Tanjong Pagar,Retail,sunday,1,9.0,39,43,0.231,0.907
+Tanjong Pagar,Retail,sunday,2,9.0,39,43,0.231,0.907
+Tanjong Pagar,Retail,sunday,3,9.0,39,43,0.231,0.907
+Tanjong Pagar,Retail,sunday,4,9.0,39,43,0.231,0.907
+Tanjong Pagar,Retail,sunday,5,9.0,39,43,0.231,0.907
+Tanjong Pagar,Retail,sunday,6,9.0,39,43,0.231,0.907
+Tanjong Pagar,Retail,sunday,7,11.0,39,43,0.282,0.907
+Tanjong Pagar,Retail,sunday,8,12.0,39,43,0.308,0.907
+Tanjong Pagar,Retail,sunday,9,17.0,39,43,0.436,0.907
+Tanjong Pagar,Retail,sunday,10,22.0,39,43,0.564,0.907
+Tanjong Pagar,Retail,sunday,11,29.0,39,43,0.744,0.907
+Tanjong Pagar,Retail,sunday,12,32.0,39,43,0.821,0.907
+Tanjong Pagar,Retail,sunday,13,32.0,39,43,0.821,0.907
+Tanjong Pagar,Retail,sunday,14,32.0,39,43,0.821,0.907
+Tanjong Pagar,Retail,sunday,15,31.0,39,43,0.795,0.907
+Tanjong Pagar,Retail,sunday,16,31.0,39,43,0.795,0.907
+Tanjong Pagar,Retail,sunday,17,30.0,39,43,0.769,0.907
+Tanjong Pagar,Retail,sunday,18,27.0,39,43,0.692,0.907
+Tanjong Pagar,Retail,sunday,19,24.0,39,43,0.615,0.907
+Tanjong Pagar,Retail,sunday,20,19.0,39,43,0.487,0.907
+Tanjong Pagar,Retail,sunday,21,16.0,39,43,0.41,0.907
+Tanjong Pagar,Retail,sunday,22,13.0,39,43,0.333,0.907
+Tanjong Pagar,Retail,sunday,23,9.0,39,43,0.231,0.907
+Tanjong Pagar,Services,sunday,0,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,sunday,1,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,sunday,2,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,sunday,3,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,sunday,4,11.0,26,40,0.423,0.65
+Tanjong Pagar,Services,sunday,5,12.0,26,40,0.462,0.65
+Tanjong Pagar,Services,sunday,6,12.0,26,40,0.462,0.65
+Tanjong Pagar,Services,sunday,7,12.0,26,40,0.462,0.65
+Tanjong Pagar,Services,sunday,8,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,sunday,9,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,sunday,10,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,sunday,11,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,sunday,12,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,sunday,13,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,sunday,14,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,sunday,15,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,sunday,16,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,sunday,17,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,sunday,18,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,sunday,19,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,sunday,20,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,sunday,21,13.0,26,40,0.5,0.65
+Tanjong Pagar,Services,sunday,22,12.0,26,40,0.462,0.65
+Tanjong Pagar,Services,sunday,23,12.0,26,40,0.462,0.65
+Tanjong Pagar,Education,sunday,0,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,sunday,1,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,sunday,2,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,sunday,3,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,sunday,4,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,sunday,5,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,sunday,6,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,sunday,7,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,sunday,8,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,sunday,9,2.0,17,32,0.118,0.531
+Tanjong Pagar,Education,sunday,10,4.0,17,32,0.235,0.531
+Tanjong Pagar,Education,sunday,11,5.0,17,32,0.294,0.531
+Tanjong Pagar,Education,sunday,12,5.0,17,32,0.294,0.531
+Tanjong Pagar,Education,sunday,13,5.0,17,32,0.294,0.531
+Tanjong Pagar,Education,sunday,14,5.0,17,32,0.294,0.531
+Tanjong Pagar,Education,sunday,15,5.0,17,32,0.294,0.531
+Tanjong Pagar,Education,sunday,16,5.0,17,32,0.294,0.531
+Tanjong Pagar,Education,sunday,17,3.0,17,32,0.176,0.531
+Tanjong Pagar,Education,sunday,18,3.0,17,32,0.176,0.531
+Tanjong Pagar,Education,sunday,19,1.0,17,32,0.059,0.531
+Tanjong Pagar,Education,sunday,20,1.0,17,32,0.059,0.531
+Tanjong Pagar,Education,sunday,21,1.0,17,32,0.059,0.531
+Tanjong Pagar,Education,sunday,22,0.0,17,32,0.0,0.531
+Tanjong Pagar,Education,sunday,23,0.0,17,32,0.0,0.531
+Tanjong Pagar,Community & Civic,sunday,0,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,sunday,1,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,sunday,2,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,sunday,3,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,sunday,4,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,sunday,5,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,sunday,6,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,sunday,7,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,sunday,8,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,sunday,9,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,sunday,10,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,sunday,11,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,sunday,12,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,sunday,13,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,sunday,14,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,sunday,15,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,sunday,16,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,sunday,17,2.0,15,22,0.133,0.682
+Tanjong Pagar,Community & Civic,sunday,18,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,sunday,19,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,sunday,20,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,sunday,21,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,sunday,22,1.0,15,22,0.067,0.682
+Tanjong Pagar,Community & Civic,sunday,23,1.0,15,22,0.067,0.682
+Tanjong Pagar,Culture & Recreation,sunday,0,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,sunday,1,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,sunday,2,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,sunday,3,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,sunday,4,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,sunday,5,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,sunday,6,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,sunday,7,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,sunday,8,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,sunday,9,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,sunday,10,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,sunday,11,4.0,7,10,0.571,0.7
+Tanjong Pagar,Culture & Recreation,sunday,12,4.0,7,10,0.571,0.7
+Tanjong Pagar,Culture & Recreation,sunday,13,4.0,7,10,0.571,0.7
+Tanjong Pagar,Culture & Recreation,sunday,14,4.0,7,10,0.571,0.7
+Tanjong Pagar,Culture & Recreation,sunday,15,4.0,7,10,0.571,0.7
+Tanjong Pagar,Culture & Recreation,sunday,16,4.0,7,10,0.571,0.7
+Tanjong Pagar,Culture & Recreation,sunday,17,4.0,7,10,0.571,0.7
+Tanjong Pagar,Culture & Recreation,sunday,18,3.0,7,10,0.429,0.7
+Tanjong Pagar,Culture & Recreation,sunday,19,3.0,7,10,0.429,0.7
+Tanjong Pagar,Culture & Recreation,sunday,20,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,sunday,21,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,sunday,22,1.0,7,10,0.143,0.7
+Tanjong Pagar,Culture & Recreation,sunday,23,1.0,7,10,0.143,0.7
+Tanjong Pagar,All,sunday,0,28.0,156,199,0.179,0.784
+Tanjong Pagar,All,sunday,1,26.0,156,199,0.167,0.784
+Tanjong Pagar,All,sunday,2,26.0,156,199,0.167,0.784
+Tanjong Pagar,All,sunday,3,26.0,156,199,0.167,0.784
+Tanjong Pagar,All,sunday,4,26.0,156,199,0.167,0.784
+Tanjong Pagar,All,sunday,5,27.0,156,199,0.173,0.784
+Tanjong Pagar,All,sunday,6,29.0,156,199,0.186,0.784
+Tanjong Pagar,All,sunday,7,34.0,156,199,0.218,0.784
+Tanjong Pagar,All,sunday,8,39.0,156,199,0.25,0.784
+Tanjong Pagar,All,sunday,9,53.0,156,199,0.34,0.784
+Tanjong Pagar,All,sunday,10,62.0,156,199,0.397,0.784
+Tanjong Pagar,All,sunday,11,77.0,156,199,0.494,0.784
+Tanjong Pagar,All,sunday,12,84.0,156,199,0.538,0.784
+Tanjong Pagar,All,sunday,13,84.0,156,199,0.538,0.784
+Tanjong Pagar,All,sunday,14,84.0,156,199,0.538,0.784
+Tanjong Pagar,All,sunday,15,84.0,156,199,0.538,0.784
+Tanjong Pagar,All,sunday,16,82.0,156,199,0.526,0.784
+Tanjong Pagar,All,sunday,17,81.0,156,199,0.519,0.784
+Tanjong Pagar,All,sunday,18,72.0,156,199,0.462,0.784
+Tanjong Pagar,All,sunday,19,64.0,156,199,0.41,0.784
+Tanjong Pagar,All,sunday,20,55.0,156,199,0.353,0.784
+Tanjong Pagar,All,sunday,21,50.0,156,199,0.321,0.784
+Tanjong Pagar,All,sunday,22,37.0,156,199,0.237,0.784
+Tanjong Pagar,All,sunday,23,30.0,156,199,0.192,0.784
+Promenade,Food & Beverage,weekday,0,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,weekday,1,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,weekday,2,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,weekday,3,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,weekday,4,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,weekday,5,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,weekday,6,1.0,43,45,0.023,0.956
+Promenade,Food & Beverage,weekday,7,12.8,43,45,0.298,0.956
+Promenade,Food & Beverage,weekday,8,22.0,43,45,0.512,0.956
+Promenade,Food & Beverage,weekday,9,24.0,43,45,0.558,0.956
+Promenade,Food & Beverage,weekday,10,28.0,43,45,0.651,0.956
+Promenade,Food & Beverage,weekday,11,38.6,43,45,0.898,0.956
+Promenade,Food & Beverage,weekday,12,38.6,43,45,0.898,0.956
+Promenade,Food & Beverage,weekday,13,38.6,43,45,0.898,0.956
+Promenade,Food & Beverage,weekday,14,38.6,43,45,0.898,0.956
+Promenade,Food & Beverage,weekday,15,38.6,43,45,0.898,0.956
+Promenade,Food & Beverage,weekday,16,38.6,43,45,0.898,0.956
+Promenade,Food & Beverage,weekday,17,37.6,43,45,0.874,0.956
+Promenade,Food & Beverage,weekday,18,37.6,43,45,0.874,0.956
+Promenade,Food & Beverage,weekday,19,33.8,43,45,0.786,0.956
+Promenade,Food & Beverage,weekday,20,30.6,43,45,0.712,0.956
+Promenade,Food & Beverage,weekday,21,21.2,43,45,0.493,0.956
+Promenade,Food & Beverage,weekday,22,4.2,43,45,0.098,0.956
+Promenade,Food & Beverage,weekday,23,1.8,43,45,0.042,0.956
+Promenade,Retail,weekday,0,3.0,12,15,0.25,0.8
+Promenade,Retail,weekday,1,3.0,12,15,0.25,0.8
+Promenade,Retail,weekday,2,3.0,12,15,0.25,0.8
+Promenade,Retail,weekday,3,3.0,12,15,0.25,0.8
+Promenade,Retail,weekday,4,3.0,12,15,0.25,0.8
+Promenade,Retail,weekday,5,3.0,12,15,0.25,0.8
+Promenade,Retail,weekday,6,3.0,12,15,0.25,0.8
+Promenade,Retail,weekday,7,4.0,12,15,0.333,0.8
+Promenade,Retail,weekday,8,5.0,12,15,0.417,0.8
+Promenade,Retail,weekday,9,6.0,12,15,0.5,0.8
+Promenade,Retail,weekday,10,10.0,12,15,0.833,0.8
+Promenade,Retail,weekday,11,11.2,12,15,0.933,0.8
+Promenade,Retail,weekday,12,11.2,12,15,0.933,0.8
+Promenade,Retail,weekday,13,11.2,12,15,0.933,0.8
+Promenade,Retail,weekday,14,11.2,12,15,0.933,0.8
+Promenade,Retail,weekday,15,11.2,12,15,0.933,0.8
+Promenade,Retail,weekday,16,11.2,12,15,0.933,0.8
+Promenade,Retail,weekday,17,11.2,12,15,0.933,0.8
+Promenade,Retail,weekday,18,11.2,12,15,0.933,0.8
+Promenade,Retail,weekday,19,11.2,12,15,0.933,0.8
+Promenade,Retail,weekday,20,11.2,12,15,0.933,0.8
+Promenade,Retail,weekday,21,10.2,12,15,0.85,0.8
+Promenade,Retail,weekday,22,4.0,12,15,0.333,0.8
+Promenade,Retail,weekday,23,3.0,12,15,0.25,0.8
+Promenade,Services,weekday,0,3.0,12,28,0.25,0.429
+Promenade,Services,weekday,1,3.0,12,28,0.25,0.429
+Promenade,Services,weekday,2,3.0,12,28,0.25,0.429
+Promenade,Services,weekday,3,3.0,12,28,0.25,0.429
+Promenade,Services,weekday,4,3.0,12,28,0.25,0.429
+Promenade,Services,weekday,5,3.0,12,28,0.25,0.429
+Promenade,Services,weekday,6,4.0,12,28,0.333,0.429
+Promenade,Services,weekday,7,4.0,12,28,0.333,0.429
+Promenade,Services,weekday,8,4.0,12,28,0.333,0.429
+Promenade,Services,weekday,9,6.0,12,28,0.5,0.429
+Promenade,Services,weekday,10,10.0,12,28,0.833,0.429
+Promenade,Services,weekday,11,11.0,12,28,0.917,0.429
+Promenade,Services,weekday,12,11.0,12,28,0.917,0.429
+Promenade,Services,weekday,13,11.0,12,28,0.917,0.429
+Promenade,Services,weekday,14,11.0,12,28,0.917,0.429
+Promenade,Services,weekday,15,11.0,12,28,0.917,0.429
+Promenade,Services,weekday,16,11.0,12,28,0.917,0.429
+Promenade,Services,weekday,17,10.0,12,28,0.833,0.429
+Promenade,Services,weekday,18,8.0,12,28,0.667,0.429
+Promenade,Services,weekday,19,8.0,12,28,0.667,0.429
+Promenade,Services,weekday,20,8.0,12,28,0.667,0.429
+Promenade,Services,weekday,21,7.0,12,28,0.583,0.429
+Promenade,Services,weekday,22,4.0,12,28,0.333,0.429
+Promenade,Services,weekday,23,4.0,12,28,0.333,0.429
+Promenade,Education,weekday,0,1.0,13,18,0.077,0.722
+Promenade,Education,weekday,1,1.0,13,18,0.077,0.722
+Promenade,Education,weekday,2,1.0,13,18,0.077,0.722
+Promenade,Education,weekday,3,1.0,13,18,0.077,0.722
+Promenade,Education,weekday,4,1.0,13,18,0.077,0.722
+Promenade,Education,weekday,5,1.0,13,18,0.077,0.722
+Promenade,Education,weekday,6,1.0,13,18,0.077,0.722
+Promenade,Education,weekday,7,4.0,13,18,0.308,0.722
+Promenade,Education,weekday,8,6.0,13,18,0.462,0.722
+Promenade,Education,weekday,9,9.0,13,18,0.692,0.722
+Promenade,Education,weekday,10,11.8,13,18,0.908,0.722
+Promenade,Education,weekday,11,11.8,13,18,0.908,0.722
+Promenade,Education,weekday,12,11.8,13,18,0.908,0.722
+Promenade,Education,weekday,13,11.8,13,18,0.908,0.722
+Promenade,Education,weekday,14,11.8,13,18,0.908,0.722
+Promenade,Education,weekday,15,11.8,13,18,0.908,0.722
+Promenade,Education,weekday,16,11.8,13,18,0.908,0.722
+Promenade,Education,weekday,17,10.8,13,18,0.831,0.722
+Promenade,Education,weekday,18,6.8,13,18,0.523,0.722
+Promenade,Education,weekday,19,2.4,13,18,0.185,0.722
+Promenade,Education,weekday,20,2.2,13,18,0.169,0.722
+Promenade,Education,weekday,21,2.0,13,18,0.154,0.722
+Promenade,Education,weekday,22,1.0,13,18,0.077,0.722
+Promenade,Education,weekday,23,1.0,13,18,0.077,0.722
+Promenade,Community & Civic,weekday,0,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,weekday,1,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,weekday,2,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,weekday,3,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,weekday,4,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,weekday,5,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,weekday,6,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,weekday,7,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,weekday,8,1.0,3,8,0.333,0.375
+Promenade,Community & Civic,weekday,9,3.0,3,8,1.0,0.375
+Promenade,Community & Civic,weekday,10,3.0,3,8,1.0,0.375
+Promenade,Community & Civic,weekday,11,3.0,3,8,1.0,0.375
+Promenade,Community & Civic,weekday,12,3.0,3,8,1.0,0.375
+Promenade,Community & Civic,weekday,13,3.0,3,8,1.0,0.375
+Promenade,Community & Civic,weekday,14,3.0,3,8,1.0,0.375
+Promenade,Community & Civic,weekday,15,3.0,3,8,1.0,0.375
+Promenade,Community & Civic,weekday,16,3.0,3,8,1.0,0.375
+Promenade,Community & Civic,weekday,17,2.0,3,8,0.667,0.375
+Promenade,Community & Civic,weekday,18,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,weekday,19,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,weekday,20,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,weekday,21,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,weekday,22,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,weekday,23,0.0,3,8,0.0,0.375
+Promenade,Culture & Recreation,weekday,0,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,weekday,1,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,weekday,2,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,weekday,3,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,weekday,4,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,weekday,5,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,weekday,6,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,weekday,7,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,weekday,8,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,weekday,9,1.0,5,5,0.2,1.0
+Promenade,Culture & Recreation,weekday,10,2.0,5,5,0.4,1.0
+Promenade,Culture & Recreation,weekday,11,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,weekday,12,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,weekday,13,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,weekday,14,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,weekday,15,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,weekday,16,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,weekday,17,4.0,5,5,0.8,1.0
+Promenade,Culture & Recreation,weekday,18,4.0,5,5,0.8,1.0
+Promenade,Culture & Recreation,weekday,19,4.0,5,5,0.8,1.0
+Promenade,Culture & Recreation,weekday,20,3.0,5,5,0.6,1.0
+Promenade,Culture & Recreation,weekday,21,2.0,5,5,0.4,1.0
+Promenade,Culture & Recreation,weekday,22,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,weekday,23,0.0,5,5,0.0,1.0
+Promenade,All,weekday,0,7.0,88,119,0.08,0.739
+Promenade,All,weekday,1,7.0,88,119,0.08,0.739
+Promenade,All,weekday,2,7.0,88,119,0.08,0.739
+Promenade,All,weekday,3,7.0,88,119,0.08,0.739
+Promenade,All,weekday,4,7.0,88,119,0.08,0.739
+Promenade,All,weekday,5,7.0,88,119,0.08,0.739
+Promenade,All,weekday,6,9.0,88,119,0.102,0.739
+Promenade,All,weekday,7,24.8,88,119,0.282,0.739
+Promenade,All,weekday,8,38.0,88,119,0.432,0.739
+Promenade,All,weekday,9,49.0,88,119,0.557,0.739
+Promenade,All,weekday,10,64.8,88,119,0.736,0.739
+Promenade,All,weekday,11,80.6,88,119,0.916,0.739
+Promenade,All,weekday,12,80.6,88,119,0.916,0.739
+Promenade,All,weekday,13,80.6,88,119,0.916,0.739
+Promenade,All,weekday,14,80.6,88,119,0.916,0.739
+Promenade,All,weekday,15,80.6,88,119,0.916,0.739
+Promenade,All,weekday,16,80.6,88,119,0.916,0.739
+Promenade,All,weekday,17,75.6,88,119,0.859,0.739
+Promenade,All,weekday,18,67.6,88,119,0.768,0.739
+Promenade,All,weekday,19,59.4,88,119,0.675,0.739
+Promenade,All,weekday,20,55.0,88,119,0.625,0.739
+Promenade,All,weekday,21,42.4,88,119,0.482,0.739
+Promenade,All,weekday,22,13.2,88,119,0.15,0.739
+Promenade,All,weekday,23,9.8,88,119,0.111,0.739
+Promenade,Food & Beverage,saturday,0,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,saturday,1,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,saturday,2,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,saturday,3,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,saturday,4,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,saturday,5,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,saturday,6,1.0,43,45,0.023,0.956
+Promenade,Food & Beverage,saturday,7,7.0,43,45,0.163,0.956
+Promenade,Food & Beverage,saturday,8,16.0,43,45,0.372,0.956
+Promenade,Food & Beverage,saturday,9,22.0,43,45,0.512,0.956
+Promenade,Food & Beverage,saturday,10,29.0,43,45,0.674,0.956
+Promenade,Food & Beverage,saturday,11,36.0,43,45,0.837,0.956
+Promenade,Food & Beverage,saturday,12,37.0,43,45,0.86,0.956
+Promenade,Food & Beverage,saturday,13,37.0,43,45,0.86,0.956
+Promenade,Food & Beverage,saturday,14,37.0,43,45,0.86,0.956
+Promenade,Food & Beverage,saturday,15,37.0,43,45,0.86,0.956
+Promenade,Food & Beverage,saturday,16,37.0,43,45,0.86,0.956
+Promenade,Food & Beverage,saturday,17,37.0,43,45,0.86,0.956
+Promenade,Food & Beverage,saturday,18,37.0,43,45,0.86,0.956
+Promenade,Food & Beverage,saturday,19,35.0,43,45,0.814,0.956
+Promenade,Food & Beverage,saturday,20,34.0,43,45,0.791,0.956
+Promenade,Food & Beverage,saturday,21,24.0,43,45,0.558,0.956
+Promenade,Food & Beverage,saturday,22,5.0,43,45,0.116,0.956
+Promenade,Food & Beverage,saturday,23,1.0,43,45,0.023,0.956
+Promenade,Retail,saturday,0,3.0,12,15,0.25,0.8
+Promenade,Retail,saturday,1,3.0,12,15,0.25,0.8
+Promenade,Retail,saturday,2,3.0,12,15,0.25,0.8
+Promenade,Retail,saturday,3,3.0,12,15,0.25,0.8
+Promenade,Retail,saturday,4,3.0,12,15,0.25,0.8
+Promenade,Retail,saturday,5,3.0,12,15,0.25,0.8
+Promenade,Retail,saturday,6,3.0,12,15,0.25,0.8
+Promenade,Retail,saturday,7,4.0,12,15,0.333,0.8
+Promenade,Retail,saturday,8,5.0,12,15,0.417,0.8
+Promenade,Retail,saturday,9,6.0,12,15,0.5,0.8
+Promenade,Retail,saturday,10,11.0,12,15,0.917,0.8
+Promenade,Retail,saturday,11,12.0,12,15,1.0,0.8
+Promenade,Retail,saturday,12,12.0,12,15,1.0,0.8
+Promenade,Retail,saturday,13,12.0,12,15,1.0,0.8
+Promenade,Retail,saturday,14,12.0,12,15,1.0,0.8
+Promenade,Retail,saturday,15,12.0,12,15,1.0,0.8
+Promenade,Retail,saturday,16,12.0,12,15,1.0,0.8
+Promenade,Retail,saturday,17,12.0,12,15,1.0,0.8
+Promenade,Retail,saturday,18,12.0,12,15,1.0,0.8
+Promenade,Retail,saturday,19,12.0,12,15,1.0,0.8
+Promenade,Retail,saturday,20,12.0,12,15,1.0,0.8
+Promenade,Retail,saturday,21,11.0,12,15,0.917,0.8
+Promenade,Retail,saturday,22,4.0,12,15,0.333,0.8
+Promenade,Retail,saturday,23,3.0,12,15,0.25,0.8
+Promenade,Services,saturday,0,3.0,12,28,0.25,0.429
+Promenade,Services,saturday,1,3.0,12,28,0.25,0.429
+Promenade,Services,saturday,2,3.0,12,28,0.25,0.429
+Promenade,Services,saturday,3,3.0,12,28,0.25,0.429
+Promenade,Services,saturday,4,3.0,12,28,0.25,0.429
+Promenade,Services,saturday,5,3.0,12,28,0.25,0.429
+Promenade,Services,saturday,6,4.0,12,28,0.333,0.429
+Promenade,Services,saturday,7,4.0,12,28,0.333,0.429
+Promenade,Services,saturday,8,4.0,12,28,0.333,0.429
+Promenade,Services,saturday,9,5.0,12,28,0.417,0.429
+Promenade,Services,saturday,10,9.0,12,28,0.75,0.429
+Promenade,Services,saturday,11,10.0,12,28,0.833,0.429
+Promenade,Services,saturday,12,10.0,12,28,0.833,0.429
+Promenade,Services,saturday,13,10.0,12,28,0.833,0.429
+Promenade,Services,saturday,14,9.0,12,28,0.75,0.429
+Promenade,Services,saturday,15,9.0,12,28,0.75,0.429
+Promenade,Services,saturday,16,9.0,12,28,0.75,0.429
+Promenade,Services,saturday,17,8.0,12,28,0.667,0.429
+Promenade,Services,saturday,18,8.0,12,28,0.667,0.429
+Promenade,Services,saturday,19,8.0,12,28,0.667,0.429
+Promenade,Services,saturday,20,8.0,12,28,0.667,0.429
+Promenade,Services,saturday,21,7.0,12,28,0.583,0.429
+Promenade,Services,saturday,22,4.0,12,28,0.333,0.429
+Promenade,Services,saturday,23,4.0,12,28,0.333,0.429
+Promenade,Education,saturday,0,1.0,13,18,0.077,0.722
+Promenade,Education,saturday,1,1.0,13,18,0.077,0.722
+Promenade,Education,saturday,2,1.0,13,18,0.077,0.722
+Promenade,Education,saturday,3,1.0,13,18,0.077,0.722
+Promenade,Education,saturday,4,1.0,13,18,0.077,0.722
+Promenade,Education,saturday,5,1.0,13,18,0.077,0.722
+Promenade,Education,saturday,6,1.0,13,18,0.077,0.722
+Promenade,Education,saturday,7,2.0,13,18,0.154,0.722
+Promenade,Education,saturday,8,3.0,13,18,0.231,0.722
+Promenade,Education,saturday,9,6.0,13,18,0.462,0.722
+Promenade,Education,saturday,10,8.0,13,18,0.615,0.722
+Promenade,Education,saturday,11,8.0,13,18,0.615,0.722
+Promenade,Education,saturday,12,7.0,13,18,0.538,0.722
+Promenade,Education,saturday,13,6.0,13,18,0.462,0.722
+Promenade,Education,saturday,14,4.0,13,18,0.308,0.722
+Promenade,Education,saturday,15,3.0,13,18,0.231,0.722
+Promenade,Education,saturday,16,3.0,13,18,0.231,0.722
+Promenade,Education,saturday,17,3.0,13,18,0.231,0.722
+Promenade,Education,saturday,18,2.0,13,18,0.154,0.722
+Promenade,Education,saturday,19,1.0,13,18,0.077,0.722
+Promenade,Education,saturday,20,1.0,13,18,0.077,0.722
+Promenade,Education,saturday,21,1.0,13,18,0.077,0.722
+Promenade,Education,saturday,22,1.0,13,18,0.077,0.722
+Promenade,Education,saturday,23,1.0,13,18,0.077,0.722
+Promenade,Community & Civic,saturday,0,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,1,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,2,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,3,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,4,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,5,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,6,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,7,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,8,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,9,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,10,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,11,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,12,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,13,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,14,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,15,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,16,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,17,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,18,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,19,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,20,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,21,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,22,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,saturday,23,0.0,3,8,0.0,0.375
+Promenade,Culture & Recreation,saturday,0,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,saturday,1,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,saturday,2,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,saturday,3,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,saturday,4,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,saturday,5,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,saturday,6,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,saturday,7,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,saturday,8,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,saturday,9,1.0,5,5,0.2,1.0
+Promenade,Culture & Recreation,saturday,10,2.0,5,5,0.4,1.0
+Promenade,Culture & Recreation,saturday,11,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,saturday,12,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,saturday,13,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,saturday,14,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,saturday,15,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,saturday,16,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,saturday,17,4.0,5,5,0.8,1.0
+Promenade,Culture & Recreation,saturday,18,4.0,5,5,0.8,1.0
+Promenade,Culture & Recreation,saturday,19,4.0,5,5,0.8,1.0
+Promenade,Culture & Recreation,saturday,20,3.0,5,5,0.6,1.0
+Promenade,Culture & Recreation,saturday,21,2.0,5,5,0.4,1.0
+Promenade,Culture & Recreation,saturday,22,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,saturday,23,0.0,5,5,0.0,1.0
+Promenade,All,saturday,0,7.0,88,119,0.08,0.739
+Promenade,All,saturday,1,7.0,88,119,0.08,0.739
+Promenade,All,saturday,2,7.0,88,119,0.08,0.739
+Promenade,All,saturday,3,7.0,88,119,0.08,0.739
+Promenade,All,saturday,4,7.0,88,119,0.08,0.739
+Promenade,All,saturday,5,7.0,88,119,0.08,0.739
+Promenade,All,saturday,6,9.0,88,119,0.102,0.739
+Promenade,All,saturday,7,17.0,88,119,0.193,0.739
+Promenade,All,saturday,8,28.0,88,119,0.318,0.739
+Promenade,All,saturday,9,40.0,88,119,0.455,0.739
+Promenade,All,saturday,10,59.0,88,119,0.67,0.739
+Promenade,All,saturday,11,71.0,88,119,0.807,0.739
+Promenade,All,saturday,12,71.0,88,119,0.807,0.739
+Promenade,All,saturday,13,70.0,88,119,0.795,0.739
+Promenade,All,saturday,14,67.0,88,119,0.761,0.739
+Promenade,All,saturday,15,66.0,88,119,0.75,0.739
+Promenade,All,saturday,16,66.0,88,119,0.75,0.739
+Promenade,All,saturday,17,64.0,88,119,0.727,0.739
+Promenade,All,saturday,18,63.0,88,119,0.716,0.739
+Promenade,All,saturday,19,60.0,88,119,0.682,0.739
+Promenade,All,saturday,20,58.0,88,119,0.659,0.739
+Promenade,All,saturday,21,45.0,88,119,0.511,0.739
+Promenade,All,saturday,22,14.0,88,119,0.159,0.739
+Promenade,All,saturday,23,9.0,88,119,0.102,0.739
+Promenade,Food & Beverage,sunday,0,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,sunday,1,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,sunday,2,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,sunday,3,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,sunday,4,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,sunday,5,0.0,43,45,0.0,0.956
+Promenade,Food & Beverage,sunday,6,1.0,43,45,0.023,0.956
+Promenade,Food & Beverage,sunday,7,7.0,43,45,0.163,0.956
+Promenade,Food & Beverage,sunday,8,15.0,43,45,0.349,0.956
+Promenade,Food & Beverage,sunday,9,22.0,43,45,0.512,0.956
+Promenade,Food & Beverage,sunday,10,28.0,43,45,0.651,0.956
+Promenade,Food & Beverage,sunday,11,35.0,43,45,0.814,0.956
+Promenade,Food & Beverage,sunday,12,36.0,43,45,0.837,0.956
+Promenade,Food & Beverage,sunday,13,36.0,43,45,0.837,0.956
+Promenade,Food & Beverage,sunday,14,36.0,43,45,0.837,0.956
+Promenade,Food & Beverage,sunday,15,36.0,43,45,0.837,0.956
+Promenade,Food & Beverage,sunday,16,36.0,43,45,0.837,0.956
+Promenade,Food & Beverage,sunday,17,36.0,43,45,0.837,0.956
+Promenade,Food & Beverage,sunday,18,36.0,43,45,0.837,0.956
+Promenade,Food & Beverage,sunday,19,34.0,43,45,0.791,0.956
+Promenade,Food & Beverage,sunday,20,32.0,43,45,0.744,0.956
+Promenade,Food & Beverage,sunday,21,21.0,43,45,0.488,0.956
+Promenade,Food & Beverage,sunday,22,2.0,43,45,0.047,0.956
+Promenade,Food & Beverage,sunday,23,0.0,43,45,0.0,0.956
+Promenade,Retail,sunday,0,3.0,12,15,0.25,0.8
+Promenade,Retail,sunday,1,3.0,12,15,0.25,0.8
+Promenade,Retail,sunday,2,3.0,12,15,0.25,0.8
+Promenade,Retail,sunday,3,3.0,12,15,0.25,0.8
+Promenade,Retail,sunday,4,3.0,12,15,0.25,0.8
+Promenade,Retail,sunday,5,3.0,12,15,0.25,0.8
+Promenade,Retail,sunday,6,3.0,12,15,0.25,0.8
+Promenade,Retail,sunday,7,4.0,12,15,0.333,0.8
+Promenade,Retail,sunday,8,5.0,12,15,0.417,0.8
+Promenade,Retail,sunday,9,6.0,12,15,0.5,0.8
+Promenade,Retail,sunday,10,11.0,12,15,0.917,0.8
+Promenade,Retail,sunday,11,11.0,12,15,0.917,0.8
+Promenade,Retail,sunday,12,11.0,12,15,0.917,0.8
+Promenade,Retail,sunday,13,11.0,12,15,0.917,0.8
+Promenade,Retail,sunday,14,11.0,12,15,0.917,0.8
+Promenade,Retail,sunday,15,11.0,12,15,0.917,0.8
+Promenade,Retail,sunday,16,11.0,12,15,0.917,0.8
+Promenade,Retail,sunday,17,11.0,12,15,0.917,0.8
+Promenade,Retail,sunday,18,11.0,12,15,0.917,0.8
+Promenade,Retail,sunday,19,11.0,12,15,0.917,0.8
+Promenade,Retail,sunday,20,11.0,12,15,0.917,0.8
+Promenade,Retail,sunday,21,10.0,12,15,0.833,0.8
+Promenade,Retail,sunday,22,4.0,12,15,0.333,0.8
+Promenade,Retail,sunday,23,3.0,12,15,0.25,0.8
+Promenade,Services,sunday,0,4.0,12,28,0.333,0.429
+Promenade,Services,sunday,1,4.0,12,28,0.333,0.429
+Promenade,Services,sunday,2,4.0,12,28,0.333,0.429
+Promenade,Services,sunday,3,4.0,12,28,0.333,0.429
+Promenade,Services,sunday,4,4.0,12,28,0.333,0.429
+Promenade,Services,sunday,5,4.0,12,28,0.333,0.429
+Promenade,Services,sunday,6,5.0,12,28,0.417,0.429
+Promenade,Services,sunday,7,5.0,12,28,0.417,0.429
+Promenade,Services,sunday,8,5.0,12,28,0.417,0.429
+Promenade,Services,sunday,9,6.0,12,28,0.5,0.429
+Promenade,Services,sunday,10,9.0,12,28,0.75,0.429
+Promenade,Services,sunday,11,9.0,12,28,0.75,0.429
+Promenade,Services,sunday,12,9.0,12,28,0.75,0.429
+Promenade,Services,sunday,13,9.0,12,28,0.75,0.429
+Promenade,Services,sunday,14,9.0,12,28,0.75,0.429
+Promenade,Services,sunday,15,9.0,12,28,0.75,0.429
+Promenade,Services,sunday,16,9.0,12,28,0.75,0.429
+Promenade,Services,sunday,17,9.0,12,28,0.75,0.429
+Promenade,Services,sunday,18,9.0,12,28,0.75,0.429
+Promenade,Services,sunday,19,9.0,12,28,0.75,0.429
+Promenade,Services,sunday,20,9.0,12,28,0.75,0.429
+Promenade,Services,sunday,21,8.0,12,28,0.667,0.429
+Promenade,Services,sunday,22,5.0,12,28,0.417,0.429
+Promenade,Services,sunday,23,5.0,12,28,0.417,0.429
+Promenade,Education,sunday,0,1.0,13,18,0.077,0.722
+Promenade,Education,sunday,1,1.0,13,18,0.077,0.722
+Promenade,Education,sunday,2,1.0,13,18,0.077,0.722
+Promenade,Education,sunday,3,1.0,13,18,0.077,0.722
+Promenade,Education,sunday,4,1.0,13,18,0.077,0.722
+Promenade,Education,sunday,5,1.0,13,18,0.077,0.722
+Promenade,Education,sunday,6,1.0,13,18,0.077,0.722
+Promenade,Education,sunday,7,1.0,13,18,0.077,0.722
+Promenade,Education,sunday,8,1.0,13,18,0.077,0.722
+Promenade,Education,sunday,9,3.0,13,18,0.231,0.722
+Promenade,Education,sunday,10,5.0,13,18,0.385,0.722
+Promenade,Education,sunday,11,5.0,13,18,0.385,0.722
+Promenade,Education,sunday,12,5.0,13,18,0.385,0.722
+Promenade,Education,sunday,13,4.0,13,18,0.308,0.722
+Promenade,Education,sunday,14,3.0,13,18,0.231,0.722
+Promenade,Education,sunday,15,3.0,13,18,0.231,0.722
+Promenade,Education,sunday,16,3.0,13,18,0.231,0.722
+Promenade,Education,sunday,17,3.0,13,18,0.231,0.722
+Promenade,Education,sunday,18,2.0,13,18,0.154,0.722
+Promenade,Education,sunday,19,1.0,13,18,0.077,0.722
+Promenade,Education,sunday,20,1.0,13,18,0.077,0.722
+Promenade,Education,sunday,21,1.0,13,18,0.077,0.722
+Promenade,Education,sunday,22,1.0,13,18,0.077,0.722
+Promenade,Education,sunday,23,1.0,13,18,0.077,0.722
+Promenade,Community & Civic,sunday,0,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,1,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,2,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,3,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,4,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,5,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,6,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,7,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,8,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,9,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,10,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,11,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,12,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,13,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,14,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,15,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,16,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,17,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,18,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,19,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,20,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,21,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,22,0.0,3,8,0.0,0.375
+Promenade,Community & Civic,sunday,23,0.0,3,8,0.0,0.375
+Promenade,Culture & Recreation,sunday,0,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,sunday,1,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,sunday,2,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,sunday,3,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,sunday,4,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,sunday,5,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,sunday,6,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,sunday,7,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,sunday,8,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,sunday,9,1.0,5,5,0.2,1.0
+Promenade,Culture & Recreation,sunday,10,2.0,5,5,0.4,1.0
+Promenade,Culture & Recreation,sunday,11,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,sunday,12,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,sunday,13,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,sunday,14,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,sunday,15,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,sunday,16,5.0,5,5,1.0,1.0
+Promenade,Culture & Recreation,sunday,17,4.0,5,5,0.8,1.0
+Promenade,Culture & Recreation,sunday,18,4.0,5,5,0.8,1.0
+Promenade,Culture & Recreation,sunday,19,4.0,5,5,0.8,1.0
+Promenade,Culture & Recreation,sunday,20,3.0,5,5,0.6,1.0
+Promenade,Culture & Recreation,sunday,21,2.0,5,5,0.4,1.0
+Promenade,Culture & Recreation,sunday,22,0.0,5,5,0.0,1.0
+Promenade,Culture & Recreation,sunday,23,0.0,5,5,0.0,1.0
+Promenade,All,sunday,0,8.0,88,119,0.091,0.739
+Promenade,All,sunday,1,8.0,88,119,0.091,0.739
+Promenade,All,sunday,2,8.0,88,119,0.091,0.739
+Promenade,All,sunday,3,8.0,88,119,0.091,0.739
+Promenade,All,sunday,4,8.0,88,119,0.091,0.739
+Promenade,All,sunday,5,8.0,88,119,0.091,0.739
+Promenade,All,sunday,6,10.0,88,119,0.114,0.739
+Promenade,All,sunday,7,17.0,88,119,0.193,0.739
+Promenade,All,sunday,8,26.0,88,119,0.295,0.739
+Promenade,All,sunday,9,38.0,88,119,0.432,0.739
+Promenade,All,sunday,10,55.0,88,119,0.625,0.739
+Promenade,All,sunday,11,65.0,88,119,0.739,0.739
+Promenade,All,sunday,12,66.0,88,119,0.75,0.739
+Promenade,All,sunday,13,65.0,88,119,0.739,0.739
+Promenade,All,sunday,14,64.0,88,119,0.727,0.739
+Promenade,All,sunday,15,64.0,88,119,0.727,0.739
+Promenade,All,sunday,16,64.0,88,119,0.727,0.739
+Promenade,All,sunday,17,63.0,88,119,0.716,0.739
+Promenade,All,sunday,18,62.0,88,119,0.705,0.739
+Promenade,All,sunday,19,59.0,88,119,0.67,0.739
+Promenade,All,sunday,20,56.0,88,119,0.636,0.739
+Promenade,All,sunday,21,42.0,88,119,0.477,0.739
+Promenade,All,sunday,22,12.0,88,119,0.136,0.739
+Promenade,All,sunday,23,9.0,88,119,0.102,0.739

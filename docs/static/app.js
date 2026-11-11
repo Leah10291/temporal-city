@@ -727,7 +727,7 @@ $$(".exp").forEach((a) => a.addEventListener("click", () => {
   const qs = new URLSearchParams();
   if (aid) qs.set("area_id", aid);
   if (a.dataset.k === "availability_profiles.csv") qs.set("labels", [...S.exLabels].join(","));
-  window.location = `/export/${a.dataset.k}?${qs}`;
+  window.location = `export/${aid && ['pois.csv', 'pois.geojson'].includes(a.dataset.k) ? 'a' + aid + '_' : ''}${a.dataset.k}`;
 }));
 
 /* ------------------------------------------------------------------ settings */

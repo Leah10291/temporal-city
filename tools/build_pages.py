@@ -6,8 +6,8 @@ What is published
   index.html        Story          (same page as the local app)
   atlas.html        Atlas          (Google Places sample for the three case areas, fully interactive)
   information.html  Information    (method, AI, limitations; portraits as static images)
-  collector.html    Collector walkthrough: the Collector needs the local Python server, so the public
-                    site explains its seven steps with screenshots and links to the repository.
+  collector.html    the real Collector in read-only mode: static/demo-api.js answers its API calls from
+                    the Google Places sample of the three case areas (tools/build_demo_data.py).
 
 The footer of every page links to the GitHub repository. The address is worked out in the browser
 from the Pages URL (https://USER.github.io/REPO/ -> https://github.com/USER/REPO), so nothing needs
@@ -171,19 +171,25 @@ def main():
             if text:
                 s = open(p, encoding="utf-8").read()
                 s = re.sub(r'(["\'(])/static/', r'\1static/', s).replace('collector.html#settings" data-needs-app', 'collector.html"')
+                if name == "app.js":  # exports are pre-generated files on the public site
+                    s = s.replace("window.location = `/export/${a.dataset.k}?${qs}`;",
+                                  "window.location = `export/${aid && ['pois.csv', 'pois.geojson'].includes(a.dataset.k) ? 'a' + aid + '_' : ''}${a.dataset.k}`;")
                 open(os.path.join(OUT, "static", name), "w", encoding="utf-8").write(s)
             else:
                 shutil.copy2(p, os.path.join(OUT, "static", name))
     open(os.path.join(OUT, "static", "repo-link.js"), "w", encoding="utf-8").write(REPO_JS)
-    if os.path.isdir(SHOTS):
-        shutil.copytree(SHOTS, os.path.join(OUT, "static", "shots"))
     pics = avatars()
 
     pages = {}
     for name in ("index.html", "atlas.html", "information.html"):
         pages[name] = rel_paths(open(os.path.join(STATIC, name), encoding="utf-8").read())
     pages["information.html"] = information(pages["information.html"], pics)
-    pages["collector.html"] = collector(pages["information.html"])
+    # the real Collector, read-only: demo-api.js answers its API calls from the case-area sample
+    coll = rel_paths(open(os.path.join(STATIC, "collector.html"), encoding="utf-8").read())
+    coll = coll.replace('<script src="static/daynight.js', '<script src="static/demo-api.js?' + VERSION + '"></script>\n<script src="static/daynight.js', 1)
+    pages["collector.html"] = coll
+    import subprocess, sys
+    subprocess.run([sys.executable, "-I", os.path.join(ROOT, "tools", "build_demo_data.py")], check=True)
     for name, html in pages.items():
         open(os.path.join(OUT, name), "w", encoding="utf-8").write(add_footer_link(html))
     open(os.path.join(OUT, ".nojekyll"), "w").close()

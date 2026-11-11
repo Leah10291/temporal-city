@@ -814,3 +814,12 @@ html[data-tc-story][data-tc-mode][data-theme] .appbar{
   border-color:var(--tc-story-line)!important;
   transition:background-color .8s ease,border-color .8s ease
 }
+
+/* twilight (dusk on the Collector's Explore clock): step cards and secondary buttons follow the dusk palette */
+html.tc-twilight .fs:not(.now) button{background:var(--tc-dusk-card)!important;border-color:var(--tc-dusk-line)!important;color:var(--ink)!important}
+html.tc-twilight .fs:not(.now) button :is(.fs-num,.fs-name,.fs-short,.fs-status){color:inherit!important}
+html.tc-twilight .fs:not(.now) button :is(.fs-short,.fs-status){color:var(--ink-2)!important}
+html.tc-twilight :is(.to-atlas,.btn.ghost.fi-back){background:var(--tc-dusk-card)!important;border-color:var(--tc-dusk-line)!important;color:var(--ink)!important}
+html.tc-twilight :is(#exLabels,.chip.off,#exPlay,.seg button:not(.on),.map-overlay){background:var(--tc-dusk-card)!important;border-color:var(--tc-dusk-line)!important;color:var(--ink-2)!important}
+html.tc-twilight .map-overlay :is(b,.eyebrow){color:var(--ink)!important}
+html.tc-twilight #mapwrap{background:var(--tc-dusk-card)!important}

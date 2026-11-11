@@ -108,7 +108,7 @@ Then open http://127.0.0.1:8765 (or double-click `start.bat` on Windows). Data i
 py tools/build_pages.py
 ```
 
-On the public site the Collector page is a walkthrough with screenshots, because GitHub Pages cannot run the Python server. `render.yaml` and `Dockerfile` can deploy a read-only version with the Collector to Render.
+GitHub Pages cannot run the Python server, so the public Collector is the real interface in read-only mode: `static/demo-api.js` answers its requests from the Google Places sample of the three case areas (built by `tools/build_demo_data.py`), and exports are pre-generated in `docs/export/`. Collecting new data needs the local app. `render.yaml` and `Dockerfile` can also deploy a read-only server version to Render.
 
 ---
 
